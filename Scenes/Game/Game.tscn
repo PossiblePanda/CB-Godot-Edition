@@ -11,7 +11,7 @@
 [ext_resource type="Script" path="res://Scripts/UI/PauseMenu.gd" id="6_gq8mu"]
 [ext_resource type="FontVariation" uid="uid://do82tn1v8whll" path="res://Assets/Fonts/Courier New Bold Spacing.tres" id="7_le2t2"]
 [ext_resource type="FontFile" uid="uid://dh10trw81fhd" path="res://Assets/Fonts/Courier New.ttf" id="7_odpv4"]
-[ext_resource type="PackedScene" uid="uid://cyrqurnnbdmk3" path="res://Scenes/UI/InventorySlot.tscn" id="12_x62th"]
+[ext_resource type="Script" path="res://Scripts/Game/inventory.gd" id="12_qglpn"]
 [ext_resource type="PackedScene" uid="uid://j0ntohhf53pg" path="res://Scenes/Game/Player.tscn" id="13_6m25r"]
 [ext_resource type="ArrayMesh" uid="uid://bci1xcjm12kvv" path="res://Assets/Models/map/173_bright_opt.obj" id="14_gbaeh"]
 [ext_resource type="Material" uid="uid://cr0ecbvax25js" path="res://Assets/Resources/materials/containment_door.tres" id="15_vos60"]
@@ -36,7 +36,7 @@
 [ext_resource type="Material" uid="uid://disg1f4047e6k" path="res://Assets/Resources/materials/control_panel.tres" id="34_w0aux"]
 [ext_resource type="Material" uid="uid://cduuehv17pbfw" path="res://Assets/Resources/materials/red.tres" id="35_wljxw"]
 [ext_resource type="Material" uid="uid://ccbsm1xlnjqjo" path="res://Assets/Resources/materials/paper_texture.tres" id="36_p8513"]
-[ext_resource type="Texture2D" uid="uid://cxqp5wem0rgph" path="res://Assets/Textures/menu/scptext.jpg" id="37_lk2ff"]
+[ext_resource type="Texture2D" uid="uid://vsu3nj61ls5s" path="res://Assets/Textures/ui/handicon.png" id="37_rojaw"]
 [ext_resource type="Script" path="res://addons/proximity_prompt/3D/proximity_prompt_3d.gd" id="37_ufbaw"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ohwvc"]
@@ -328,43 +328,13 @@ theme_override_font_sizes/font_size = 57
 text = "PAUSED"
 
 [node name="Inventory" type="HFlowContainer" parent="CanvasLayer"]
-visible = false
 offset_left = 715.0
 offset_top = 470.0
 offset_right = 1205.0
 offset_bottom = 680.0
 theme_override_constants/h_separation = 35
 theme_override_constants/v_separation = 70
-
-[node name="InventorySlot" parent="CanvasLayer/Inventory" instance=ExtResource("12_x62th")]
-layout_mode = 2
-
-[node name="InventorySlot2" parent="CanvasLayer/Inventory" instance=ExtResource("12_x62th")]
-layout_mode = 2
-
-[node name="InventorySlot3" parent="CanvasLayer/Inventory" instance=ExtResource("12_x62th")]
-layout_mode = 2
-
-[node name="InventorySlot4" parent="CanvasLayer/Inventory" instance=ExtResource("12_x62th")]
-layout_mode = 2
-
-[node name="InventorySlot5" parent="CanvasLayer/Inventory" instance=ExtResource("12_x62th")]
-layout_mode = 2
-
-[node name="InventorySlot6" parent="CanvasLayer/Inventory" instance=ExtResource("12_x62th")]
-layout_mode = 2
-
-[node name="InventorySlot7" parent="CanvasLayer/Inventory" instance=ExtResource("12_x62th")]
-layout_mode = 2
-
-[node name="InventorySlot8" parent="CanvasLayer/Inventory" instance=ExtResource("12_x62th")]
-layout_mode = 2
-
-[node name="InventorySlot9" parent="CanvasLayer/Inventory" instance=ExtResource("12_x62th")]
-layout_mode = 2
-
-[node name="InventorySlot10" parent="CanvasLayer/Inventory" instance=ExtResource("12_x62th")]
-layout_mode = 2
+script = ExtResource("12_qglpn")
 
 [node name="ConfirmationDialog" type="ConfirmationDialog" parent="CanvasLayer"]
 
@@ -425,10 +395,14 @@ surface_material_override/41 = ExtResource("34_nm6f7")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Map/173BrightOpt/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_70xi6")
 
-[node name="ProximityPrompt3D" type="Sprite3D" parent="." node_paths=PackedStringArray("activation_node")]
+[node name="ProximityPrompt3D" type="Sprite3D" parent="." node_paths=PackedStringArray("activation_node", "line_of_sight_node")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.573972, 0)
 billboard = 1
-texture = ExtResource("37_lk2ff")
+texture = ExtResource("37_rojaw")
 script = ExtResource("37_ufbaw")
 activation_node = NodePath("../Map/Player")
 max_distance = 5.0
 activation_type = 0
+line_of_sight_node = NodePath("../Map/Player/Neck/Camera3D")
+
+[editable path="Map/Player"]

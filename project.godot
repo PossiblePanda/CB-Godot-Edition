@@ -20,6 +20,8 @@ config/icon="res://icon.svg"
 
 Utils="*res://Data/Singletons/Utils.gd"
 LoadManager="*res://Data/Singletons/LoadManager.gd"
+ItemManager="*res://Data/Singletons/ItemManager.gd"
+Global="*res://Data/Singletons/Global.gd"
 
 [display]
 

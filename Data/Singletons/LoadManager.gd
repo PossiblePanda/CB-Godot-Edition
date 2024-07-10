@@ -24,7 +24,6 @@ func get_hints_in_dir(path: String):
 	for file in dir_access.get_files():
 		if file.ends_with(".tres"):
 			var hint: LoadingHint = ResourceLoader.load(path+file)
-			print(hint)
 			hints.append(hint)
 	return hints
 
@@ -34,6 +33,5 @@ func register_hints(arr: Array[LoadingHint]):
 
 func register_hint_dir(path: String = HINT_DIR):
 	var hints = get_hints_in_dir(path)
-	print(hints)
 	
 	register_hints(hints)

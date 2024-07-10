@@ -8,18 +8,29 @@ enum ActivationType {
 
 ## The node that is required to be near the prompt to be functional.
 @export var activation_node: Node3D
+
 ## The maximimum distance the activation node can be from the Proximity Prompt
 @export var max_distance: float
+
 ## Activated by clicking, or an activation key.
 @export var activation_type: ActivationType = ActivationType.Both
-## Make sure to set this if you use requires_line_of_sight or requires_direct_look
+
+## Make sure to set this if you use requires_facing or requires_direct_look
 @export var line_of_sight_node: Node3D
+
+## The key to press which makes activates the Prompt.
+@export var activation_key: Key = KEY_E
+
 ## Requires the proximity prompt to be visible to activate
-@export var requires_line_of_sight: bool = true
+@export var requires_facing: bool = true
+
 ## The tolerance for how forgiving the line of sight is.
-@export var los_tolerance: int = 20
+@export var los_threshold: float = 0.5
+
 ## Requires you to look directly at the prompt to activate it
 @export var requires_direct_look: bool = false
+
+signal triggered
 
 var distance: float
 var can_interact: bool = false
@@ -30,28 +41,33 @@ func _process(delta):
 			
 		can_interact = check_can_interact()
 			
-		visible = can_interact
+		visible = distance <= max_distance
 		
 func handle_activation():
 	if not can_interact:
 		return
+	triggered.emit()
 
 func check_can_interact() -> bool:
 		if distance <= max_distance:
-			if requires_line_of_sight and is_facing(activation_node, los_tolerance):
+			if requires_facing and is_facing(line_of_sight_node):
 				return true
 			
 		return false
 
-func is_facing(target, threshold): 
-	var facing_dir = global_transform.basis.z
-	var my_pos = global_transform.origin 
-	if abs(my_pos.direction_to(target).x - facing_dir.x) < threshold:
-		if abs(my_pos.direction_to(target).y - facing_dir.y) < threshold:
-			return true
+func is_facing(target: Node3D, object: Node3D = self, threshold: float = los_threshold) -> bool:
+	var target_forward = -target.global_transform.basis.z
+	var direction_to_object = (object.global_transform.origin - target.global_transform.origin).normalized()
+	var dot_product = target_forward.dot(direction_to_object)
+	#print("Direction to Object: ", direction_to_object)
+	return dot_product >= threshold
 
 func _input(event):
 	if event is InputEventMouseButton:
 		if event.button_mask == MOUSE_BUTTON_LEFT:
 			if activation_type == ActivationType.Click or ActivationType.Both:
+				handle_activation()
+	if event is InputEventKey:
+		if event.keycode == activation_key:
+			if activation_type == ActivationType.KeyPress or ActivationType.Both:
 				handle_activation()

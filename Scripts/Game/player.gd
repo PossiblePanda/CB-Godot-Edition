@@ -10,7 +10,8 @@ extends CharacterBody3D
 @onready var sprint_update: Timer = $SprintUpdate
 @onready var sprint_regeneration_update: Timer = $SprintRegenerationUpdate
 
-@onready var game: Node3D = $"../.."
+var inventory: Inventory
+
 @onready var blink_bar: Bar = $"../../CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer/BlinkBar"
 @onready var sprint_bar: Bar = $"../../CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer2/SprintBar"
 @onready var blink_color: ColorRect = $"../../CanvasLayer/Blink"
@@ -82,6 +83,7 @@ func _ready():
 				breath.stream = regular_breath_sounds.pick_random()
 				breath.play()
 		)
+	print(sprint_bar)
 
 func _physics_process(delta):
 	if not is_on_floor():
