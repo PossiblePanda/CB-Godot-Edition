@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="LoadingHint" load_steps=3 format=3 uid="uid://lhmq2rf2anhl"]
+
+[ext_resource type="Texture2D" uid="uid://3s10r4b0013x" path="res://Assets/Textures/menu/loading/012.jpg" id="1_pjh52"]
+[ext_resource type="Script" path="res://Data/Resources/LoadingHints/LoadingHint.gd" id="2_ne72u"]
+
+[resource]
+script = ExtResource("2_ne72u")
+title = "SCP-012"
+image = ExtResource("1_pjh52")
+alignment_x = 2
+alignment_y = 2
+disabled_background = false
+text = Array[String](["SCP-173 is constructed from concrete and rebar with traces of Krylon brand spray paint. It is animate and extremely hostile.", "The object cannot move while within a direct line of sight. Line of sight must not be broken at any time with SCP-173. Personnel assigned to enter container are instructed to alert one another before blinking."])

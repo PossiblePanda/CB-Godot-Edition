@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://d2jkvh58ugh0r"]
+
+[ext_resource type="Texture2D" uid="uid://n80wmob8uw3t" path="res://Assets/Textures/materials/dirtymetal.jpg" id="1_wwfiv"]
+[ext_resource type="Texture2D" uid="uid://hmo3if0cq7qf" path="res://Assets/Textures/materials/dirtymetal_normal.jpg" id="2_553pn"]
+
+[resource]
+albedo_texture = ExtResource("1_wwfiv")
+metallic = 0.35
+normal_enabled = true
+normal_texture = ExtResource("2_553pn")

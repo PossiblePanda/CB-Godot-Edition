@@ -1,0 +1,164 @@
+extends CharacterBody3D
+
+@onready var neck: Node3D = $Neck
+@onready var camera: Camera3D = $Neck/Camera3D
+@onready var footstep: AudioStreamPlayer3D = $Footstep
+@onready var breath: AudioStreamPlayer3D = $Neck/Breath
+@onready var exhausted: AudioStreamPlayer3D = $Neck/Exhausted
+
+@onready var blink_update: Timer = $BlinkUpdate
+@onready var sprint_update: Timer = $SprintUpdate
+@onready var sprint_regeneration_update: Timer = $SprintRegenerationUpdate
+
+@onready var game: Node3D = $"../.."
+@onready var blink_bar: Bar = $"../../CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer/BlinkBar"
+@onready var sprint_bar: Bar = $"../../CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer2/SprintBar"
+@onready var blink_color: ColorRect = $"../../CanvasLayer/Blink"
+
+var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
+
+var speed = 3
+const CAMERA_SENSITIVITY = 0.007
+const MAX_CAM_ANGLE = 70
+
+const BLINK_TIME = 0.1
+var can_see: bool = true
+var blinking: bool = false
+
+var sprinting: bool = false
+var can_sprint: bool = true
+
+const EXHAUSTED = preload("res://Assets/Sounds/SFX/player/exhausted.ogg")
+const BREATH_1 = preload("res://Assets/Sounds/SFX/player/breath1.ogg")
+const BREATH_2 = preload("res://Assets/Sounds/SFX/player/breath2.ogg")
+const BREATH_3 = preload("res://Assets/Sounds/SFX/player/breath3.ogg")
+
+var regular_breath_sounds = [BREATH_1, BREATH_2, BREATH_3]
+
+signal blink
+signal sprint_started
+signal sprint_ended
+
+func _ready():
+	blink_update.timeout.connect(func():
+		if blink_bar.value > blink_bar.minvalue:
+			can_see = true
+			blink_bar.value -= 1
+			return
+		if blinking == false:
+			full_blink()
+		)
+		
+	sprint_update.timeout.connect(func():
+		if sprinting:
+			if sprint_bar.value > sprint_bar.minvalue:
+				sprint_bar.value -= 1
+				
+				if not breath.playing and sprint_bar.value <= sprint_bar.maxvalue / 2:
+					breath.stream = regular_breath_sounds.pick_random()
+					breath.play()
+					
+				sprint_bar.value <= sprint_bar.maxvalue/2
+			else:
+				stop_sprint()
+				can_sprint = false
+				
+				exhausted.stream = EXHAUSTED
+				exhausted.play()
+				
+				await Utils.wait(3)
+				
+				can_sprint = true
+		)
+		
+	sprint_regeneration_update.timeout.connect(func():
+		if not sprinting and can_sprint:
+			sprint_bar.value += 1
+		)
+		
+	breath.finished.connect(func():
+		for sound in regular_breath_sounds:
+			if sound == breath.stream and sprinting:
+				breath.stream = regular_breath_sounds.pick_random()
+				breath.play()
+		)
+
+func _physics_process(delta):
+	if not is_on_floor():
+		velocity.y -= gravity * delta
+	
+	var input_dir = Input.get_vector("left", "right", "forward", "backward")
+	var direction = neck.transform.basis * Vector3(input_dir.x, 0, input_dir.y).normalized() * -1
+	
+	if direction:
+		velocity.x = direction.x * speed
+		velocity.z = direction.z * speed
+	else:
+		velocity.x = move_toward(velocity.x, 0, speed)
+		velocity.z = move_toward(velocity.z, 0, speed)
+	if direction and is_on_floor():
+		pass
+	elif footstep.is_playing():
+		footstep.stop()
+	move_and_slide()
+
+func _unhandled_input(event) -> void:
+	if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
+		if event is InputEventMouseMotion:
+			neck.rotate_y(-event.relative.x * CAMERA_SENSITIVITY)
+			
+			camera.rotate_x(-event.relative.y * CAMERA_SENSITIVITY)
+			camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-MAX_CAM_ANGLE), deg_to_rad(MAX_CAM_ANGLE))
+		
+
+func _input(event):
+	if Input.is_action_just_pressed("blink"):
+		show_blink()
+	elif Input.is_action_just_released("blink"):
+		hide_blink()
+	if Input.is_action_just_pressed("sprint"):
+		if sprint_bar.value > 0:
+			start_sprint()
+	elif Input.is_action_just_released("sprint"):
+		stop_sprint()
+
+func full_blink():
+	await show_blink()
+	await hide_blink()
+
+func start_sprint():
+	if sprinting == false and can_sprint:
+		sprinting = true
+		sprint_started.emit()
+		sprint_update.paused = not sprinting
+		sprint_regeneration_update.paused = sprinting
+		
+		speed += 4
+		
+		breath.stream = regular_breath_sounds.pick_random()
+
+func stop_sprint():
+	if sprinting == true:
+		sprinting = false
+		sprint_ended.emit()
+		sprint_update.paused = not sprinting
+		sprint_regeneration_update.paused = sprinting
+		
+		speed -= 4
+
+func show_blink():
+	blinking = true
+	can_see = false
+	
+	blink_bar.value = blink_bar.minvalue # Remove all segments from bar when blinking
+	blink_update.start() # Reset timer
+	blink.emit()
+	
+	await Utils.tween_fade_in(blink_color, BLINK_TIME, 0, 0, "color:a")
+
+func hide_blink():
+	blinking = false
+	can_see = true
+	
+	await Utils.tween_fade_out(blink_color, BLINK_TIME, 0, 0, "color:a")
+	blink_bar.value = blink_bar.maxvalue # Reset bar to max

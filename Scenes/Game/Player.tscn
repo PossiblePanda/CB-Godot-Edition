@@ -1,0 +1,42 @@
+[gd_scene load_steps=3 format=3 uid="uid://j0ntohhf53pg"]
+
+[ext_resource type="Script" path="res://Scripts/Game/player.gd" id="1_j8efa"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_vtysj"]
+radius = 0.3
+height = 2.9
+
+[node name="Player" type="CharacterBody3D"]
+script = ExtResource("1_j8efa")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.45, 0)
+shape = SubResource("CapsuleShape3D_vtysj")
+
+[node name="Neck" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 0)
+
+[node name="Camera3D" type="Camera3D" parent="Neck"]
+current = true
+
+[node name="Breath" type="AudioStreamPlayer3D" parent="Neck"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.02099, 0)
+max_db = 0.0
+
+[node name="Exhausted" type="AudioStreamPlayer3D" parent="Neck"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.02099, 0)
+max_db = 0.0
+
+[node name="Footstep" type="AudioStreamPlayer3D" parent="."]
+
+[node name="BlinkUpdate" type="Timer" parent="."]
+wait_time = 0.7
+autostart = true
+
+[node name="SprintUpdate" type="Timer" parent="."]
+wait_time = 0.25
+autostart = true
+
+[node name="SprintRegenerationUpdate" type="Timer" parent="."]
+wait_time = 0.7
+autostart = true
