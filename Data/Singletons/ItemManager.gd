@@ -1,11 +1,21 @@
 extends Node
 
 var items: Array[Item] = []
+var components: Dictionary = {}
 
 const ITEM_DIR = "res://Data/Resources/Items/"
 
+func get_component(identifier: String) -> GDScript:
+	return components[identifier]
+
+func register_item_component(identifier: String, component_path: String) -> void:
+	components[identifier] = load(component_path)
+
 func _ready():
 	register_item_dir()
+	
+	register_item_component("document", "res://Data/Components/Item/DocumentComponent.gd")
+	register_item_component("can_hold", "res://Data/Components/Item/HoldComponent.gd")
 
 func register_item(item: Item):
 	items.append(item)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://hm3egqqxdan5"]
+[gd_scene load_steps=10 format=3 uid="uid://hm3egqqxdan5"]
 
 [ext_resource type="Script" path="res://Scripts/Menus/MainMenu.gd" id="1_3k6pw"]
 [ext_resource type="Texture2D" uid="uid://yb3gs6jxmfpx" path="res://Assets/Textures/menu/back.jpg" id="1_nn8c6"]
@@ -8,6 +8,7 @@
 [ext_resource type="AudioStream" uid="uid://di3r1cngj6bbg" path="res://Assets/Sounds/Music/Menu.ogg" id="5_073g2"]
 [ext_resource type="Texture2D" uid="uid://b4xijmwdgsnrb" path="res://Assets/Textures/menu/173back.jpg" id="8_0hy1w"]
 [ext_resource type="PackedScene" uid="uid://daxw7iad2jaap" path="res://Scenes/UI/Button.tscn" id="8_e5j5s"]
+[ext_resource type="Texture2D" uid="uid://bysky2ahsg8t3" path="res://Assets/Textures/menu/logo.png" id="9_6pr82"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -57,19 +58,6 @@ position = Vector2(1664.46, 803.982)
 scale = Vector2(0.996476, 0.996476)
 texture = ExtResource("8_0hy1w")
 
-[node name="Label" type="Label" parent="."]
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 14.0
-offset_top = -31.0
-offset_right = 68.0
-offset_bottom = -8.0
-grow_vertical = 0
-theme_override_fonts/font = ExtResource("4_giwlm")
-text = "Godot Edition"
-
 [node name="MenuMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_073g2")
 volume_db = -2.0
@@ -99,3 +87,48 @@ text = "OPTIONS"
 [node name="QuitButton" parent="Buttons" instance=ExtResource("8_e5j5s")]
 layout_mode = 2
 text = "QUIT"
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="Control" type="Control" parent="MarginContainer"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Logo" type="TextureRect" parent="MarginContainer/Control"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -118.0
+offset_bottom = 118.0
+grow_horizontal = 0
+pivot_offset = Vector2(59, 59)
+texture = ExtResource("9_6pr82")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="MarginContainer/Control"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -23.0
+offset_right = 157.0
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("4_giwlm")
+text = "Godot Edition Alpha-1"
+
+[connection signal="focus_entered" from="MarginContainer" to="." method="_on_margin_container_focus_entered"]
+[connection signal="focus_exited" from="MarginContainer" to="." method="_on_margin_container_focus_exited"]
+[connection signal="mouse_entered" from="MarginContainer/Control/Logo" to="." method="_on_logo_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainer/Control/Logo" to="." method="_on_logo_mouse_exited"]

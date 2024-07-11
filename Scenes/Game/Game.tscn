@@ -37,7 +37,7 @@
 [ext_resource type="Material" uid="uid://cduuehv17pbfw" path="res://Assets/Resources/materials/red.tres" id="35_wljxw"]
 [ext_resource type="Material" uid="uid://ccbsm1xlnjqjo" path="res://Assets/Resources/materials/paper_texture.tres" id="36_p8513"]
 [ext_resource type="Texture2D" uid="uid://vsu3nj61ls5s" path="res://Assets/Textures/ui/handicon.png" id="37_rojaw"]
-[ext_resource type="Script" path="res://addons/proximity_prompt/3D/proximity_prompt_3d.gd" id="37_ufbaw"]
+[ext_resource type="PackedScene" uid="uid://dchl3qrr1aacj" path="res://Scenes/InteractionPrompt.tscn" id="38_x026s"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ohwvc"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -328,6 +328,7 @@ theme_override_font_sizes/font_size = 57
 text = "PAUSED"
 
 [node name="Inventory" type="HFlowContainer" parent="CanvasLayer"]
+visible = false
 offset_left = 715.0
 offset_top = 470.0
 offset_right = 1205.0
@@ -336,7 +337,34 @@ theme_override_constants/h_separation = 35
 theme_override_constants/v_separation = 70
 script = ExtResource("12_qglpn")
 
-[node name="ConfirmationDialog" type="ConfirmationDialog" parent="CanvasLayer"]
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="HeldItem" type="TextureRect" parent="CanvasLayer/CenterContainer"]
+custom_minimum_size = Vector2(0, 0.935)
+layout_mode = 2
+
+[node name="DocumentTexture" type="TextureRect" parent="CanvasLayer/CenterContainer"]
+layout_mode = 2
+
+[node name="InteractTexture" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -32.0
+offset_right = 32.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("37_rojaw")
 
 [node name="Map" type="Node3D" parent="."]
 process_mode = 1
@@ -395,14 +423,8 @@ surface_material_override/41 = ExtResource("34_nm6f7")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Map/173BrightOpt/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_70xi6")
 
-[node name="ProximityPrompt3D" type="Sprite3D" parent="." node_paths=PackedStringArray("activation_node", "line_of_sight_node")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.573972, 0)
-billboard = 1
-texture = ExtResource("37_rojaw")
-script = ExtResource("37_ufbaw")
-activation_node = NodePath("../Map/Player")
-max_distance = 5.0
-activation_type = 0
-line_of_sight_node = NodePath("../Map/Player/Neck/Camera3D")
+[node name="InteractionPrompt" parent="Map" instance=ExtResource("38_x026s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.92733, 2.12855, 0)
+max_distance = 3.0
 
 [editable path="Map/Player"]

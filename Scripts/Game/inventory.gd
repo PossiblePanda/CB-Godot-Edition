@@ -1,10 +1,16 @@
 class_name Inventory
 extends HFlowContainer
 
-@export var items: Array[Item] = []
-@export var inventory_slots: Array[InventorySlot] = []
-
 const INVENTORY_SLOT = preload("res://Scenes/UI/InventorySlot.tscn")
+
+var hovered_slot: InventorySlot
+
+@export var items: Array[Item] = []:
+	set(val):
+		for item in val:
+			inventory_slots[len(val)].item = item
+		items = val
+@export var inventory_slots: Array[InventorySlot] = []
 
 @export var slot_count: int:
 	set(val):
@@ -23,6 +29,13 @@ func add_item(item: Item) -> bool:
 		inventory_slots[itemslen].item = item
 		
 	return false
+
+func remove_item(item: Item):
+	remove_item_index(items.find(item))
+
+func remove_item_index(index: int):
+	items.remove_at(index)
+	inventory_slots[index].item = null
 
 func update_slot_count():
 	var curr_slot_count: int = 0

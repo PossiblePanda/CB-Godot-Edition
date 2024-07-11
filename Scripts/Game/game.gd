@@ -9,7 +9,7 @@ extends Node3D
 @onready var pause_menu = $CanvasLayer/PauseMenu
 @onready var inventory: Inventory = $CanvasLayer/Inventory
 
-@onready var player = $Map/Player
+@onready var player: Player = $Map/Player
 
 func _init():
 	Global.game = self
@@ -33,6 +33,9 @@ func toggle_inventory():
 	get_tree().paused = not vis
 	
 	Input.mouse_mode = 2*int(vis)
+	if vis == false:
+		player.held_item = null
+		player.current_document = null
 
 func toggle_pause():
 	var vis = pause_menu.visible

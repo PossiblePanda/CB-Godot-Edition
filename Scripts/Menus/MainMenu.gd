@@ -2,6 +2,8 @@ extends Control
 
 const GAME = "res://Scenes/Game/Game.tscn"
 
+@onready var logo = $MarginContainer/Control/Logo
+
 @onready var buttons = $Buttons
 
 func _ready():
@@ -17,3 +19,15 @@ func _on_button_pressed(button: Button):
 			get_tree().quit()
 		"NewGameButton":
 			get_tree().change_scene_to_file(GAME)
+
+
+func _on_logo_mouse_entered():
+	create_tween()\
+			.tween_property(logo, "scale", Vector2(1.05,1.05),0.2)\
+			.set_trans(Tween.TRANS_SINE)
+
+
+func _on_logo_mouse_exited():
+	create_tween()\
+			.tween_property(logo, "scale", Vector2(1.0,1.0),0.2)\
+			.set_trans(Tween.TRANS_SINE)

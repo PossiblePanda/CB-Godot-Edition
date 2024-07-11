@@ -1,5 +1,7 @@
+class_name Player
 extends CharacterBody3D
 
+@onready var canvas_layer: CanvasLayer = $"../../CanvasLayer"
 @onready var neck: Node3D = $Neck
 @onready var camera: Camera3D = $Neck/Camera3D
 @onready var footstep: AudioStreamPlayer3D = $Footstep
@@ -10,11 +12,36 @@ extends CharacterBody3D
 @onready var sprint_update: Timer = $SprintUpdate
 @onready var sprint_regeneration_update: Timer = $SprintRegenerationUpdate
 
-var inventory: Inventory
-
+@onready var interact_texture = $"../../CanvasLayer/InteractTexture"
+@onready var document_texture = $"../../CanvasLayer/CenterContainer/DocumentTexture"
+@onready var held_item_rect = $"../../CanvasLayer/CenterContainer/HeldItem"
 @onready var blink_bar: Bar = $"../../CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer/BlinkBar"
 @onready var sprint_bar: Bar = $"../../CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer2/SprintBar"
 @onready var blink_color: ColorRect = $"../../CanvasLayer/Blink"
+
+@onready var inventory: Inventory = $"../../CanvasLayer/Inventory"
+
+var current_document: DocumentItem:
+	set(val):
+		if val == null:
+			document_texture.texture = null
+			document_texture.hide()
+		else:
+			document_texture.texture = val.document_image
+			document_texture.show()
+			
+		current_document = val
+
+var held_item: Item:
+	set(val):
+		if val == null:
+			held_item_rect.texture = null
+			held_item_rect.hide()
+		else:
+			held_item_rect.texture = val.image
+			held_item_rect.show()
+			
+		held_item = val
 
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
