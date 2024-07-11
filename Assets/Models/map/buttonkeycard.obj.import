@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://ctyld13hpjblw"
+path="res://.godot/imported/buttonkeycard.obj-22d0f2383b64ed30afbb1547435db31a.mesh"
+
+[deps]
+
+files=["res://.godot/imported/buttonkeycard.obj-22d0f2383b64ed30afbb1547435db31a.mesh"]
+
+source_file="res://Assets/Models/map/buttonkeycard.obj"
+dest_files=["res://.godot/imported/buttonkeycard.obj-22d0f2383b64ed30afbb1547435db31a.mesh", "res://.godot/imported/buttonkeycard.obj-22d0f2383b64ed30afbb1547435db31a.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

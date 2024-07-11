@@ -43,6 +43,12 @@ var held_item: Item:
 			
 		held_item = val
 
+var interact_visible: bool = false:
+	set(val):
+		interact_texture.visible = val
+		
+		interact_visible = val
+
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 var speed = 3

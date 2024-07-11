@@ -20,7 +20,8 @@ var hovered_slot: InventorySlot
 func _ready():
 	slot_count = 10
 	
-	add_item(ItemManager.items[0])
+	for item in ItemManager.items:
+		add_item(item)
 
 func add_item(item: Item) -> bool:
 	var itemslen = len(items)

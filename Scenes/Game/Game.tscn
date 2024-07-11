@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://c7ycjjma26xn1"]
+[gd_scene load_steps=43 format=3 uid="uid://c7ycjjma26xn1"]
 
 [ext_resource type="Script" path="res://Scripts/Game/game.gd" id="1_6saia"]
 [ext_resource type="PackedScene" uid="uid://b6k0jddpfnugw" path="res://Scenes/UI/Bar.tscn" id="1_hihoh"]
@@ -7,7 +7,7 @@
 [ext_resource type="Script" path="res://Scripts/UI/bar.gd" id="5_b4d6x"]
 [ext_resource type="Texture2D" uid="uid://bnd1xcsafxn01" path="res://Assets/Textures/menu/pausemenu.jpg" id="5_wl1gb"]
 [ext_resource type="Texture2D" uid="uid://dyefyts3kyxop" path="res://Assets/Textures/ui/StaminaMeter.jpg" id="6_7uwhp"]
-[ext_resource type="PackedScene" uid="uid://daxw7iad2jaap" path="res://Scenes/UI/Button.tscn" id="6_g5ock"]
+[ext_resource type="PackedScene" uid="uid://bcs2x61b04ffa" path="res://Scenes/UI/Button.tscn" id="6_g5ock"]
 [ext_resource type="Script" path="res://Scripts/UI/PauseMenu.gd" id="6_gq8mu"]
 [ext_resource type="FontVariation" uid="uid://do82tn1v8whll" path="res://Assets/Fonts/Courier New Bold Spacing.tres" id="7_le2t2"]
 [ext_resource type="FontFile" uid="uid://dh10trw81fhd" path="res://Assets/Fonts/Courier New.ttf" id="7_odpv4"]
@@ -37,7 +37,8 @@
 [ext_resource type="Material" uid="uid://cduuehv17pbfw" path="res://Assets/Resources/materials/red.tres" id="35_wljxw"]
 [ext_resource type="Material" uid="uid://ccbsm1xlnjqjo" path="res://Assets/Resources/materials/paper_texture.tres" id="36_p8513"]
 [ext_resource type="Texture2D" uid="uid://vsu3nj61ls5s" path="res://Assets/Textures/ui/handicon.png" id="37_rojaw"]
-[ext_resource type="PackedScene" uid="uid://dchl3qrr1aacj" path="res://Scenes/InteractionPrompt.tscn" id="38_x026s"]
+[ext_resource type="PackedScene" uid="uid://bj2bwnlyxodg3" path="res://Scenes/Game/Interactable/PressButton.tscn" id="38_543k1"]
+[ext_resource type="PackedScene" uid="uid://xovomocpn1if" path="res://Scenes/Game/Interactable/KeyCardButton.tscn" id="39_si4jp"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ohwvc"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -232,6 +233,46 @@ texture = ExtResource("6_7uwhp")
 layout_mode = 2
 texture = ExtResource("6_7uwhp")
 
+[node name="Inventory" type="HFlowContainer" parent="CanvasLayer"]
+visible = false
+offset_left = 715.0
+offset_top = 470.0
+offset_right = 1205.0
+offset_bottom = 680.0
+theme_override_constants/h_separation = 35
+theme_override_constants/v_separation = 70
+script = ExtResource("12_qglpn")
+
+[node name="InteractTexture" type="TextureRect" parent="CanvasLayer"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -32.0
+offset_right = 32.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("37_rojaw")
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="HeldItem" type="TextureRect" parent="CanvasLayer/CenterContainer"]
+custom_minimum_size = Vector2(0, 0.935)
+layout_mode = 2
+
+[node name="DocumentTexture" type="TextureRect" parent="CanvasLayer/CenterContainer"]
+layout_mode = 2
+
 [node name="PauseMenu" type="TextureRect" parent="CanvasLayer"]
 process_mode = 3
 visible = false
@@ -327,50 +368,11 @@ theme_override_fonts/font = ExtResource("7_odpv4")
 theme_override_font_sizes/font_size = 57
 text = "PAUSED"
 
-[node name="Inventory" type="HFlowContainer" parent="CanvasLayer"]
-visible = false
-offset_left = 715.0
-offset_top = 470.0
-offset_right = 1205.0
-offset_bottom = 680.0
-theme_override_constants/h_separation = 35
-theme_override_constants/v_separation = 70
-script = ExtResource("12_qglpn")
-
-[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-
-[node name="HeldItem" type="TextureRect" parent="CanvasLayer/CenterContainer"]
-custom_minimum_size = Vector2(0, 0.935)
-layout_mode = 2
-
-[node name="DocumentTexture" type="TextureRect" parent="CanvasLayer/CenterContainer"]
-layout_mode = 2
-
-[node name="InteractTexture" type="TextureRect" parent="CanvasLayer"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -32.0
-offset_top = -32.0
-offset_right = 32.0
-offset_bottom = 32.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("37_rojaw")
-
 [node name="Map" type="Node3D" parent="."]
 process_mode = 1
 
 [node name="Player" parent="Map" instance=ExtResource("13_6m25r")]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 2.6958, 2.89526, 7.01074)
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 2.10838, 0.0317111, -2.41912)
 
 [node name="173BrightOpt" type="MeshInstance3D" parent="Map"]
 mesh = ExtResource("14_gbaeh")
@@ -423,8 +425,11 @@ surface_material_override/41 = ExtResource("34_nm6f7")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Map/173BrightOpt/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_70xi6")
 
-[node name="InteractionPrompt" parent="Map" instance=ExtResource("38_x026s")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.92733, 2.12855, 0)
-max_distance = 3.0
+[node name="Button" parent="." instance=ExtResource("38_543k1")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -1.9204, 2.24629, -1.46477)
+
+[node name="KeyCardButton" parent="." instance=ExtResource("39_si4jp")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -1.9204, 2.23687, -5.44381)
+card_level = 4
 
 [editable path="Map/Player"]
