@@ -33,6 +33,8 @@ func _ready():
 			interact.emit()
 		else:
 			_fail()
-			
+		
+		Global.game.player.held_item = null
+		
 		sound.play()
 		)

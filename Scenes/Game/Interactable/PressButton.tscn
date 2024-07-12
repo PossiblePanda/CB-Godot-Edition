@@ -14,7 +14,6 @@ albedo_texture = ExtResource("2_rbg73")
 mesh = ExtResource("1_3d46o")
 surface_material_override/0 = SubResource("StandardMaterial3D_r1nxu")
 script = ExtResource("3_3ygk1")
-enabled = null
 interact_sound = ExtResource("4_mnns7")
 failed_sound = ExtResource("5_5xeao")
 

@@ -24,6 +24,7 @@ Utils="*res://Data/Singletons/Utils.gd"
 LoadManager="*res://Data/Singletons/LoadManager.gd"
 ItemManager="*res://Data/Singletons/ItemManager.gd"
 Global="*res://Data/Singletons/Global.gd"
+DiscordRPCLoader="*res://addons/discord-rpc-gd/nodes/discord_autoload.gd"
 
 [display]
 
@@ -34,6 +35,10 @@ window/size/initial_position_type=2
 window/size/borderless=true
 window/size/extend_to_title=true
 window/stretch/mode="viewport"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/discord-rpc-gd/plugin.cfg")
 
 [filesystem]
 

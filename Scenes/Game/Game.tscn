@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://c7ycjjma26xn1"]
+[gd_scene load_steps=44 format=3 uid="uid://c7ycjjma26xn1"]
 
 [ext_resource type="Script" path="res://Scripts/Game/game.gd" id="1_6saia"]
 [ext_resource type="PackedScene" uid="uid://b6k0jddpfnugw" path="res://Scenes/UI/Bar.tscn" id="1_hihoh"]
@@ -37,6 +37,7 @@
 [ext_resource type="Material" uid="uid://cduuehv17pbfw" path="res://Assets/Resources/materials/red.tres" id="35_wljxw"]
 [ext_resource type="Material" uid="uid://ccbsm1xlnjqjo" path="res://Assets/Resources/materials/paper_texture.tres" id="36_p8513"]
 [ext_resource type="Texture2D" uid="uid://vsu3nj61ls5s" path="res://Assets/Textures/ui/handicon.png" id="37_rojaw"]
+[ext_resource type="PackedScene" uid="uid://cekjnxwgw27gr" path="res://Scenes/Map/Door01.tscn" id="38_4ypl8"]
 [ext_resource type="PackedScene" uid="uid://bj2bwnlyxodg3" path="res://Scenes/Game/Interactable/PressButton.tscn" id="38_543k1"]
 [ext_resource type="PackedScene" uid="uid://xovomocpn1if" path="res://Scenes/Game/Interactable/KeyCardButton.tscn" id="39_si4jp"]
 
@@ -295,7 +296,7 @@ script = ExtResource("6_gq8mu")
 layout_mode = 0
 offset_left = 140.0
 offset_top = 216.0
-offset_right = 551.0
+offset_right = 563.0
 offset_bottom = 595.0
 theme_override_constants/separation = 14
 
@@ -425,11 +426,16 @@ surface_material_override/41 = ExtResource("34_nm6f7")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Map/173BrightOpt/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_70xi6")
 
-[node name="Button" parent="." instance=ExtResource("38_543k1")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -1.9204, 2.24629, -1.46477)
+[node name="Door01" parent="Map" node_paths=PackedStringArray("buttons") instance=ExtResource("38_4ypl8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.65507, 0, 0)
+buttons = [NodePath("../../Button"), NodePath("../../KeyCardButton")]
 
 [node name="KeyCardButton" parent="." instance=ExtResource("39_si4jp")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -1.9204, 2.23687, -5.44381)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -2.02064, 2.27755, -5.5326)
 card_level = 4
+
+[node name="Button" parent="." instance=ExtResource("38_543k1")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -1.9204, 2.24629, -1.46477)
+enabled = true
 
 [editable path="Map/Player"]

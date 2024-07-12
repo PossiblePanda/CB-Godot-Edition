@@ -6,6 +6,8 @@ extends Node3D
 ## The interaction texture
 @export var interact_texture: CompressedTexture2D = preload("res://Assets/Textures/ui/handicon.png")
 
+@export var interactable: bool = true
+
 const MARGIN = 250
 const POS_MULTIPLIER = Vector2(1, 1)
 
@@ -47,10 +49,12 @@ func handle_activation():
 	triggered.emit()
 
 func check_can_interact() -> bool:
-		if distance <= max_distance:
-			return true
-			
+	if not interactable:
 		return false
+	if distance <= max_distance:
+		return true
+		
+	return false
 
 func _input(event):
 	if event is InputEventMouseButton:
