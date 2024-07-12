@@ -14,7 +14,6 @@ var held: bool = false
 			item_texture.texture = val.image
 			tooltip.text = val.item_name
 		else:
-			print("Nah.")
 			item_texture.texture = null
 			tooltip.text = ""
 			tooltip.hide()
@@ -47,10 +46,8 @@ func _input(event):
 	if event is InputEventMouseMotion:
 		if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and hovered:
 			held = true
-			print(held)
 	if Input.is_action_just_released("drag_item"):
 		held = false
-		print(held)
 
 func _on_mouse_exited():
 	hover_outline.hide()

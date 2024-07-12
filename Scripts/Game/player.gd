@@ -12,6 +12,7 @@ extends CharacterBody3D
 @onready var sprint_update: Timer = $SprintUpdate
 @onready var sprint_regeneration_update: Timer = $SprintRegenerationUpdate
 
+@onready var action_text = $"../../CanvasLayer/ActionText"
 @onready var interact_texture = $"../../CanvasLayer/InteractTexture"
 @onready var document_texture = $"../../CanvasLayer/CenterContainer/DocumentTexture"
 @onready var held_item_rect = $"../../CanvasLayer/CenterContainer/HeldItem"
@@ -116,7 +117,6 @@ func _ready():
 				breath.stream = regular_breath_sounds.pick_random()
 				breath.play()
 		)
-	print(sprint_bar)
 
 func _physics_process(delta):
 	if not is_on_floor():
@@ -136,6 +136,20 @@ func _physics_process(delta):
 	elif footstep.is_playing():
 		footstep.stop()
 	move_and_slide()
+
+var action_tween: Tween
+func show_action_text(text: String) -> void:
+	if action_tween:
+		action_tween.stop()
+	
+	action_text.visible = true
+	action_text["theme_override_colors/font_color"] = Color(0.878, 0.878, 0.878, 1)
+	
+	action_text.text = text
+	action_tween = Utils.tween_fade_out(action_text, 6, 0, 0, "theme_override_colors/font_color:a")
+	await action_tween.finished
+	
+	action_text.visible = false
 
 func _unhandled_input(event) -> void:
 	if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
