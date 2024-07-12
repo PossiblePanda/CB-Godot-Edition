@@ -49,6 +49,8 @@ func handle_activation():
 	triggered.emit()
 
 func check_can_interact() -> bool:
+	if get_tree().paused:
+		return false
 	if not interactable:
 		return false
 	if distance <= max_distance:

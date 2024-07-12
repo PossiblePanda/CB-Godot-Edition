@@ -1,9 +1,11 @@
-[gd_resource type="Resource" script_class="KeyCardItem" load_steps=2 format=3 uid="uid://baht7em2xu3bm"]
+[gd_resource type="Resource" script_class="KeyCardItem" load_steps=3 format=3 uid="uid://dovsb6rdhhv7j"]
 
-[ext_resource type="Script" path="res://Data/Resources/Items/KeyCardItem.gd" id="1_6nstd"]
+[ext_resource type="Texture2D" uid="uid://dddj3eauu1pei" path="res://Assets/Textures/items/icon/key1.jpg" id="1_x3fim"]
+[ext_resource type="Script" path="res://Data/Resources/Items/KeyCardItem.gd" id="2_ms2ys"]
 
 [resource]
-script = ExtResource("1_6nstd")
+script = ExtResource("2_ms2ys")
 card_level = 1
-item_name = "Name"
-component_names = Array[String]([])
+image = ExtResource("1_x3fim")
+item_name = "Level 1 Key Card"
+component_names = Array[String](["can_hold"])
