@@ -37,4 +37,8 @@ func register_hints(arr: Array[Item]):
 func register_item_dir(path: String = ITEM_DIR):
 	var items = get_items_in_dir(path)
 	
+	for item in items:
+		print(item)
+		#print(item.item_name)
+	
 	register_hints(items)

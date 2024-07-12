@@ -27,7 +27,6 @@ func _on_mouse_entered():
 	hover_outline.show()
 	tooltip.show()
 	
-	print(Global.game.player.inventory)
 	Global.game.player.inventory.hovered_slot = self
 	
 	hovered = true

@@ -25,6 +25,8 @@ func _ready():
 
 func add_item(item: Item) -> bool:
 	var itemslen = len(items)
+	if not item:
+		return false
 	if itemslen < slot_count:
 		items.append(item)
 		inventory_slots[itemslen].item = item

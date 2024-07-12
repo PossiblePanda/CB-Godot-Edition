@@ -20,11 +20,13 @@ config/icon="res://icon.png"
 
 [autoload]
 
-Utils="*res://Data/Singletons/Utils.gd"
-LoadManager="*res://Data/Singletons/LoadManager.gd"
-ItemManager="*res://Data/Singletons/ItemManager.gd"
+ModLoaderStore="*res://addons/mod_loader/mod_loader_store.gd"
+ModLoader="*res://addons/mod_loader/mod_loader.gd"
 Global="*res://Data/Singletons/Global.gd"
+LoadManager="*res://Data/Singletons/LoadManager.gd"
+Utils="*res://Data/Singletons/Utils.gd"
 DiscordRPCLoader="*res://addons/discord-rpc-gd/nodes/discord_autoload.gd"
+ItemManager="*res://Data/Singletons/ItemManager.gd"
 
 [display]
 

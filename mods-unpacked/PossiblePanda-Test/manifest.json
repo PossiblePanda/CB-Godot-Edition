@@ -1,0 +1,20 @@
+{
+ "name": "Test",
+ "namespace": "PossiblePanda",
+ "version_number": "0.2.0",
+ "description": "Example Mod",
+ "website_url": "https://github.com/GodotModding",
+ "dependencies": [],
+ "extra": {
+	 "godot": {
+		 "authors": ["Possible Panda"],
+		 "optional_dependencies": [],
+		 "compatible_game_version": [],
+		 "compatible_mod_loader_version": ["6.2.0"],
+		 "incompatibilities": [],
+		 "load_before": [],
+		 "tags": [],
+		 "config_schema": {}
+	 }
+	}
+}
