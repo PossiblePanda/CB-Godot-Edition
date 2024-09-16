@@ -10,7 +10,6 @@ var components: Array = []:
 		components = []
 		
 		for component_name in component_names:
-			print(components)
 			var component = ItemManager.components[component_name]
 			
 			components.append(component)

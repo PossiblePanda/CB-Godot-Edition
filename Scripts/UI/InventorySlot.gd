@@ -39,7 +39,6 @@ func _input(event):
 			if not hovered:
 				return
 			
-			print(item.components)
 			for component in item.components:
 				component.interact(item)
 	if event is InputEventMouseMotion:
