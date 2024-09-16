@@ -38,9 +38,9 @@ func _input(event):
 				return
 			if not hovered:
 				return
-			var components = item.get_components()
 			
-			for component in components:
+			print(item.components)
+			for component in item.components:
 				component.interact(item)
 	if event is InputEventMouseMotion:
 		if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and hovered:

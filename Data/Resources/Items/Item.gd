@@ -5,10 +5,19 @@ extends Resource
 @export var item_name: String = "Name"
 @export var component_names: Array[String] = []
 
-func get_components() -> Array:
-	var components: Array = []
-	
-	for component_name in component_names:
-		var component = ItemManager.get_component(component_name)
-		components.append(component)
-	return components
+var components: Array = []: 
+	get:
+		components = []
+		
+		for component_name in component_names:
+			print(components)
+			var component = ItemManager.components[component_name]
+			
+			components.append(component)
+		
+		return components
+
+#func get_components() -> Array:
+	#if components.is_empty():
+	#
+	#return components
