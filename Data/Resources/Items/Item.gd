@@ -15,8 +15,3 @@ var components: Array = []:
 			components.append(component)
 		
 		return components
-
-#func get_components() -> Array:
-	#if components.is_empty():
-	#
-	#return components
