@@ -3,7 +3,7 @@ extends CharacterBody3D
 
 @export var DNA: Array[String] = ["D-9341", "Class-D"]
 
-@onready var canvas_layer: CanvasLayer = $"../../CanvasLayer"
+@onready var canvas_layer: CanvasLayer = $"../CanvasLayer"
 @onready var neck: Node3D = $Neck
 @onready var footstep: AudioStreamPlayer3D = $Footstep
 @onready var breath: AudioStreamPlayer3D = $Neck/Breath
@@ -123,7 +123,7 @@ func _physics_process(delta):
 	var input_dir = Input.get_vector("left", "right", "forward", "backward")
 	var direction = transform.basis * Vector3(input_dir.x, 0, input_dir.y).normalized()
 	
-	if direction and Global.game.pause_menu.visible == false:
+	if direction and Global.game.pause_menu.visible == false and inventory.visible == false:
 		velocity.x = direction.x * speed
 		velocity.z = direction.z * speed
 	else:
