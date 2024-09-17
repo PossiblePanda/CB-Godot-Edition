@@ -1,6 +1,8 @@
 # Containment Breach: Godot Edition
 CB:GE is a remake of Containment Breach made in Godot engine.
 
+Discord: https://discord.gg/MdSXub2mfd
+
 ## Contributing 
 Feel free to open a Pull Request for the following reasons:
 
