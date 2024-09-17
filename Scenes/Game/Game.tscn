@@ -389,9 +389,6 @@ text = "PAUSED"
 [node name="Map" type="Node3D" parent="."]
 process_mode = 1
 
-[node name="Player" parent="Map" instance=ExtResource("13_6m25r")]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 2.10838, 0.0317111, -2.41912)
-
 [node name="173BrightOpt" type="MeshInstance3D" parent="Map"]
 mesh = ExtResource("14_gbaeh")
 skeleton = NodePath("../..")
@@ -454,8 +451,15 @@ card_level = 4
 [node name="Button" parent="." instance=ExtResource("38_543k1")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -1.9204, 2.24629, -1.46477)
 
+<<<<<<< Updated upstream
 [node name="ScannerButton" parent="." instance=ExtResource("41_xevhb")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 5.1191, 1.80928, -2.24818)
 required_dna = Array[String](["SeveredHand"])
 
 [editable path="Map/Player"]
+=======
+[node name="Player" parent="." instance=ExtResource("13_6m25r")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 2.10838, 0.0317111, -2.41912)
+
+[editable path="Player"]
+>>>>>>> Stashed changes
