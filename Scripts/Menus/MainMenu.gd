@@ -5,9 +5,7 @@ const GAME = "res://Scenes/Game/Game.tscn"
 var logo_hovered: bool = false
 
 @onready var credits_menu = $CreditsMenu
-
 @onready var logo = $MarginContainer/Control/Logo
-
 @onready var buttons = $Buttons
 
 func _ready():

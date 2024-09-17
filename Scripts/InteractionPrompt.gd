@@ -34,7 +34,7 @@ func _process(delta):
 		can_interact = check_can_interact()
 		
 		if can_interact:
-			var pos = Global.game.player.camera.unproject_position(global_position)
+			var pos = Global.game.player.get_node("Neck").get_node("Camera3D").unproject_position(global_position)
 			
 			pos.x = clamp(pos.x*POS_MULTIPLIER.x, MARGIN, (Global.game.player.blink_color.size.x - MARGIN) - Global.game.player.interact_texture.size.x)
 			pos.y = clamp(pos.y*POS_MULTIPLIER.y, MARGIN, (Global.game.player.blink_color.size.y - MARGIN) - Global.game.player.interact_texture.size.y)

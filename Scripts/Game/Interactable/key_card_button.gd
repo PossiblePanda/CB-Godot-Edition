@@ -11,7 +11,7 @@ func _fail():
 
 func _no_card():
 	failed.emit()
-	Global.player.show_action_text("A keycard is required to operate this door.")
+	Global.game.player.show_action_text("A keycard is required to operate this door.")
 
 	sound.stream = no_card_sound
 
@@ -33,7 +33,7 @@ func _ready():
 			
 			interact.emit()
 		else:
-			Global.player.show_action_text("A keycard with security clearance %s or higher is required to operate this door." % str(card_level))
+			Global.game.player.show_action_text("A keycard with security clearance %s or higher is required to operate this door." % str(card_level))
 			_fail()
 		
 		Global.game.player.held_item = null
