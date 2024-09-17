@@ -5,7 +5,7 @@ signal game_entered
 var ingame: bool = false
 var game: Game = null
 
-var mouse_sensitivity : int = 50
+var mouse_sensitivity : int = 120
 
 func _init():
 	DiscordRPC.app_id = 1261084467783798805
