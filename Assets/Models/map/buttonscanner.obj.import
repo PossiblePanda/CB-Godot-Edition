@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cnucxyh2k6vy1"
+path="res://.godot/imported/buttonscanner.obj-b1e7474b1d514978b7233cf6b988c698.mesh"
+
+[deps]
+
+files=["res://.godot/imported/buttonscanner.obj-b1e7474b1d514978b7233cf6b988c698.mesh"]
+
+source_file="res://Assets/Models/map/buttonscanner.obj"
+dest_files=["res://.godot/imported/buttonscanner.obj-b1e7474b1d514978b7233cf6b988c698.mesh", "res://.godot/imported/buttonscanner.obj-b1e7474b1d514978b7233cf6b988c698.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

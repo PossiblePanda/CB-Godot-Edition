@@ -1,6 +1,8 @@
 class_name Player
 extends CharacterBody3D
 
+@export var DNA: Array[String] = ["D-9341", "Class-D"]
+
 @onready var canvas_layer: CanvasLayer = $"../../CanvasLayer"
 @onready var neck: Node3D = $Neck
 @onready var camera: Camera3D = $Neck/Camera3D
@@ -211,3 +213,9 @@ func hide_blink():
 	
 	await Utils.tween_fade_out(blink_color, BLINK_TIME, 0, 0, "color:a")
 	blink_bar.value = blink_bar.maxvalue # Reset bar to max
+
+func add_dna(dna_string: String)->void:
+	DNA.append(dna_string)
+
+func has_dna(dna_string: String) -> bool:
+	return DNA.has(dna_string)
