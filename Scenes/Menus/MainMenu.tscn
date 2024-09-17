@@ -135,6 +135,7 @@ text = "Godot Edition Alpha-1"
 
 [node name="CreditsMenu" type="TextureRect" parent="."]
 process_mode = 3
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
