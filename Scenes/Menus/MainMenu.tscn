@@ -213,6 +213,13 @@ theme_override_font_sizes/font_size = 18
 text = "Alex Polo"
 horizontal_alignment = 1
 
+[node name="Carter" type="Label" parent="CreditsMenu/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("14_yrkc2")
+theme_override_font_sizes/font_size = 18
+text = "Carter (crtr127)"
+horizontal_alignment = 1
+
 [node name="OriginalGame" type="Label" parent="CreditsMenu/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("12_6ofn8")
