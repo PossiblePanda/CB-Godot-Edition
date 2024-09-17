@@ -9,13 +9,13 @@ func _fail():
 	sound.stream = failed_sound
 
 func check_has_item_dna(dna_string: String) -> bool:
-	if not Global.player.held_item:
+	if not Global.game.player.held_item:
 		return false
 	
-	if not "dna" in Global.player.held_item:
+	if not "dna" in Global.game.player.held_item:
 		return false
 		
-	if Global.player.held_item.has_dna(dna_string):
+	if Global.game.player.held_item.has_dna(dna_string):
 		return true
 	return false
 
@@ -27,7 +27,7 @@ func _ready():
 		
 		var has_dna := false
 		for dna in required_dna:
-			if Global.player.has_dna(dna):
+			if Global.game.player.has_dna(dna):
 				has_dna = true
 		
 		var has_item_dna := false
@@ -37,11 +37,11 @@ func _ready():
 		
 		if has_dna or has_item_dna:
 			sound.stream = interact_sound
-			Global.player.show_action_text('You place the palm of your hand onto the scanner. The scanner reads: "DNA Verified. Access granted."')
+			Global.game.player.show_action_text('You place the palm of your hand onto the scanner. The scanner reads: "DNA Verified. Access granted."')
 			
 			interact.emit()
 		else:
-			Global.player.show_action_text('You placed your palm onto the scanner. The scanner reads: "DNA does not match with known sample. Access denied."')
+			Global.game.player.show_action_text('You placed your palm onto the scanner. The scanner reads: "DNA does not match with known sample. Access denied."')
 			_fail()
 		
 		Global.game.player.held_item = null

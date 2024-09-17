@@ -4,7 +4,6 @@ signal game_entered
 
 var ingame: bool = false
 var game: Game = null
-var player: Player
 
 var mouse_sensitivity : int = 50
 

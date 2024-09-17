@@ -137,6 +137,7 @@ func _physics_process(delta):
 	move_and_slide()
 
 var action_tween: Tween
+
 func show_action_text(text: String) -> void:
 	if action_tween:
 		action_tween.stop()

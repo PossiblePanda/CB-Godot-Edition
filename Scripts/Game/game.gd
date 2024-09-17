@@ -16,7 +16,6 @@ func _init():
 	Global.game_entered.emit()
 
 func _ready():
-	#Global.player = player
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 func _input(_event):
