@@ -6,20 +6,20 @@ extends Node3D
 
 @onready var blink_color: ColorRect = $CanvasLayer/Blink
 
-@onready var pause_menu = $CanvasLayer/PauseMenu
+@onready var pause_menu: TextureRect = $CanvasLayer/PauseMenu
 @onready var inventory: Inventory = $CanvasLayer/Inventory
 
-@onready var player: Player = $Map/Player
+@onready var player: Player = $Player
 
 func _init():
 	Global.game = self
 	Global.game_entered.emit()
 
 func _ready():
-	Global.player = player
+	#Global.player = player
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
-func _input(event):
+func _input(_event):
 	if Input.is_action_just_pressed("pause"):
 		toggle_pause()
 	elif Input.is_action_just_pressed("inventory"):

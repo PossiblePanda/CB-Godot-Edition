@@ -5,7 +5,6 @@ extends CharacterBody3D
 
 @onready var canvas_layer: CanvasLayer = $"../../CanvasLayer"
 @onready var neck: Node3D = $Neck
-@onready var camera: Camera3D = $Neck/Camera3D
 @onready var footstep: AudioStreamPlayer3D = $Footstep
 @onready var breath: AudioStreamPlayer3D = $Neck/Breath
 @onready var exhausted: AudioStreamPlayer3D = $Neck/Exhausted
@@ -14,15 +13,21 @@ extends CharacterBody3D
 @onready var sprint_update: Timer = $SprintUpdate
 @onready var sprint_regeneration_update: Timer = $SprintRegenerationUpdate
 
-@onready var action_text = $"../../CanvasLayer/ActionText"
-@onready var interact_texture = $"../../CanvasLayer/InteractTexture"
-@onready var document_texture = $"../../CanvasLayer/CenterContainer/DocumentTexture"
-@onready var held_item_rect = $"../../CanvasLayer/CenterContainer/HeldItem"
-@onready var blink_bar: Bar = $"../../CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer/BlinkBar"
-@onready var sprint_bar: Bar = $"../../CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer2/SprintBar"
-@onready var blink_color: ColorRect = $"../../CanvasLayer/Blink"
+@onready var action_text = $"../CanvasLayer/ActionText"
+@onready var interact_texture = $"../CanvasLayer/InteractTexture"
+@onready var document_texture = $"../CanvasLayer/CenterContainer/DocumentTexture"
+@onready var held_item_rect = $"../CanvasLayer/CenterContainer/HeldItem"
+@onready var blink_bar: Bar = $"../CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer/BlinkBar"
+@onready var sprint_bar: Bar = $"../CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer2/SprintBar"
+@onready var blink_color: ColorRect = $"../CanvasLayer/Blink"
 
-@onready var inventory: Inventory = $"../../CanvasLayer/Inventory"
+@onready var inventory: Inventory = $"../CanvasLayer/Inventory"
+
+const BLINK_TIME = 0.1
+const EXHAUSTED = preload("res://Assets/Sounds/SFX/player/exhausted.ogg")
+const BREATH_1 = preload("res://Assets/Sounds/SFX/player/breath1.ogg")
+const BREATH_2 = preload("res://Assets/Sounds/SFX/player/breath2.ogg")
+const BREATH_3 = preload("res://Assets/Sounds/SFX/player/breath3.ogg")
 
 var current_document: DocumentItem:
 	set(val):
@@ -37,13 +42,14 @@ var current_document: DocumentItem:
 
 var held_item: Item:
 	set(val):
+		print(val)
 		if val == null:
 			held_item_rect.texture = null
 			held_item_rect.hide()
 		else:
 			held_item_rect.texture = val.image
 			held_item_rect.show()
-			
+		
 		held_item = val
 
 var interact_visible: bool = false:
@@ -53,22 +59,14 @@ var interact_visible: bool = false:
 		interact_visible = val
 
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
-
 var speed = 3
-const CAMERA_SENSITIVITY = 0.007
-const MAX_CAM_ANGLE = 70
 
-const BLINK_TIME = 0.1
+
 var can_see: bool = true
 var blinking: bool = false
 
 var sprinting: bool = false
 var can_sprint: bool = true
-
-const EXHAUSTED = preload("res://Assets/Sounds/SFX/player/exhausted.ogg")
-const BREATH_1 = preload("res://Assets/Sounds/SFX/player/breath1.ogg")
-const BREATH_2 = preload("res://Assets/Sounds/SFX/player/breath2.ogg")
-const BREATH_3 = preload("res://Assets/Sounds/SFX/player/breath3.ogg")
 
 var regular_breath_sounds = [BREATH_1, BREATH_2, BREATH_3]
 
@@ -94,8 +92,6 @@ func _ready():
 				if not breath.playing and sprint_bar.value <= sprint_bar.maxvalue / 2:
 					breath.stream = regular_breath_sounds.pick_random()
 					breath.play()
-					
-				sprint_bar.value <= sprint_bar.maxvalue/2
 			else:
 				stop_sprint()
 				can_sprint = false
@@ -125,9 +121,9 @@ func _physics_process(delta):
 		velocity.y -= gravity * delta
 	
 	var input_dir = Input.get_vector("left", "right", "forward", "backward")
-	var direction = neck.transform.basis * Vector3(input_dir.x, 0, input_dir.y).normalized() * -1
+	var direction = transform.basis * Vector3(input_dir.x, 0, input_dir.y).normalized()
 	
-	if direction:
+	if direction and Global.game.pause_menu.visible == false:
 		velocity.x = direction.x * speed
 		velocity.z = direction.z * speed
 	else:
@@ -137,6 +133,7 @@ func _physics_process(delta):
 		pass
 	elif footstep.is_playing():
 		footstep.stop()
+	
 	move_and_slide()
 
 var action_tween: Tween
@@ -153,16 +150,7 @@ func show_action_text(text: String) -> void:
 	
 	action_text.visible = false
 
-func _unhandled_input(event) -> void:
-	if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
-		if event is InputEventMouseMotion:
-			neck.rotate_y(-event.relative.x * CAMERA_SENSITIVITY)
-			
-			camera.rotate_x(-event.relative.y * CAMERA_SENSITIVITY)
-			camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-MAX_CAM_ANGLE), deg_to_rad(MAX_CAM_ANGLE))
-		
-
-func _input(event):
+func _input(_event):
 	if Input.is_action_just_pressed("blink"):
 		show_blink()
 	elif Input.is_action_just_released("blink"):
@@ -205,13 +193,13 @@ func show_blink():
 	blink_update.start() # Reset timer
 	blink.emit()
 	
-	await Utils.tween_fade_in(blink_color, BLINK_TIME, 0, 0, "color:a")
+	await Utils.tween_fade_in(blink_color, BLINK_TIME, 0, 0, "color:a").finished
 
 func hide_blink():
 	blinking = false
 	can_see = true
 	
-	await Utils.tween_fade_out(blink_color, BLINK_TIME, 0, 0, "color:a")
+	await Utils.tween_fade_out(blink_color, BLINK_TIME, 0, 0, "color:a").finished
 	blink_bar.value = blink_bar.maxvalue # Reset bar to max
 
 func add_dna(dna_string: String)->void:

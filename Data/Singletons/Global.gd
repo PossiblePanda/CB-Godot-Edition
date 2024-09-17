@@ -6,6 +6,8 @@ var ingame: bool = false
 var game: Game = null
 var player: Player
 
+var mouse_sensitivity : int = 50
+
 func _init():
 	DiscordRPC.app_id = 1261084467783798805
 	DiscordRPC.details = "Open source SCP: Containment Breach recreation"
