@@ -1,0 +1,54 @@
+[gd_scene load_steps=4 format=3 uid="uid://bk20e5tj3frid"]
+
+[ext_resource type="Script" path="res://Scripts/Menus/Options.gd" id="1_pqnml"]
+[ext_resource type="PackedScene" uid="uid://bcs2x61b04ffa" path="res://Scenes/UI/Button.tscn" id="4_m4kt2"]
+[ext_resource type="Texture2D" uid="uid://bnd1xcsafxn01" path="res://Assets/Textures/menu/pausemenu.jpg" id="5_xs64t"]
+
+[node name="Options" type="Control"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_pqnml")
+
+[node name="Main" type="TextureRect" parent="."]
+show_behind_parent = true
+layout_mode = 0
+offset_right = 633.0
+offset_bottom = 633.0
+texture = ExtResource("5_xs64t")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Main"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 107.0
+offset_top = 98.0
+offset_right = -13.0
+offset_bottom = -46.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BackButton" parent="." instance=ExtResource("4_m4kt2")]
+layout_mode = 0
+offset_left = 438.0
+offset_top = 12.0
+offset_right = 619.0
+offset_bottom = 84.0
+text = "BACK"
+
+[node name="White" parent="BackButton" index="0"]
+region_rect = Rect2(0, 0, 181, 72)
+
+[node name="Black" parent="BackButton/White" index="0"]
+scale = Vector2(0.967, 0.916667)
+region_rect = Rect2(0, 0, 181, 72)
+
+[node name="HoveredColor" parent="BackButton/White" index="1"]
+offset_right = 178.0
+offset_bottom = 69.0
+
+[connection signal="hidden" from="." to="." method="_on_hidden"]
+[connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
+
+[editable path="BackButton"]

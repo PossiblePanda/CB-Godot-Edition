@@ -14,7 +14,7 @@
 [ext_resource type="Script" path="res://Scripts/Game/inventory.gd" id="12_qglpn"]
 [ext_resource type="PackedScene" uid="uid://j0ntohhf53pg" path="res://Scenes/Game/Player.tscn" id="13_6m25r"]
 [ext_resource type="ArrayMesh" uid="uid://bci1xcjm12kvv" path="res://Assets/Models/map/173_bright_opt.obj" id="14_gbaeh"]
-[ext_resource type="PackedScene" uid="uid://bk20e5tj3frid" path="res://Scenes/Menus/OptionsUI.tscn" id="14_tq620"]
+[ext_resource type="PackedScene" uid="uid://bk20e5tj3frid" path="res://Scenes/Menus/Options.tscn" id="14_tq620"]
 [ext_resource type="PackedScene" uid="uid://bmmsblkdw32ik" path="res://Scenes/NPCs/scp173npc.tscn" id="14_y3a37"]
 [ext_resource type="Material" uid="uid://cr0ecbvax25js" path="res://Assets/Resources/materials/containment_door.tres" id="15_vos60"]
 [ext_resource type="Material" uid="uid://dbgcvqf8n7k14" path="res://Assets/Resources/materials/metal.tres" id="16_kj5mw"]
@@ -389,10 +389,10 @@ theme_override_fonts/font = ExtResource("7_odpv4")
 theme_override_font_sizes/font_size = 57
 text = "PAUSED"
 
-[node name="OptionsUI" parent="CanvasLayer/PauseMenu" node_paths=PackedStringArray("buttons") instance=ExtResource("14_tq620")]
-offset_left = -545.5
+[node name="Options" parent="CanvasLayer/PauseMenu" node_paths=PackedStringArray("buttons") instance=ExtResource("14_tq620")]
+offset_left = -0.5
 offset_top = -0.5
-offset_right = -545.5
+offset_right = -0.5
 offset_bottom = -0.5
 buttons = NodePath("../Buttons")
 

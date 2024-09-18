@@ -1,5 +1,7 @@
 extends Node
 
+signal setting_changed
+
 var password = OS.get_unique_id()
 
 var data = {

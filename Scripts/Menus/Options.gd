@@ -1,11 +1,10 @@
 extends Control
 
-const SLIDER_TEMPLATE = preload("res://Scenes/Menus/SliderTemplate.tscn")
-const CHECKBOX_TEMPLATE = preload("res://Scenes/Menus/CheckboxTemplate.tscn")
+const SLIDER_TEMPLATE = preload("res://Scenes/UI/SliderTemplate.tscn")
+const CHECKBOX_TEMPLATE = preload("res://Scenes/UI/CheckboxTemplate.tscn")
 
 @export var buttons: VBoxContainer
-
-@onready var v_box_container: VBoxContainer = $Main/Black/VBoxContainer
+@onready var v_box_container: VBoxContainer = $Main/VBoxContainer
 
 func new_slider(key):
 	var template = SLIDER_TEMPLATE.instantiate()
@@ -43,3 +42,5 @@ func _on_back_button_pressed() -> void:
 
 func _on_hidden() -> void:
 	Config.save()
+	if buttons:
+		buttons.visible = true
