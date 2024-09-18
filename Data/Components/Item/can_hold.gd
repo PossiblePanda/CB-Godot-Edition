@@ -1,7 +1,7 @@
 class_name HoldComponent
 extends ItemComponent
 
-static func interact(item: Item):
+static func equip(item: Item):
 	if Global.game.player.held_item != null:
 		Global.game.player.held_item = null
 		return

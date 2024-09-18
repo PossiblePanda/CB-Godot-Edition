@@ -8,6 +8,8 @@ static var mod_dir_path
 static func _static_init() -> void:
 	mod_dir_path = ModLoaderMod.get_unpacked_dir() + AUTHORNAME_MODNAME_DIR + "/"
 
+static func equip(item: Item):
+	pass
 
 static func interact(item: Item):
 	print("Gasa")
@@ -16,4 +18,4 @@ static func interact(item: Item):
 	
 	Global.game.add_child(node)
 	
-	node.position = Global.game.player.position
+	node.position = Global.game.player.position + Vector3(0,0.5,0)

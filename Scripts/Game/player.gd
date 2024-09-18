@@ -153,7 +153,7 @@ func show_action_text(text: String) -> void:
 	
 	action_text.visible = false
 
-func _input(_event):
+func _input(event):
 	if Input.is_action_just_pressed("blink"):
 		show_blink()
 	elif Input.is_action_just_released("blink"):
@@ -163,6 +163,12 @@ func _input(_event):
 			start_sprint()
 	elif Input.is_action_just_released("sprint"):
 		stop_sprint()
+		
+	if event is InputEventMouseButton:
+		if event.button_mask == MOUSE_BUTTON_LEFT:
+			if held_item:
+				for component in held_item.components:
+					component.interact(held_item)
 
 func full_blink():
 	await show_blink()

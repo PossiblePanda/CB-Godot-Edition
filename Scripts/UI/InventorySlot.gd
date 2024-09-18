@@ -40,7 +40,7 @@ func _input(event):
 				return
 			
 			for component in item.components:
-				component.interact(item)
+				component.equip(item)
 	if event is InputEventMouseMotion:
 		if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and hovered:
 			held = true
