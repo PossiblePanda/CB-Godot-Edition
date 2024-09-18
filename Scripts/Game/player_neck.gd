@@ -27,7 +27,7 @@ func aim_look(event: InputEventMouseMotion)-> void:
 	var motion: Vector2 = event.xformed_by(viewport_transform).relative
 	var degrees_per_unit: float = 0.001
 	
-	motion *= Global.mouse_sensitivity
+	motion *= Config.data.mouse_sensitivity.val
 	motion *= degrees_per_unit
 	
 	add_yaw(motion.x)

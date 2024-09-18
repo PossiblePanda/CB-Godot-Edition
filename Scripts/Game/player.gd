@@ -42,7 +42,6 @@ var current_document: DocumentItem:
 
 var held_item: Item:
 	set(val):
-		print(val)
 		if val == null:
 			held_item_rect.texture = null
 			held_item_rect.hide()
@@ -116,7 +115,7 @@ func _ready():
 				breath.play()
 		)
 
-func _physics_process(delta):
+func _process(delta: float) -> void:
 	if not is_on_floor():
 		velocity.y -= gravity * delta
 	
