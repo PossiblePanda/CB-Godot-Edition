@@ -8,4 +8,4 @@ script = ExtResource("2_r6kyu")
 card_level = 4
 image = ExtResource("1_n1xtk")
 item_name = "Level 4 Key Card"
-component_names = Array[String](["can_hold"])
+component_names = Array[String](["can_hold", "unequip_on_interact"])

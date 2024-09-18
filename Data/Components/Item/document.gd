@@ -1,7 +1,7 @@
 class_name DocumentComponent
 extends ItemComponent
 
-static func interact(item: Item):
+static func equip(item: Item):
 	if item is not DocumentItem:
 		push_error("Item has document component but isn't a DocumentItem!")
 		

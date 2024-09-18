@@ -7,6 +7,9 @@ static func added(item: Item):
 static func removed(item: Item):
 	pass
 
+static func equip(item: Item):
+	pass
+
 static func interact(item: Item):
 	pass
 
