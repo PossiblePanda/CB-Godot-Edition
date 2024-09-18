@@ -118,6 +118,13 @@ func _ready():
 				breath.stream = regular_breath_sounds.pick_random()
 				breath.play()
 		)
+	
+	Config.setting_changed.connect(func(key):
+		if key == "head_bobbing":
+			camera.rotation_degrees.z = 0
+			camera.position.y = 0
+		)
+	
 
 var sinTime := 0.0
 func _process(delta: float) -> void:

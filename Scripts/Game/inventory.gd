@@ -12,7 +12,7 @@ var hovered_slot: InventorySlot
 		items = val
 @export var inventory_slots: Array[InventorySlot] = []
 
-@export var slot_count: int:
+@export var slot_count: int = 10:
 	set(val):
 		slot_count = val
 		update_slot_count()
