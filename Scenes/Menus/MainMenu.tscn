@@ -136,7 +136,6 @@ text = "Godot Edition Alpha-1"
 
 [node name="CreditsMenu" type="TextureRect" parent="."]
 process_mode = 3
-visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -220,6 +219,13 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("14_yrkc2")
 theme_override_font_sizes/font_size = 18
 text = "Carter (crtr127)"
+horizontal_alignment = 1
+
+[node name="Yni" type="Label" parent="CreditsMenu/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("14_yrkc2")
+theme_override_font_sizes/font_size = 18
+text = "Yni Viar"
 horizontal_alignment = 1
 
 [node name="OriginalGame" type="Label" parent="CreditsMenu/ScrollContainer/VBoxContainer"]
