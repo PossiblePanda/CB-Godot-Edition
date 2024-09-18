@@ -7,25 +7,26 @@ const CHECKBOX_TEMPLATE = preload("res://Scenes/Menus/CheckboxTemplate.tscn")
 
 @onready var v_box_container: VBoxContainer = $Main/Black/VBoxContainer
 
+func new_slider(key):
+	var template = SLIDER_TEMPLATE.instantiate()
+	var slider : HSlider = template.get_node("HSlider")
+	slider.min_value = Config.data[key].min
+	slider.max_value = Config.data[key].max
+	template.setting = key
+	
+	return template
+
 func _ready() -> void:
 	for key in Config.data:
-		match type_string(typeof(Config.data[key].val)): #some copy pasting here
+		match type_string(typeof(Config.data[key].val)):
 			"int":
-				var template = SLIDER_TEMPLATE.instantiate()
+				var template = new_slider(key)
 				var slider : HSlider = template.get_node("HSlider")
-				slider.min_value = Config.data[key].min
-				slider.max_value = Config.data[key].max
 				slider.rounded = true
-				template.setting = key
 				
 				v_box_container.add_child(template)
 			"float":
-				var template = SLIDER_TEMPLATE.instantiate()
-				var slider : HSlider = template.get_node("HSlider")
-				slider.min_value = Config.data[key].min
-				slider.max_value = Config.data[key].max
-				template.setting = key
-				
+				var template = new_slider(key)
 				v_box_container.add_child(template)
 			"bool":
 				var template = CHECKBOX_TEMPLATE.instantiate()
@@ -39,3 +40,6 @@ func _on_back_button_pressed() -> void:
 	
 	if buttons:
 		buttons.visible = true
+
+func _on_hidden() -> void:
+	Config.save()
