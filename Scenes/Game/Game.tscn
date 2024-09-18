@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://c7ycjjma26xn1"]
+[gd_scene load_steps=46 format=3 uid="uid://c7ycjjma26xn1"]
 
 [ext_resource type="Script" path="res://Scripts/Game/game.gd" id="1_6saia"]
 [ext_resource type="PackedScene" uid="uid://b6k0jddpfnugw" path="res://Scenes/UI/Bar.tscn" id="1_hihoh"]
@@ -14,6 +14,7 @@
 [ext_resource type="Script" path="res://Scripts/Game/inventory.gd" id="12_qglpn"]
 [ext_resource type="PackedScene" uid="uid://j0ntohhf53pg" path="res://Scenes/Game/Player.tscn" id="13_6m25r"]
 [ext_resource type="ArrayMesh" uid="uid://bci1xcjm12kvv" path="res://Assets/Models/map/173_bright_opt.obj" id="14_gbaeh"]
+[ext_resource type="PackedScene" uid="uid://bmmsblkdw32ik" path="res://Assets/Models/scp173npc.tscn" id="14_y3a37"]
 [ext_resource type="Material" uid="uid://cr0ecbvax25js" path="res://Assets/Resources/materials/containment_door.tres" id="15_vos60"]
 [ext_resource type="Material" uid="uid://dbgcvqf8n7k14" path="res://Assets/Resources/materials/metal.tres" id="16_kj5mw"]
 [ext_resource type="Material" uid="uid://bdo1dmka67osg" path="res://Assets/Resources/materials/keyboard.tres" id="17_winqv"]
@@ -40,7 +41,7 @@
 [ext_resource type="PackedScene" uid="uid://cekjnxwgw27gr" path="res://Scenes/Map/Door01.tscn" id="38_4ypl8"]
 [ext_resource type="PackedScene" uid="uid://bj2bwnlyxodg3" path="res://Scenes/Game/Interactable/PressButton.tscn" id="38_543k1"]
 [ext_resource type="PackedScene" uid="uid://xovomocpn1if" path="res://Scenes/Game/Interactable/KeyCardButton.tscn" id="39_si4jp"]
-[ext_resource type="PackedScene" path="res://Scenes/Game/Interactable/ScannerButton.tscn" id="41_xevhb"]
+[ext_resource type="PackedScene" uid="uid://da3qljr42boki" path="res://Scenes/Game/Interactable/ScannerButton.tscn" id="41_xevhb"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ohwvc"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -385,6 +386,9 @@ offset_bottom = 78.5
 theme_override_fonts/font = ExtResource("7_odpv4")
 theme_override_font_sizes/font_size = 57
 text = "PAUSED"
+
+[node name="scp173" parent="CanvasLayer" instance=ExtResource("14_y3a37")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.3261, 1.44691, 6.97842)
 
 [node name="Map" type="Node3D" parent="."]
 process_mode = 1
