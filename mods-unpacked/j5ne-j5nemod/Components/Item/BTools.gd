@@ -16,4 +16,4 @@ static func interact(item: Item):
 	
 	Global.game.add_child(node)
 	
-	node.position = Global.game.player.position
+	node.position = Global.game.player.position + Vector3(0,0.5,0)
