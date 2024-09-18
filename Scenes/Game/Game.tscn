@@ -14,7 +14,7 @@
 [ext_resource type="Script" path="res://Scripts/Game/inventory.gd" id="12_qglpn"]
 [ext_resource type="PackedScene" uid="uid://j0ntohhf53pg" path="res://Scenes/Game/Player.tscn" id="13_6m25r"]
 [ext_resource type="ArrayMesh" uid="uid://bci1xcjm12kvv" path="res://Assets/Models/map/173_bright_opt.obj" id="14_gbaeh"]
-[ext_resource type="PackedScene" uid="uid://bmmsblkdw32ik" path="res://Assets/Models/scp173npc.tscn" id="14_y3a37"]
+[ext_resource type="PackedScene" path="res://Assets/Models/scp173npc.tscn" id="14_y3a37"]
 [ext_resource type="Material" uid="uid://cr0ecbvax25js" path="res://Assets/Resources/materials/containment_door.tres" id="15_vos60"]
 [ext_resource type="Material" uid="uid://dbgcvqf8n7k14" path="res://Assets/Resources/materials/metal.tres" id="16_kj5mw"]
 [ext_resource type="Material" uid="uid://bdo1dmka67osg" path="res://Assets/Resources/materials/keyboard.tres" id="17_winqv"]
@@ -446,7 +446,7 @@ shape = SubResource("ConcavePolygonShape3D_70xi6")
 
 [node name="Door01" parent="Map" node_paths=PackedStringArray("buttons") instance=ExtResource("38_4ypl8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.65507, 0, 0)
-buttons = [NodePath("../../Button"), NodePath("../../KeyCardButton")]
+buttons = [NodePath("../../Button"), NodePath("../../KeyCardButton"), NodePath("../../ScannerButton")]
 
 [node name="KeyCardButton" parent="." instance=ExtResource("39_si4jp")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -2.02064, 2.27755, -5.5326)
