@@ -48,10 +48,6 @@ enabled=PackedStringArray("res://addons/discord-rpc-gd/plugin.cfg")
 
 import/blender/enabled=false
 
-[global_group]
-
-Players=""
-
 [input]
 
 pause={
