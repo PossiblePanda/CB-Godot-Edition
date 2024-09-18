@@ -1,12 +1,12 @@
 [gd_scene load_steps=17 format=3 uid="uid://khal16sod4bq"]
 
-[ext_resource type="FontFile" uid="uid://dh10trw81fhd" path="res://Assets/Fonts/Courier New.ttf" id="1_xltrt"]
-[ext_resource type="Script" path="res://Scripts/UI/checkbox_config.gd" id="2_lepj1"]
-[ext_resource type="Texture2D" uid="uid://cjc6bd7mhahrc" path="res://Assets/Textures/menu/menuwhite.jpg" id="3_33cp2"]
-[ext_resource type="Texture2D" uid="uid://dxify33xk3x6j" path="res://Assets/Textures/menu/menublack.jpg" id="4_sx88v"]
+[ext_resource type="FontFile" uid="uid://dh10trw81fhd" path="res://Assets/Fonts/Courier New.ttf" id="1_3ghy6"]
+[ext_resource type="Script" path="res://Scripts/UI/checkbox_config.gd" id="2_efwtw"]
+[ext_resource type="Texture2D" uid="uid://cjc6bd7mhahrc" path="res://Assets/Textures/menu/menuwhite.jpg" id="3_76nm2"]
+[ext_resource type="Texture2D" uid="uid://dxify33xk3x6j" path="res://Assets/Textures/menu/menublack.jpg" id="4_vaiv4"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_y4yak"]
-font = ExtResource("1_xltrt")
+font = ExtResource("1_3ghy6")
 font_size = 19
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_u1o3b"]
@@ -34,7 +34,7 @@ font_size = 19
 [node name="CheckboxTemplate" type="Label"]
 text = "setting ()"
 label_settings = SubResource("LabelSettings_y4yak")
-script = ExtResource("2_lepj1")
+script = ExtResource("2_efwtw")
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 1
@@ -60,7 +60,7 @@ flat = true
 
 [node name="White" type="Sprite2D" parent="Button"]
 show_behind_parent = true
-texture = ExtResource("3_33cp2")
+texture = ExtResource("3_76nm2")
 centered = false
 region_enabled = true
 region_rect = Rect2(0, 0, 22, 22)
@@ -68,7 +68,7 @@ region_rect = Rect2(0, 0, 22, 22)
 [node name="Black" type="Sprite2D" parent="Button/White"]
 position = Vector2(1.16751, 1.14334)
 scale = Vector2(0.893863, 0.89606)
-texture = ExtResource("4_sx88v")
+texture = ExtResource("4_vaiv4")
 centered = false
 region_enabled = true
 region_rect = Rect2(0, 0, 22, 22)
@@ -79,7 +79,7 @@ show_behind_parent = true
 z_index = 1
 position = Vector2(4.20102, 4.20102)
 scale = Vector2(0.618089, 0.618089)
-texture = ExtResource("3_33cp2")
+texture = ExtResource("3_76nm2")
 centered = false
 region_enabled = true
 region_rect = Rect2(0, 0, 22, 22)

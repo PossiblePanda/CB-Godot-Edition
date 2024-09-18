@@ -14,7 +14,7 @@
 [ext_resource type="FontFile" uid="uid://dh10trw81fhd" path="res://Assets/Fonts/Courier New.ttf" id="13_0yiuc"]
 [ext_resource type="Texture2D" uid="uid://lmp5f6f0rrf8" path="res://Assets/Textures/menu/undertow.png" id="14_3nvhd"]
 [ext_resource type="FontVariation" uid="uid://cjctpsg1h7vx4" path="res://Assets/Fonts/Courier New Spacing.tres" id="14_yrkc2"]
-[ext_resource type="PackedScene" uid="uid://bk20e5tj3frid" path="res://Scenes/Menus/OptionsUI.tscn" id="15_apiox"]
+[ext_resource type="PackedScene" uid="uid://bk20e5tj3frid" path="res://Scenes/Menus/Options.tscn" id="15_apiox"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -250,8 +250,7 @@ texture = ExtResource("14_3nvhd")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="OptionsUI" parent="." node_paths=PackedStringArray("buttons") instance=ExtResource("15_apiox")]
-visible = false
+[node name="Options" parent="." node_paths=PackedStringArray("buttons") instance=ExtResource("15_apiox")]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
