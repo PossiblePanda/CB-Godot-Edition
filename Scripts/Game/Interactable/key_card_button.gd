@@ -23,7 +23,7 @@ func _ready():
 			_no_card()
 			sound.play()
 			return
-		if not Global.game.player.held_item.card_level:
+		if not Global.game.player.held_item is KeyCardItem:
 			_no_card()
 			sound.play()
 			return

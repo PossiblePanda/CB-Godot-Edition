@@ -16,12 +16,18 @@ func _ready():
 func register_item(item: Item):
 	items.append(item)
 
-func register_components():
-	var dir_access: DirAccess = DirAccess.open(COMPONENT_DIR)
+func register_component(path: String, file: String):
+	if file.ends_with(".gd"):
+		components[file.replace(".gd","")] = load(path+file)
+
+func register_component_dir(path: String):
+	var dir_access: DirAccess = DirAccess.open(path)
 	
 	for file in dir_access.get_files():
-		if file.ends_with(".gd"):
-			components[file.replace(".gd","")] = load(COMPONENT_DIR+file)
+		register_component(path, file)
+
+func register_components():
+	register_component_dir(COMPONENT_DIR)
 
 func get_items_in_dir(path: String):
 	var dir_access: DirAccess = DirAccess.open(path)

@@ -240,6 +240,7 @@ offset_bottom = 680.0
 theme_override_constants/h_separation = 35
 theme_override_constants/v_separation = 70
 script = ExtResource("12_qglpn")
+slot_count = 10
 
 [node name="InteractTexture" type="TextureRect" parent="CanvasLayer"]
 visible = false
