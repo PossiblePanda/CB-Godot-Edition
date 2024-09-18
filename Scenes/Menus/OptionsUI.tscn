@@ -11,6 +11,7 @@ font = ExtResource("3_h43l3")
 font_size = 64
 
 [node name="OptionsUI" type="Control"]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_pqnml")
@@ -86,6 +87,7 @@ region_rect = Rect2(0, 0, 181, 94)
 offset_right = 178.0
 offset_bottom = 91.0
 
+[connection signal="hidden" from="." to="." method="_on_hidden"]
 [connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
 
 [editable path="BackButton"]

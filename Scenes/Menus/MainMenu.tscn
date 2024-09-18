@@ -14,7 +14,7 @@
 [ext_resource type="FontFile" uid="uid://dh10trw81fhd" path="res://Assets/Fonts/Courier New.ttf" id="13_0yiuc"]
 [ext_resource type="Texture2D" uid="uid://lmp5f6f0rrf8" path="res://Assets/Textures/menu/undertow.png" id="14_3nvhd"]
 [ext_resource type="FontVariation" uid="uid://cjctpsg1h7vx4" path="res://Assets/Fonts/Courier New Spacing.tres" id="14_yrkc2"]
-[ext_resource type="PackedScene" path="res://Scenes/Menus/ConfigUI.tscn" id="15_apiox"]
+[ext_resource type="PackedScene" uid="uid://bk20e5tj3frid" path="res://Scenes/Menus/OptionsUI.tscn" id="15_apiox"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3

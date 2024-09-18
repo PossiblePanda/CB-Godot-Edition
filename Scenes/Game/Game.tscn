@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://c7ycjjma26xn1"]
+[gd_scene load_steps=47 format=3 uid="uid://c7ycjjma26xn1"]
 
 [ext_resource type="Script" path="res://Scripts/Game/game.gd" id="1_6saia"]
 [ext_resource type="PackedScene" uid="uid://b6k0jddpfnugw" path="res://Scenes/UI/Bar.tscn" id="1_hihoh"]
@@ -14,7 +14,8 @@
 [ext_resource type="Script" path="res://Scripts/Game/inventory.gd" id="12_qglpn"]
 [ext_resource type="PackedScene" uid="uid://j0ntohhf53pg" path="res://Scenes/Game/Player.tscn" id="13_6m25r"]
 [ext_resource type="ArrayMesh" uid="uid://bci1xcjm12kvv" path="res://Assets/Models/map/173_bright_opt.obj" id="14_gbaeh"]
-[ext_resource type="PackedScene" path="res://Assets/Models/scp173npc.tscn" id="14_y3a37"]
+[ext_resource type="PackedScene" uid="uid://bk20e5tj3frid" path="res://Scenes/Menus/OptionsUI.tscn" id="14_tq620"]
+[ext_resource type="PackedScene" uid="uid://bmmsblkdw32ik" path="res://Scenes/NPCs/scp173npc.tscn" id="14_y3a37"]
 [ext_resource type="Material" uid="uid://cr0ecbvax25js" path="res://Assets/Resources/materials/containment_door.tres" id="15_vos60"]
 [ext_resource type="Material" uid="uid://dbgcvqf8n7k14" path="res://Assets/Resources/materials/metal.tres" id="16_kj5mw"]
 [ext_resource type="Material" uid="uid://bdo1dmka67osg" path="res://Assets/Resources/materials/keyboard.tres" id="17_winqv"]
@@ -388,8 +389,12 @@ theme_override_fonts/font = ExtResource("7_odpv4")
 theme_override_font_sizes/font_size = 57
 text = "PAUSED"
 
-[node name="scp173" parent="CanvasLayer" instance=ExtResource("14_y3a37")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.3261, 1.44691, 6.97842)
+[node name="OptionsUI" parent="CanvasLayer/PauseMenu" node_paths=PackedStringArray("buttons") instance=ExtResource("14_tq620")]
+offset_left = -545.5
+offset_top = -0.5
+offset_right = -545.5
+offset_bottom = -0.5
+buttons = NodePath("../Buttons")
 
 [node name="Map" type="Node3D" parent="."]
 process_mode = 1
@@ -462,5 +467,8 @@ required_dna = Array[String](["SeveredHand"])
 
 [node name="Player" parent="." instance=ExtResource("13_6m25r")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 2.10838, 0.0317111, -2.41912)
+
+[node name="scp173" parent="." instance=ExtResource("14_y3a37")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.3261, 1.44691, 6.97842)
 
 [editable path="Player"]

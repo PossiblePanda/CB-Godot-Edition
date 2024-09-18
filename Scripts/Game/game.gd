@@ -7,6 +7,7 @@ extends Node3D
 @onready var blink_color: ColorRect = $CanvasLayer/Blink
 
 @onready var pause_menu: TextureRect = $CanvasLayer/PauseMenu
+@onready var options_ui: Control = $CanvasLayer/PauseMenu/OptionsUI
 @onready var inventory: Inventory = $CanvasLayer/Inventory
 
 @onready var player: Player = $Player
@@ -45,5 +46,6 @@ func toggle_pause():
 		
 	pause_menu.visible = not vis
 	get_tree().paused = not vis
+	options_ui.visible = false
 	
 	Input.mouse_mode = 2*int(vis)
