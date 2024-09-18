@@ -2,6 +2,7 @@ class_name Player
 extends CharacterBody3D
 
 @export var DNA: Array[String] = ["D-9341", "Class-D"]
+@export var health: Array[float] = [100, 100]
 
 @onready var canvas_layer: CanvasLayer = $"../CanvasLayer"
 @onready var neck: Node3D = $Neck
@@ -28,6 +29,8 @@ const EXHAUSTED = preload("res://Assets/Sounds/SFX/player/exhausted.ogg")
 const BREATH_1 = preload("res://Assets/Sounds/SFX/player/breath1.ogg")
 const BREATH_2 = preload("res://Assets/Sounds/SFX/player/breath2.ogg")
 const BREATH_3 = preload("res://Assets/Sounds/SFX/player/breath3.ogg")
+
+var current_health: Array[float] = health
 
 var current_document: DocumentItem:
 	set(val):
@@ -207,3 +210,12 @@ func add_dna(dna_string: String)->void:
 
 func has_dna(dna_string: String) -> bool:
 	return DNA.has(dna_string)
+
+## Health manager.
+func health_manage(amount: float, type: int):
+	if current_health[type] + amount <= health[type]:
+		current_health[type] += amount
+	else:
+		current_health = health
+	if current_health[type] <= 0:
+		get_parent().toggle_pause()
