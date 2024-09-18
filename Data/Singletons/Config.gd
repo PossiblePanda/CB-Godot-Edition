@@ -1,6 +1,6 @@
 extends Node
 
-signal setting_changed
+signal setting_changed(key : String)
 
 var password = OS.get_unique_id()
 
