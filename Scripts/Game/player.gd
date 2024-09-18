@@ -6,6 +6,7 @@ extends CharacterBody3D
 
 @onready var canvas_layer: CanvasLayer = $"../CanvasLayer"
 @onready var neck: Node3D = $Neck
+@onready var camera: Camera3D = $Neck/Camera3D
 @onready var footstep: AudioStreamPlayer3D = $Footstep
 @onready var breath: AudioStreamPlayer3D = $Neck/Breath
 @onready var exhausted: AudioStreamPlayer3D = $Neck/Exhausted
@@ -118,12 +119,21 @@ func _ready():
 				breath.play()
 		)
 
+var sinTime := 0.0
 func _process(delta: float) -> void:
 	if not is_on_floor():
 		velocity.y -= gravity * delta
 	
 	var input_dir = Input.get_vector("left", "right", "forward", "backward")
 	var direction = transform.basis * Vector3(input_dir.x, 0, input_dir.y).normalized()
+	
+	if input_dir != Vector2.ZERO:
+		if Config.data.head_bobbing.val:
+			sinTime += delta
+			const SIN_SPEED = 7.75
+			
+			camera.position.y = sin(sinTime * SIN_SPEED) * 0.125
+			camera.rotate_z(sin(sinTime * SIN_SPEED / 2) * 0.00025)
 	
 	if direction and Global.game.pause_menu.visible == false and inventory.visible == false:
 		velocity.x = direction.x * speed

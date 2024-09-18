@@ -4,7 +4,8 @@ var password = OS.get_unique_id()
 
 var data = {
 	mouse_sensitivity = {val = 50, string = "Mouse Sensitivity",min = 0, max = 200},
-	test = {val = false, string = "Test"}
+	test = {val = false, string = "Test"},
+	head_bobbing = {val = true, string = "Head Bobbing"}
 }
 
 var config = ConfigFile.new()
