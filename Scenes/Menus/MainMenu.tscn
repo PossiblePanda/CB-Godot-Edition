@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://hm3egqqxdan5"]
+[gd_scene load_steps=16 format=3 uid="uid://hm3egqqxdan5"]
 
 [ext_resource type="Script" path="res://Scripts/Menus/MainMenu.gd" id="1_3k6pw"]
 [ext_resource type="Texture2D" uid="uid://yb3gs6jxmfpx" path="res://Assets/Textures/menu/back.jpg" id="1_nn8c6"]
@@ -14,6 +14,7 @@
 [ext_resource type="FontFile" uid="uid://dh10trw81fhd" path="res://Assets/Fonts/Courier New.ttf" id="13_0yiuc"]
 [ext_resource type="Texture2D" uid="uid://lmp5f6f0rrf8" path="res://Assets/Textures/menu/undertow.png" id="14_3nvhd"]
 [ext_resource type="FontVariation" uid="uid://cjctpsg1h7vx4" path="res://Assets/Fonts/Courier New Spacing.tres" id="14_yrkc2"]
+[ext_resource type="PackedScene" uid="uid://bk20e5tj3frid" path="res://Scenes/Menus/ConfigUI.tscn" id="15_apiox"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -234,6 +235,22 @@ layout_mode = 2
 texture = ExtResource("14_3nvhd")
 expand_mode = 1
 stretch_mode = 5
+
+[node name="OptionsUI" parent="." node_paths=PackedStringArray("buttons") instance=ExtResource("15_apiox")]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -792.0
+offset_top = -238.0
+offset_right = -792.0
+offset_bottom = -238.0
+grow_horizontal = 2
+grow_vertical = 2
+buttons = NodePath("../Buttons")
 
 [connection signal="focus_entered" from="MarginContainer" to="." method="_on_margin_container_focus_entered"]
 [connection signal="focus_exited" from="MarginContainer" to="." method="_on_margin_container_focus_exited"]

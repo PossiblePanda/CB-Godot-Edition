@@ -1,0 +1,91 @@
+[gd_scene load_steps=7 format=3 uid="uid://bk20e5tj3frid"]
+
+[ext_resource type="Texture2D" uid="uid://cjc6bd7mhahrc" path="res://Assets/Textures/menu/menuwhite.jpg" id="1_6qbd1"]
+[ext_resource type="Texture2D" uid="uid://dxify33xk3x6j" path="res://Assets/Textures/menu/menublack.jpg" id="1_nbnp6"]
+[ext_resource type="Script" path="res://Scripts/Menus/OptionsUI.gd" id="1_pqnml"]
+[ext_resource type="FontFile" uid="uid://dh10trw81fhd" path="res://Assets/Fonts/Courier New.ttf" id="3_h43l3"]
+[ext_resource type="PackedScene" uid="uid://bcs2x61b04ffa" path="res://Scenes/UI/Button.tscn" id="4_m4kt2"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_qvudx"]
+font = ExtResource("3_h43l3")
+font_size = 64
+
+[node name="OptionsUI" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_pqnml")
+
+[node name="White" type="Sprite2D" parent="."]
+show_behind_parent = true
+texture = ExtResource("1_6qbd1")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 360, 94)
+
+[node name="Black" type="Sprite2D" parent="White"]
+position = Vector2(2.99999, 4)
+scale = Vector2(0.983333, 0.925532)
+texture = ExtResource("1_nbnp6")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 360, 94)
+
+[node name="Label" type="Label" parent="White"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "OPTIONS"
+label_settings = SubResource("LabelSettings_qvudx")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Main" type="Sprite2D" parent="."]
+show_behind_parent = true
+position = Vector2(0, 96)
+texture = ExtResource("1_6qbd1")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 543, 592)
+
+[node name="Black" type="Sprite2D" parent="Main"]
+position = Vector2(2.99999, 3)
+scale = Vector2(0.98895, 0.989865)
+texture = ExtResource("1_nbnp6")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 543, 592)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Main/Black"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 12.0
+offset_top = 13.0
+offset_right = -12.0
+offset_bottom = -13.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BackButton" parent="." instance=ExtResource("4_m4kt2")]
+layout_mode = 0
+offset_left = 362.0
+offset_right = 543.0
+offset_bottom = 94.0
+text = "BACK"
+
+[node name="White" parent="BackButton" index="0"]
+region_rect = Rect2(0, 0, 181, 94)
+
+[node name="Black" parent="BackButton/White" index="0"]
+scale = Vector2(0.966851, 0.93617)
+region_rect = Rect2(0, 0, 181, 94)
+
+[node name="HoveredColor" parent="BackButton/White" index="1"]
+offset_right = 178.0
+offset_bottom = 91.0
+
+[connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
+
+[editable path="BackButton"]

@@ -6,7 +6,8 @@ var logo_hovered: bool = false
 
 @onready var credits_menu = $CreditsMenu
 @onready var logo = $MarginContainer/Control/Logo
-@onready var buttons = $Buttons
+@onready var buttons: VBoxContainer = $Buttons
+@onready var options_ui: Control = $OptionsUI
 
 func _ready():
 	connect_buttons()
@@ -21,6 +22,9 @@ func _on_button_pressed(button: Button):
 			get_tree().quit()
 		"NewGameButton":
 			get_tree().change_scene_to_file(GAME)
+		"OptionsButton":
+			options_ui.visible = true
+			buttons.visible = false
 			
 func _input(event):
 	if event is InputEventMouseButton:
