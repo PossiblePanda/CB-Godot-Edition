@@ -3,12 +3,12 @@
 importer="oggvorbisstr"
 type="AudioStreamOggVorbis"
 uid="uid://2u7vfaqc6gc0"
-path="res://.godot/imported/Rattle3.ogg-f385ae0cbd5a678d1513a5eac7e2e779.oggvorbisstr"
+path="res://.godot/imported/Rattle3.ogg-a8941ecd8de4aac7c82e9ebe0765be71.oggvorbisstr"
 
 [deps]
 
-source_file="res://Assets/Sounds/Character/173/Rattle3.ogg"
-dest_files=["res://.godot/imported/Rattle3.ogg-f385ae0cbd5a678d1513a5eac7e2e779.oggvorbisstr"]
+source_file="res://assets/sounds/character/173/Rattle3.ogg"
+dest_files=["res://.godot/imported/Rattle3.ogg-a8941ecd8de4aac7c82e9ebe0765be71.oggvorbisstr"]
 
 [params]
 

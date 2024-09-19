@@ -3,12 +3,12 @@
 importer="oggvorbisstr"
 type="AudioStreamOggVorbis"
 uid="uid://cmxlgut1kqse2"
-path="res://.godot/imported/KeycardUse1.ogg-f95a7a52c83c706a109dc2a6a874b30b.oggvorbisstr"
+path="res://.godot/imported/KeycardUse1.ogg-14afb07df68cbd7dc41d35ae22fdaca9.oggvorbisstr"
 
 [deps]
 
-source_file="res://Assets/Sounds/SFX/interact/KeycardUse1.ogg"
-dest_files=["res://.godot/imported/KeycardUse1.ogg-f95a7a52c83c706a109dc2a6a874b30b.oggvorbisstr"]
+source_file="res://assets/sounds/sfx/interact/KeycardUse1.ogg"
+dest_files=["res://.godot/imported/KeycardUse1.ogg-14afb07df68cbd7dc41d35ae22fdaca9.oggvorbisstr"]
 
 [params]
 

@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dchl3qrr1aacj"]
 
-[ext_resource type="Script" path="res://Scripts/InteractionPrompt.gd" id="1_oei7y"]
+[ext_resource type="Script" path="res://scripts/interaction_prompt.gd" id="1_oei7y"]
 
 [node name="InteractionPrompt" type="Node3D"]
 script = ExtResource("1_oei7y")

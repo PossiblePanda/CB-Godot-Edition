@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bw1snqv264d32"
-path="res://.godot/imported/pill.jpg-e664c7d3553b8dff3a07d6f3cd3029b7.ctex"
+path="res://.godot/imported/pill.jpg-e747df2971b7fa33835bf7ce050bb0cc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Textures/items/icon/pill.jpg"
-dest_files=["res://.godot/imported/pill.jpg-e664c7d3553b8dff3a07d6f3cd3029b7.ctex"]
+source_file="res://assets/textures/items/icon/pill.jpg"
+dest_files=["res://.godot/imported/pill.jpg-e747df2971b7fa33835bf7ce050bb0cc.ctex"]
 
 [params]
 

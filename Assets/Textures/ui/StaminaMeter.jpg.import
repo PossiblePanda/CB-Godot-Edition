@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dyefyts3kyxop"
-path="res://.godot/imported/StaminaMeter.jpg-2fabec482e8b18fd4a1968e915cf63e3.ctex"
+path="res://.godot/imported/StaminaMeter.jpg-feb4f018a8156ca57b44ee0c45a04596.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Textures/ui/StaminaMeter.jpg"
-dest_files=["res://.godot/imported/StaminaMeter.jpg-2fabec482e8b18fd4a1968e915cf63e3.ctex"]
+source_file="res://assets/textures/ui/StaminaMeter.jpg"
+dest_files=["res://.godot/imported/StaminaMeter.jpg-feb4f018a8156ca57b44ee0c45a04596.ctex"]
 
 [params]
 

@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dxj851nikx1cg"
-path.s3tc="res://.godot/imported/2_office_lamps_dif.jpg-116c6fc6bd2f1b129e89e3c6738b1bad.s3tc.ctex"
+path.s3tc="res://.godot/imported/2_office_lamps_dif.jpg-fc08729d4432b962eb9d7052531daa4d.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/Textures/models/2_office_lamps_dif.jpg"
-dest_files=["res://.godot/imported/2_office_lamps_dif.jpg-116c6fc6bd2f1b129e89e3c6738b1bad.s3tc.ctex"]
+source_file="res://assets/textures/models/2_office_lamps_dif.jpg"
+dest_files=["res://.godot/imported/2_office_lamps_dif.jpg-fc08729d4432b962eb9d7052531daa4d.s3tc.ctex"]
 
 [params]
 

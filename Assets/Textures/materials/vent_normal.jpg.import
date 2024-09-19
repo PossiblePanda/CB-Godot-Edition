@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://6nkd2b5ftyyy"
-path.s3tc="res://.godot/imported/vent_normal.jpg-ed9d4162fbeba997bcec57bfe3219986.s3tc.ctex"
+path.s3tc="res://.godot/imported/vent_normal.jpg-5d44af84a7d98768086ce4d56949af75.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/Textures/materials/vent_normal.jpg"
-dest_files=["res://.godot/imported/vent_normal.jpg-ed9d4162fbeba997bcec57bfe3219986.s3tc.ctex"]
+source_file="res://assets/textures/materials/vent_normal.jpg"
+dest_files=["res://.godot/imported/vent_normal.jpg-5d44af84a7d98768086ce4d56949af75.s3tc.ctex"]
 
 [params]
 

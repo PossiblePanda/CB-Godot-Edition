@@ -1,6 +1,6 @@
 extends TextureRect
 
-const MAIN_MENU = "res://Scenes/Menus/MainMenu.tscn"
+const MAIN_MENU = "res://scenes/menus/main_menu.tscn"
 
 @onready var game = $"../.."
 @onready var buttons = $Buttons

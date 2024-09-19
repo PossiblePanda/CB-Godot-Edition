@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://evavji72f743"
-path="res://.godot/imported/eyedrops.jpg-acdc2504c3877d044e37c5eb0af7e2c4.ctex"
+path="res://.godot/imported/eyedrops.jpg-b16d15b89334a7d8a2db7dee7d170b82.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Textures/items/icon/eyedrops.jpg"
-dest_files=["res://.godot/imported/eyedrops.jpg-acdc2504c3877d044e37c5eb0af7e2c4.ctex"]
+source_file="res://assets/textures/items/icon/eyedrops.jpg"
+dest_files=["res://.godot/imported/eyedrops.jpg-b16d15b89334a7d8a2db7dee7d170b82.ctex"]
 
 [params]
 

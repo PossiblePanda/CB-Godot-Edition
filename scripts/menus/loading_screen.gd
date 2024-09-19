@@ -2,7 +2,7 @@ class_name Loading
 extends Control
 
 @export var hint: LoadingHint
-@export var next_scene: String = "res://Scenes/Menus/MainMenu.tscn"
+@export var next_scene: String = "res://scenes/menus/main_menu.tscn"
 
 var loaded: bool = false
 

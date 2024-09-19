@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://cc8epnwcxjago"
-path="res://.godot/imported/Journal.ttf-e5bec17d291abec009123fb9bf53c9d1.fontdata"
+path="res://.godot/imported/Journal.ttf-32ac2ec70cd7ec99cd188f343977d1fb.fontdata"
 
 [deps]
 
-source_file="res://Assets/Fonts/Journal.ttf"
-dest_files=["res://.godot/imported/Journal.ttf-e5bec17d291abec009123fb9bf53c9d1.fontdata"]
+source_file="res://assets/fonts/Journal.ttf"
+dest_files=["res://.godot/imported/Journal.ttf-32ac2ec70cd7ec99cd188f343977d1fb.fontdata"]
 
 [params]
 

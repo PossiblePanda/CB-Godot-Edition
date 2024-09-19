@@ -4,14 +4,14 @@ importer="wavefront_obj"
 importer_version=1
 type="Mesh"
 uid="uid://dovkaekgxscue"
-path="res://.godot/imported/button.obj-abdb2b54259ed438ca1d0b8f0d78290f.mesh"
+path="res://.godot/imported/button.obj-e48537df60ff6dd713bd892ae3453aee.mesh"
 
 [deps]
 
-files=["res://.godot/imported/button.obj-abdb2b54259ed438ca1d0b8f0d78290f.mesh"]
+files=["res://.godot/imported/button.obj-e48537df60ff6dd713bd892ae3453aee.mesh"]
 
-source_file="res://Assets/Models/map/button.obj"
-dest_files=["res://.godot/imported/button.obj-abdb2b54259ed438ca1d0b8f0d78290f.mesh", "res://.godot/imported/button.obj-abdb2b54259ed438ca1d0b8f0d78290f.mesh"]
+source_file="res://assets/models/map/button.obj"
+dest_files=["res://.godot/imported/button.obj-e48537df60ff6dd713bd892ae3453aee.mesh", "res://.godot/imported/button.obj-e48537df60ff6dd713bd892ae3453aee.mesh"]
 
 [params]
 

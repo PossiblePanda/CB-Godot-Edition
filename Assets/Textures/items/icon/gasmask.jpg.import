@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c82kgrd0a0tqr"
-path="res://.godot/imported/gasmask.jpg-750d460f32676188771fc0fb76deeb6f.ctex"
+path="res://.godot/imported/gasmask.jpg-8179a599cbcd942d70c29ac2f95e333b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Textures/items/icon/gasmask.jpg"
-dest_files=["res://.godot/imported/gasmask.jpg-750d460f32676188771fc0fb76deeb6f.ctex"]
+source_file="res://assets/textures/items/icon/gasmask.jpg"
+dest_files=["res://.godot/imported/gasmask.jpg-8179a599cbcd942d70c29ac2f95e333b.ctex"]
 
 [params]
 
