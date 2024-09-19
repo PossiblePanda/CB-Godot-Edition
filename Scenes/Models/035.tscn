@@ -1,8 +1,8 @@
 [gd_scene load_steps=11 format=4 uid="uid://jgolqqn6qeer"]
 
-[ext_resource type="PackedScene" uid="uid://blvrcg30xcd7q" path="res://Assets/Models/035.glb" id="1_n603j"]
-[ext_resource type="Material" uid="uid://b2gdku6icdtdb" path="res://Assets/Resources/materials/035.tres" id="2_ckvh1"]
-[ext_resource type="Material" uid="uid://rpe03wcv1qni" path="res://Assets/Resources/materials/035_mask.tres" id="3_ve038"]
+[ext_resource type="PackedScene" uid="uid://blvrcg30xcd7q" path="res://assets/models/035.glb" id="1_n603j"]
+[ext_resource type="Material" uid="uid://b2gdku6icdtdb" path="res://assets/resources/materials/035.tres" id="2_ckvh1"]
+[ext_resource type="Material" uid="uid://rpe03wcv1qni" path="res://assets/resources/materials/035_mask.tres" id="3_ve038"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_iooyq"]
 resource_name = "default_mesh"

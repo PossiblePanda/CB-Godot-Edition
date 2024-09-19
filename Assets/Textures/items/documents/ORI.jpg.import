@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bkoyb2beg0iwd"
-path="res://.godot/imported/ORI.jpg-12a79b9ff87b07e5a9775ca56e720e49.ctex"
+path="res://.godot/imported/ORI.jpg-384a06fc6ac48ee9b03c3cbcf24de05d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Textures/items/documents/ORI.jpg"
-dest_files=["res://.godot/imported/ORI.jpg-12a79b9ff87b07e5a9775ca56e720e49.ctex"]
+source_file="res://assets/textures/items/documents/ORI.jpg"
+dest_files=["res://.godot/imported/ORI.jpg-384a06fc6ac48ee9b03c3cbcf24de05d.ctex"]
 
 [params]
 

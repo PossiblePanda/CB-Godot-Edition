@@ -1,7 +1,7 @@
 extends Node
 
-const LOADING_SCREEN = preload("res://Scenes/Menus/Loading.tscn")
-const HINT_DIR = "res://Data/Resources/LoadingHints/"
+const LOADING_SCREEN = preload("res://scenes/menus/loading.tscn")
+const HINT_DIR = "res://data/resources/loading_hints/"
 
 var hints: Array[LoadingHint] = []
 

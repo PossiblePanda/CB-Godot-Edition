@@ -1,7 +1,7 @@
 class_name Inventory
 extends HFlowContainer
 
-const INVENTORY_SLOT = preload("res://Scenes/UI/InventorySlot.tscn")
+const INVENTORY_SLOT = preload("res://scenes/ui/inventory_slot.tscn")
 
 var hovered_slot: InventorySlot
 

@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dqsu2r78dvv8v"]
 
-[ext_resource type="PackedScene" uid="uid://l5ppxx58x2gv" path="res://Assets/Models/106.glb" id="1_vrhwt"]
+[ext_resource type="PackedScene" uid="uid://l5ppxx58x2gv" path="res://assets/models/106.glb" id="1_vrhwt"]
 
 [node name="default" instance=ExtResource("1_vrhwt")]
 

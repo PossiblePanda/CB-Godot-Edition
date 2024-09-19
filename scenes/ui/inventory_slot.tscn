@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://cyrqurnnbdmk3"]
 
-[ext_resource type="Script" path="res://Scripts/UI/InventorySlot.gd" id="1_jixcj"]
-[ext_resource type="Texture2D" uid="uid://cjc6bd7mhahrc" path="res://Assets/Textures/menu/menuwhite.jpg" id="1_qnfql"]
-[ext_resource type="Texture2D" uid="uid://dxify33xk3x6j" path="res://Assets/Textures/menu/menublack.jpg" id="2_4acc2"]
-[ext_resource type="FontVariation" uid="uid://cjctpsg1h7vx4" path="res://Assets/Fonts/Courier New Spacing.tres" id="4_p440q"]
+[ext_resource type="Script" path="res://scripts/ui/inventory_slot.gd" id="1_jixcj"]
+[ext_resource type="Texture2D" uid="uid://cjc6bd7mhahrc" path="res://assets/textures/menu/menuwhite.jpg" id="1_qnfql"]
+[ext_resource type="Texture2D" uid="uid://dxify33xk3x6j" path="res://assets/textures/menu/menublack.jpg" id="2_4acc2"]
+[ext_resource type="FontVariation" uid="uid://cjctpsg1h7vx4" path="res://assets/fonts/Courier New Spacing.tres" id="4_p440q"]
 
 [node name="InventorySlot" type="Control"]
 custom_minimum_size = Vector2(70, 70)

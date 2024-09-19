@@ -1,10 +1,10 @@
 [gd_scene load_steps=6 format=3 uid="uid://b46y4fn5cihw2"]
 
-[ext_resource type="Script" path="res://Scripts/Menus/LoadingScreen.gd" id="1_5qxi5"]
-[ext_resource type="Texture2D" uid="uid://cc7gi2s5mj7ni" path="res://Assets/Textures/menu/loading/loadingback.jpg" id="2_gqn4w"]
-[ext_resource type="FontVariation" uid="uid://cjctpsg1h7vx4" path="res://Assets/Fonts/Courier New Spacing.tres" id="3_quwpj"]
-[ext_resource type="PackedScene" uid="uid://b6k0jddpfnugw" path="res://Scenes/UI/Bar.tscn" id="4_6xiec"]
-[ext_resource type="Texture2D" uid="uid://uaq3nqpln5ae" path="res://Assets/Textures/ui/BlinkMeter.jpg" id="4_dxtjs"]
+[ext_resource type="Script" path="res://scripts/menus/loading_screen.gd" id="1_5qxi5"]
+[ext_resource type="Texture2D" uid="uid://cc7gi2s5mj7ni" path="res://assets/textures/menu/loading/loadingback.jpg" id="2_gqn4w"]
+[ext_resource type="FontVariation" uid="uid://cjctpsg1h7vx4" path="res://assets/fonts/Courier New Spacing.tres" id="3_quwpj"]
+[ext_resource type="PackedScene" uid="uid://b6k0jddpfnugw" path="res://scenes/ui/bar.tscn" id="4_6xiec"]
+[ext_resource type="Texture2D" uid="uid://uaq3nqpln5ae" path="res://assets/textures/ui/BlinkMeter.jpg" id="4_dxtjs"]
 
 [node name="Loading" type="Control"]
 layout_mode = 3

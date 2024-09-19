@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cltlb1oblttih"
-path="res://.godot/imported/sprinticon.png-96bb3931fd6975f183c6b06804a71dd9.ctex"
+path="res://.godot/imported/sprinticon.png-22569599fafd50cfaa6907b07d12871d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Textures/ui/sprinticon.png"
-dest_files=["res://.godot/imported/sprinticon.png-96bb3931fd6975f183c6b06804a71dd9.ctex"]
+source_file="res://assets/textures/ui/sprinticon.png"
+dest_files=["res://.godot/imported/sprinticon.png-22569599fafd50cfaa6907b07d12871d.ctex"]
 
 [params]
 

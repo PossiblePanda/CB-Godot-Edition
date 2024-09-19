@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b6rswh2slv5xf"
-path="res://.godot/imported/scp427.jpg-7d9e605bef6917b3421b6a767ae2d4a1.ctex"
+path="res://.godot/imported/scp427.jpg-2860d16a881d788918344fadc59ac3a8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Textures/items/icon/scp427.jpg"
-dest_files=["res://.godot/imported/scp427.jpg-7d9e605bef6917b3421b6a767ae2d4a1.ctex"]
+source_file="res://assets/textures/items/icon/scp427.jpg"
+dest_files=["res://.godot/imported/scp427.jpg-2860d16a881d788918344fadc59ac3a8.ctex"]
 
 [params]
 

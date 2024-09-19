@@ -10,4 +10,4 @@ func _ready() -> void:
 	
 	ModLoaderLog.info(mod_dir_path, AUTHORNAME_MODNAME_LOG_NAME)
 	
-	ItemManager.register_item_dir(mod_dir_path+"Items"+"/")
+	ItemManager.register_item_dir(mod_dir_path+"items"+"/")

@@ -1,6 +1,6 @@
 extends Control
 
-const GAME = "res://Scenes/Game/Game.tscn"
+const GAME = "res://scenes/game/game.tscn"
 
 var logo_hovered: bool = false
 

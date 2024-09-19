@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://bk20e5tj3frid"]
 
-[ext_resource type="Script" path="res://Scripts/Menus/Options.gd" id="1_pqnml"]
-[ext_resource type="PackedScene" uid="uid://bcs2x61b04ffa" path="res://Scenes/UI/Button.tscn" id="4_m4kt2"]
-[ext_resource type="Texture2D" uid="uid://bnd1xcsafxn01" path="res://Assets/Textures/menu/pausemenu.jpg" id="5_xs64t"]
+[ext_resource type="Script" path="res://scripts/menus/options.gd" id="1_pqnml"]
+[ext_resource type="PackedScene" uid="uid://bcs2x61b04ffa" path="res://scenes/ui/button.tscn" id="4_m4kt2"]
+[ext_resource type="Texture2D" uid="uid://bnd1xcsafxn01" path="res://assets/textures/menu/pausemenu.jpg" id="5_xs64t"]
 
 [node name="Options" type="Control"]
 visible = false

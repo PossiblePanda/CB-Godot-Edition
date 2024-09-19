@@ -1,7 +1,7 @@
 extends Control
 
-const SLIDER_TEMPLATE = preload("res://Scenes/UI/SliderTemplate.tscn")
-const CHECKBOX_TEMPLATE = preload("res://Scenes/UI/CheckboxTemplate.tscn")
+const SLIDER_TEMPLATE = preload("res://scenes/ui/slider_template.tscn")
+const CHECKBOX_TEMPLATE = preload("res://scenes/ui/checkbox_template.tscn")
 
 @export var buttons: VBoxContainer
 @onready var v_box_container: VBoxContainer = $Main/VBoxContainer

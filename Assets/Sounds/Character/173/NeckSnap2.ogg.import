@@ -3,12 +3,12 @@
 importer="oggvorbisstr"
 type="AudioStreamOggVorbis"
 uid="uid://bth1wsrxep5w6"
-path="res://.godot/imported/NeckSnap2.ogg-efd9779b0b221eddd0c35c62dd0f2cf5.oggvorbisstr"
+path="res://.godot/imported/NeckSnap2.ogg-dcf51c094dd9c9611907d9998a4c1234.oggvorbisstr"
 
 [deps]
 
-source_file="res://Assets/Sounds/Character/173/NeckSnap2.ogg"
-dest_files=["res://.godot/imported/NeckSnap2.ogg-efd9779b0b221eddd0c35c62dd0f2cf5.oggvorbisstr"]
+source_file="res://assets/sounds/character/173/NeckSnap2.ogg"
+dest_files=["res://.godot/imported/NeckSnap2.ogg-dcf51c094dd9c9611907d9998a4c1234.oggvorbisstr"]
 
 [params]
 

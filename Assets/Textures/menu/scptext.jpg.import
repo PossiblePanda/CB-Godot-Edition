@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cxqp5wem0rgph"
-path.s3tc="res://.godot/imported/scptext.jpg-30644a98ce3c7089f1597b2a105bcfc0.s3tc.ctex"
+path.s3tc="res://.godot/imported/scptext.jpg-8c781bf7bd8f474076971c57792c0e85.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/Textures/menu/scptext.jpg"
-dest_files=["res://.godot/imported/scptext.jpg-30644a98ce3c7089f1597b2a105bcfc0.s3tc.ctex"]
+source_file="res://assets/textures/menu/scptext.jpg"
+dest_files=["res://.godot/imported/scptext.jpg-8c781bf7bd8f474076971c57792c0e85.s3tc.ctex"]
 
 [params]
 

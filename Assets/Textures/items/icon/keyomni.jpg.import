@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dpjcck7i1ono"
-path="res://.godot/imported/keyomni.jpg-5685ef6d2b4f50e672c31ef5aa378122.ctex"
+path="res://.godot/imported/keyomni.jpg-5c8fd06760c788acae716acd48a7dfd2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Textures/items/icon/keyomni.jpg"
-dest_files=["res://.godot/imported/keyomni.jpg-5685ef6d2b4f50e672c31ef5aa378122.ctex"]
+source_file="res://assets/textures/items/icon/keyomni.jpg"
+dest_files=["res://.godot/imported/keyomni.jpg-5c8fd06760c788acae716acd48a7dfd2.ctex"]
 
 [params]
 

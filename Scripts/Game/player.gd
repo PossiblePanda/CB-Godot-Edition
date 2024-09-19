@@ -26,10 +26,10 @@ extends CharacterBody3D
 @onready var inventory: Inventory = $"../CanvasLayer/Inventory"
 
 const BLINK_TIME = 0.1
-const EXHAUSTED = preload("res://Assets/Sounds/SFX/player/exhausted.ogg")
-const BREATH_1 = preload("res://Assets/Sounds/SFX/player/breath1.ogg")
-const BREATH_2 = preload("res://Assets/Sounds/SFX/player/breath2.ogg")
-const BREATH_3 = preload("res://Assets/Sounds/SFX/player/breath3.ogg")
+const EXHAUSTED = preload("res://assets/sounds/sfx/player/exhausted.ogg")
+const BREATH_1 = preload("res://assets/sounds/sfx/player/breath1.ogg")
+const BREATH_2 = preload("res://assets/sounds/sfx/player/breath2.ogg")
+const BREATH_3 = preload("res://assets/sounds/sfx/player/breath3.ogg")
 
 var current_health: Array[float] = health
 
