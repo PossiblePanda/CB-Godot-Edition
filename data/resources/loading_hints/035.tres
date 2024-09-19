@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="LoadingHint" load_steps=3 format=3 uid="uid://b42fn4r0wd7um"]
+
+[ext_resource type="Texture2D" uid="uid://3s10r4b0013x" path="res://assets/textures/menu/loading/012.jpg" id="1_ljw0w"]
+[ext_resource type="Script" path="res://data/resources/loading_hints/loading_hint.gd" id="2_lj444"]
+
+[resource]
+script = ExtResource("2_lj444")
+title = "SCP-012"
+image = ExtResource("1_ljw0w")
+alignment_x = 2
+alignment_y = 2
+disabled_background = true
+text = Array[String](["SCP-012 was retrieved by Archaeologist K.M. Sandoval during the excavation of a northern Italian tomb. The object, a piece of handwritten musical score entitled \"On Mount Golgotha\", appears to be incomplete.", "The red/black ink, first thought to be some form of berry or natural dye ink, was later found to be human blood from multiple subjects.", "Multiple test subjects have been allowed access to the score. In every case, the subjects mutilated themselves in order to use their own blood to finish the piece, resulting in subsequent symptoms of psychosis and massive trauma."])

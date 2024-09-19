@@ -1,6 +1,0 @@
-[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://cw73xn3uscg87"]
-
-[ext_resource type="Texture2D" uid="uid://b54d73x5b30gm" path="res://Assets/Resources/materials/ceiling.jpg" id="1_6exon"]
-
-[resource]
-albedo_texture = ExtResource("1_6exon")

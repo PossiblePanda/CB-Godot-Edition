@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://bmmsblkdw32ik"]
+
+[ext_resource type="Script" path="res://scripts/npc/scp173npc.gd" id="1_cpy7w"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_n0cb2"]
+radius = 0.513865
+height = 2.94685
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_qtwce"]
+height = 3.15
+
+[node name="scp173" type="CharacterBody3D"]
+collision_layer = 7
+collision_mask = 7
+script = ExtResource("1_cpy7w")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.111955, 0)
+shape = SubResource("CapsuleShape3D_n0cb2")
+
+[node name="InteractSound" type="AudioStreamPlayer3D" parent="."]
+max_distance = 17.15
+
+[node name="DontLookAtMe" type="VisibleOnScreenNotifier3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.144103, 0.0960684)
+aabb = AABB(-0.52037, -1.44103, -0.52037, 1.04074, 2.88205, 1.04074)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_qtwce")
+
+[connection signal="screen_entered" from="DontLookAtMe" to="." method="_on_dont_look_at_me_screen_entered"]
+[connection signal="screen_exited" from="DontLookAtMe" to="." method="_on_dont_look_at_me_screen_exited"]

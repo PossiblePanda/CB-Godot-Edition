@@ -1,7 +1,0 @@
-[gd_resource type="FontVariation" load_steps=2 format=3 uid="uid://do82tn1v8whll"]
-
-[ext_resource type="FontFile" uid="uid://b2msbh1odtnp7" path="res://Assets/Fonts/Courier New Bold.ttf" id="1_sevih"]
-
-[resource]
-base_font = ExtResource("1_sevih")
-spacing_glyph = 1

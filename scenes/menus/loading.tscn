@@ -1,0 +1,234 @@
+[gd_scene load_steps=6 format=3 uid="uid://b46y4fn5cihw2"]
+
+[ext_resource type="Script" path="res://scripts/menus/loading_screen.gd" id="1_fyve1"]
+[ext_resource type="Texture2D" uid="uid://cc7gi2s5mj7ni" path="res://assets/textures/menu/loading/loadingback.jpg" id="2_qut53"]
+[ext_resource type="FontVariation" uid="uid://cjctpsg1h7vx4" path="res://assets/fonts/courier_new_spacing.tres" id="3_g5r4w"]
+[ext_resource type="PackedScene" uid="uid://b6k0jddpfnugw" path="res://scenes/ui/bar.tscn" id="4_sccuc"]
+[ext_resource type="Texture2D" uid="uid://uaq3nqpln5ae" path="res://assets/textures/ui/BlinkMeter.jpg" id="5_bplck"]
+
+[node name="Loading" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_fyve1")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="BackgroundImage" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -400.0
+offset_top = -350.0
+offset_right = 400.0
+offset_bottom = 350.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_qut53")
+
+[node name="Image" type="TextureRect" parent="."]
+layout_mode = 1
+
+[node name="ProgressText" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -72.5
+offset_top = -109.0
+offset_right = 72.5
+offset_bottom = -86.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_g5r4w")
+theme_override_font_sizes/font_size = 18
+text = "LOADING - 5 %"
+
+[node name="ProgressBar" parent="." instance=ExtResource("4_sccuc")]
+offset_left = 810.0
+offset_top = 470.0
+offset_right = 1114.0
+offset_bottom = 490.0
+maxvalue = 30
+
+[node name="TextureRect1" parent="ProgressBar/Panel/MarginContainer/HBoxContainer" index="0"]
+visible = false
+
+[node name="TextureRect2" parent="ProgressBar/Panel/MarginContainer/HBoxContainer" index="1"]
+visible = false
+
+[node name="TextureRect3" parent="ProgressBar/Panel/MarginContainer/HBoxContainer" index="2"]
+visible = false
+
+[node name="TextureRect4" parent="ProgressBar/Panel/MarginContainer/HBoxContainer" index="3"]
+visible = false
+
+[node name="TextureRect5" parent="ProgressBar/Panel/MarginContainer/HBoxContainer" index="4"]
+visible = false
+
+[node name="TextureRect6" parent="ProgressBar/Panel/MarginContainer/HBoxContainer" index="5"]
+visible = false
+
+[node name="TextureRect7" parent="ProgressBar/Panel/MarginContainer/HBoxContainer" index="6"]
+visible = false
+
+[node name="TextureRect8" parent="ProgressBar/Panel/MarginContainer/HBoxContainer" index="7"]
+visible = false
+
+[node name="TextureRect9" parent="ProgressBar/Panel/MarginContainer/HBoxContainer" index="8"]
+visible = false
+
+[node name="TextureRect10" parent="ProgressBar/Panel/MarginContainer/HBoxContainer" index="9"]
+visible = false
+
+[node name="TextureRect11" parent="ProgressBar/Panel/MarginContainer/HBoxContainer" index="10"]
+visible = false
+
+[node name="TextureRect12" parent="ProgressBar/Panel/MarginContainer/HBoxContainer" index="11"]
+visible = false
+
+[node name="TextureRect13" parent="ProgressBar/Panel/MarginContainer/HBoxContainer" index="12"]
+visible = false
+
+[node name="TextureRect14" parent="ProgressBar/Panel/MarginContainer/HBoxContainer" index="13"]
+visible = false
+
+[node name="TextureRect15" parent="ProgressBar/Panel/MarginContainer/HBoxContainer" index="14"]
+visible = false
+
+[node name="TextureRect16" parent="ProgressBar/Panel/MarginContainer/HBoxContainer" index="15"]
+visible = false
+
+[node name="TextureRect17" parent="ProgressBar/Panel/MarginContainer/HBoxContainer" index="16"]
+visible = false
+
+[node name="TextureRect18" parent="ProgressBar/Panel/MarginContainer/HBoxContainer" index="17"]
+visible = false
+
+[node name="TextureRect19" parent="ProgressBar/Panel/MarginContainer/HBoxContainer" index="18"]
+visible = false
+
+[node name="TextureRect20" parent="ProgressBar/Panel/MarginContainer/HBoxContainer" index="19"]
+visible = false
+
+[node name="TextureRect21" type="TextureRect" parent="ProgressBar/Panel/MarginContainer/HBoxContainer" index="20"]
+visible = false
+layout_mode = 2
+texture = ExtResource("5_bplck")
+
+[node name="TextureRect22" type="TextureRect" parent="ProgressBar/Panel/MarginContainer/HBoxContainer" index="21"]
+visible = false
+layout_mode = 2
+texture = ExtResource("5_bplck")
+
+[node name="TextureRect23" type="TextureRect" parent="ProgressBar/Panel/MarginContainer/HBoxContainer" index="22"]
+visible = false
+layout_mode = 2
+texture = ExtResource("5_bplck")
+
+[node name="TextureRect24" type="TextureRect" parent="ProgressBar/Panel/MarginContainer/HBoxContainer" index="23"]
+visible = false
+layout_mode = 2
+texture = ExtResource("5_bplck")
+
+[node name="TextureRect25" type="TextureRect" parent="ProgressBar/Panel/MarginContainer/HBoxContainer" index="24"]
+visible = false
+layout_mode = 2
+texture = ExtResource("5_bplck")
+
+[node name="TextureRect26" type="TextureRect" parent="ProgressBar/Panel/MarginContainer/HBoxContainer" index="25"]
+visible = false
+layout_mode = 2
+texture = ExtResource("5_bplck")
+
+[node name="TextureRect27" type="TextureRect" parent="ProgressBar/Panel/MarginContainer/HBoxContainer" index="26"]
+visible = false
+layout_mode = 2
+texture = ExtResource("5_bplck")
+
+[node name="TextureRect28" type="TextureRect" parent="ProgressBar/Panel/MarginContainer/HBoxContainer" index="27"]
+visible = false
+layout_mode = 2
+texture = ExtResource("5_bplck")
+
+[node name="TextureRect29" type="TextureRect" parent="ProgressBar/Panel/MarginContainer/HBoxContainer" index="28"]
+visible = false
+layout_mode = 2
+texture = ExtResource("5_bplck")
+
+[node name="TextureRect30" type="TextureRect" parent="ProgressBar/Panel/MarginContainer/HBoxContainer" index="29"]
+visible = false
+layout_mode = 2
+texture = ExtResource("5_bplck")
+
+[node name="Hint" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -271.5
+offset_top = 86.0
+offset_right = 271.5
+offset_bottom = 322.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 11
+
+[node name="HintTitle" type="Label" parent="Hint"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_g5r4w")
+theme_override_font_sizes/font_size = 52
+text = "Hint"
+horizontal_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="HintText" type="Label" parent="Hint"]
+custom_minimum_size = Vector2(404, 0)
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0.0627451, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = ExtResource("3_g5r4w")
+theme_override_font_sizes/font_size = 18
+text = "The object cannot move while within a direct line of sight. Line of sight must not be broken at any time with SCP-173. Personnel assigned to enter container are instructed to alert one another before blinking."
+horizontal_alignment = 1
+autowrap_mode = 2
+metadata/_edit_lock_ = true
+
+[node name="ContinueText" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -139.5
+offset_top = -58.0
+offset_right = 139.5
+offset_bottom = -35.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("3_g5r4w")
+theme_override_font_sizes/font_size = 15
+text = "PRESS ANY KEY TO CONTINUE"
+horizontal_alignment = 1
+
+[editable path="ProgressBar"]

@@ -1,0 +1,67 @@
+[gd_scene load_steps=5 format=3 uid="uid://cyrqurnnbdmk3"]
+
+[ext_resource type="Script" path="res://scripts/ui/invenory_slot.gd" id="1_jixcj"]
+[ext_resource type="Texture2D" uid="uid://cjc6bd7mhahrc" path="res://assets/textures/menu/menuwhite.jpg" id="1_qnfql"]
+[ext_resource type="Texture2D" uid="uid://dxify33xk3x6j" path="res://assets/textures/menu/menublack.jpg" id="2_4acc2"]
+[ext_resource type="FontVariation" uid="uid://cjctpsg1h7vx4" path="res://assets/fonts/courier_new_spacing.tres" id="4_p440q"]
+
+[node name="InventorySlot" type="Control"]
+custom_minimum_size = Vector2(70, 70)
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_jixcj")
+
+[node name="HoverOutline" type="ColorRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1.0
+offset_top = -1.0
+offset_right = 1.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+color = Color(1, 0, 0, 1)
+
+[node name="MenuWhite" type="Sprite2D" parent="."]
+texture = ExtResource("1_qnfql")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 70, 70)
+
+[node name="MenuBlack" type="Sprite2D" parent="MenuWhite"]
+position = Vector2(3, 3)
+scale = Vector2(0.914286, 0.914286)
+texture = ExtResource("2_4acc2")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 70, 70)
+
+[node name="ItemTexture" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 3.0
+offset_right = 67.0
+offset_bottom = 67.0
+expand_mode = 1
+
+[node name="Tooltip" type="Label" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -142.5
+offset_top = 55.5
+offset_right = 142.5
+offset_bottom = 78.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_p440q")
+theme_override_font_sizes/font_size = 15
+horizontal_alignment = 1
