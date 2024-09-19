@@ -3,12 +3,12 @@
 importer="oggvorbisstr"
 type="AudioStreamOggVorbis"
 uid="uid://dney5610mrxu3"
-path="res://.godot/imported/Step7.ogg-3c050e4c90a052ecf17a4a07bf5f1360.oggvorbisstr"
+path="res://.godot/imported/Step7.ogg-1935c5fc5d67c1f8ffbd42d4e873764b.oggvorbisstr"
 
 [deps]
 
-source_file="res://assets/sounds/character/human/step/Step7.ogg"
-dest_files=["res://.godot/imported/Step7.ogg-3c050e4c90a052ecf17a4a07bf5f1360.oggvorbisstr"]
+source_file="res://Assets/Sounds/Character/Human/Step/Step7.ogg"
+dest_files=["res://.godot/imported/Step7.ogg-1935c5fc5d67c1f8ffbd42d4e873764b.oggvorbisstr"]
 
 [params]
 

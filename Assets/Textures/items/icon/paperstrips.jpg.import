@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bc87ejdnn16yb"
-path="res://.godot/imported/paperstrips.jpg-17cad9063651a22820f478ed2df9770d.ctex"
+path="res://.godot/imported/paperstrips.jpg-366eb8643f3fce909b7928aca1d0a8d7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/textures/items/icon/paperstrips.jpg"
-dest_files=["res://.godot/imported/paperstrips.jpg-17cad9063651a22820f478ed2df9770d.ctex"]
+source_file="res://Assets/Textures/items/icon/paperstrips.jpg"
+dest_files=["res://.godot/imported/paperstrips.jpg-366eb8643f3fce909b7928aca1d0a8d7.ctex"]
 
 [params]
 

@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://b6k0jddpfnugw"]
 
-[ext_resource type="Script" path="res://scripts/ui/bar.gd" id="1_25a1n"]
-[ext_resource type="Texture2D" uid="uid://uaq3nqpln5ae" path="res://assets/textures/ui/BlinkMeter.jpg" id="1_blev6"]
+[ext_resource type="Script" path="res://Scripts/UI/bar.gd" id="1_25a1n"]
+[ext_resource type="Texture2D" uid="uid://uaq3nqpln5ae" path="res://Assets/Textures/ui/BlinkMeter.jpg" id="1_blev6"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ohwvc"]
 bg_color = Color(0.6, 0.6, 0.6, 0)

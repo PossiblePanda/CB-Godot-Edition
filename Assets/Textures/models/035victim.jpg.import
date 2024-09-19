@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://beyoypqbnb348"
-path.s3tc="res://.godot/imported/035victim.jpg-3a2049191a01f6988035846939fd87ac.s3tc.ctex"
+path.s3tc="res://.godot/imported/035victim.jpg-b50ddd500b951c712ab24c14ea2bac46.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/textures/models/035victim.jpg"
-dest_files=["res://.godot/imported/035victim.jpg-3a2049191a01f6988035846939fd87ac.s3tc.ctex"]
+source_file="res://Assets/Textures/models/035victim.jpg"
+dest_files=["res://.godot/imported/035victim.jpg-b50ddd500b951c712ab24c14ea2bac46.s3tc.ctex"]
 
 [params]
 

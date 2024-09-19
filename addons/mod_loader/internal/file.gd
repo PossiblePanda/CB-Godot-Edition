@@ -227,3 +227,4 @@ static func dir_exists(path: String) -> bool:
 # modders in understanding and troubleshooting issues.
 static func _code_note(_msg:String):
 	pass
+

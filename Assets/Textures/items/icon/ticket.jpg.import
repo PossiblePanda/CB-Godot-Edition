@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://nq62ugg8b1ly"
-path="res://.godot/imported/ticket.jpg-409facd21aeb2eab85582e26b45260f9.ctex"
+path="res://.godot/imported/ticket.jpg-077c6be602fbb2099d65c2afb114f9ac.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/textures/items/icon/ticket.jpg"
-dest_files=["res://.godot/imported/ticket.jpg-409facd21aeb2eab85582e26b45260f9.ctex"]
+source_file="res://Assets/Textures/items/icon/ticket.jpg"
+dest_files=["res://.godot/imported/ticket.jpg-077c6be602fbb2099d65c2afb114f9ac.ctex"]
 
 [params]
 

@@ -4,7 +4,7 @@ extends Node3D
 ## The maximimum distance the activation node can be from the Prompt
 @export var max_distance: float = 3
 ## The interaction texture
-@export var interact_texture: CompressedTexture2D = preload("res://assets/textures/ui/handicon.png")
+@export var interact_texture: CompressedTexture2D = preload("res://Assets/Textures/ui/handicon.png")
 
 @export var interactable: bool = true
 

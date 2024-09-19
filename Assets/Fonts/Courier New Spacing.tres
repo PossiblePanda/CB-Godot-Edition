@@ -1,6 +1,6 @@
 [gd_resource type="FontVariation" load_steps=2 format=3 uid="uid://cjctpsg1h7vx4"]
 
-[ext_resource type="FontFile" uid="uid://dh10trw81fhd" path="res://assets/fonts/Courier New.ttf" id="1_wlw57"]
+[ext_resource type="FontFile" uid="uid://dh10trw81fhd" path="res://Assets/Fonts/Courier New.ttf" id="1_wlw57"]
 
 [resource]
 base_font = ExtResource("1_wlw57")

@@ -3,12 +3,12 @@
 importer="oggvorbisstr"
 type="AudioStreamOggVorbis"
 uid="uid://cjwp1ecgu2i2"
-path="res://.godot/imported/LeverFlip.ogg-edceac47d580c1ed7f2c4ceb365bed73.oggvorbisstr"
+path="res://.godot/imported/LeverFlip.ogg-946c50c0d3f5ea52177843b3c6ff667b.oggvorbisstr"
 
 [deps]
 
-source_file="res://assets/sounds/sfx/interact/LeverFlip.ogg"
-dest_files=["res://.godot/imported/LeverFlip.ogg-edceac47d580c1ed7f2c4ceb365bed73.oggvorbisstr"]
+source_file="res://Assets/Sounds/SFX/interact/LeverFlip.ogg"
+dest_files=["res://.godot/imported/LeverFlip.ogg-946c50c0d3f5ea52177843b3c6ff667b.oggvorbisstr"]
 
 [params]
 

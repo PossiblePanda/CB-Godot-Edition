@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://j0ntohhf53pg"]
 
-[ext_resource type="Script" path="res://scripts/game/player.gd" id="1_j8efa"]
-[ext_resource type="Script" path="res://scripts/game/player_neck.gd" id="2_yhuym"]
+[ext_resource type="Script" path="res://Scripts/Game/player.gd" id="1_j8efa"]
+[ext_resource type="Script" path="res://Scripts/Game/player_neck.gd" id="2_yhuym"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_vtysj"]
 radius = 0.3

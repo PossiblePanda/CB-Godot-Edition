@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Containment Breach: Godot Edition"
-run/main_scene="res://scenes/menus/loading.tscn"
+run/main_scene="res://Scenes/Menus/Loading.tscn"
 config/use_custom_user_dir=true
 config/custom_user_dir_name="CB_GodotEdition"
 config/features=PackedStringArray("4.3", "Forward Plus")
@@ -22,12 +22,12 @@ config/icon="res://icon.png"
 
 ModLoaderStore="*res://addons/mod_loader/mod_loader_store.gd"
 ModLoader="*res://addons/mod_loader/mod_loader.gd"
-Global="*res://data/singletons/global.gd"
-LoadManager="*res://data/singletons/load_manager.gd"
-Utils="*res://data/singletons/utils.gd"
+Global="*res://Data/Singletons/Global.gd"
+LoadManager="*res://Data/Singletons/LoadManager.gd"
+Utils="*res://Data/Singletons/Utils.gd"
 DiscordRPCLoader="*res://addons/discord-rpc-gd/nodes/discord_autoload.gd"
-ItemManager="*res://data/singletons/item_manager.gd"
-Config="*res://data/singletons/config.gd"
+ItemManager="*res://Data/Singletons/ItemManager.gd"
+Config="*res://Data/Singletons/Config.gd"
 
 [display]
 

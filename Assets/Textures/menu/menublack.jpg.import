@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dxify33xk3x6j"
-path.s3tc="res://.godot/imported/menublack.jpg-7f45260e5a62e9b2abd0992803d45588.s3tc.ctex"
+path.s3tc="res://.godot/imported/menublack.jpg-fe219f38e0b1a6058c6c60d6a79b80e5.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/textures/menu/menublack.jpg"
-dest_files=["res://.godot/imported/menublack.jpg-7f45260e5a62e9b2abd0992803d45588.s3tc.ctex"]
+source_file="res://Assets/Textures/menu/menublack.jpg"
+dest_files=["res://.godot/imported/menublack.jpg-fe219f38e0b1a6058c6c60d6a79b80e5.s3tc.ctex"]
 
 [params]
 

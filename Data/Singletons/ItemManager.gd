@@ -3,15 +3,15 @@ extends Node
 var items: Array[Item] = []
 var components: Dictionary = {}
 
-const ITEM_DIR = "res://data/resources/items/"
-const COMPONENT_DIR = "res://data/components/item/"
+const ITEM_DIR = "res://Data/Resources/Items/"
+const COMPONENT_DIR = "res://Data/Components/Item/"
 
 func _ready():
 	register_item_dir()
 	register_components()
 	
-	#register_item_component("document", "res://data/components/item/DocumentComponent.gd")
-	#register_item_component("can_hold", "res://data/components/item/HoldComponent.gd")
+	#register_item_component("document", "res://Data/Components/Item/DocumentComponent.gd")
+	#register_item_component("can_hold", "res://Data/Components/Item/HoldComponent.gd")
 
 func register_item(item: Item):
 	items.append(item)

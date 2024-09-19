@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cxe73ms467i4i"
-path="res://.godot/imported/foundationlogo.jpg-4e18b27d7f2bae6f39aca378f315977c.ctex"
+path="res://.godot/imported/foundationlogo.jpg-2e0174fb23081559785bdac729652d0f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/textures/menu/loading/foundationlogo.jpg"
-dest_files=["res://.godot/imported/foundationlogo.jpg-4e18b27d7f2bae6f39aca378f315977c.ctex"]
+source_file="res://Assets/Textures/menu/loading/foundationlogo.jpg"
+dest_files=["res://.godot/imported/foundationlogo.jpg-2e0174fb23081559785bdac729652d0f.ctex"]
 
 [params]
 

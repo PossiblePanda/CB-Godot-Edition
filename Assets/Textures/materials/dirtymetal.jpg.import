@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://n80wmob8uw3t"
-path.s3tc="res://.godot/imported/dirtymetal.jpg-c7e77ffe37c6d5f550c0bee2bbf3ee99.s3tc.ctex"
+path.s3tc="res://.godot/imported/dirtymetal.jpg-5cb34fe49a8074b25579c024604623ef.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/textures/materials/dirtymetal.jpg"
-dest_files=["res://.godot/imported/dirtymetal.jpg-c7e77ffe37c6d5f550c0bee2bbf3ee99.s3tc.ctex"]
+source_file="res://Assets/Textures/materials/dirtymetal.jpg"
+dest_files=["res://.godot/imported/dirtymetal.jpg-5cb34fe49a8074b25579c024604623ef.s3tc.ctex"]
 
 [params]
 

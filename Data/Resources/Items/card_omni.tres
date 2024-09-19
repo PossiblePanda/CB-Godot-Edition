@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="KeyCardItem" load_steps=3 format=3 uid="uid://c3tf1ysa2ukoa"]
 
-[ext_resource type="Texture2D" uid="uid://dpjcck7i1ono" path="res://assets/textures/items/icon/keyomni.jpg" id="1_41omf"]
-[ext_resource type="Script" path="res://data/resources/items/KeyCardItem.gd" id="2_7wodc"]
+[ext_resource type="Texture2D" uid="uid://dpjcck7i1ono" path="res://Assets/Textures/items/icon/keyomni.jpg" id="1_41omf"]
+[ext_resource type="Script" path="res://Data/Resources/Items/KeyCardItem.gd" id="2_7wodc"]
 
 [resource]
 script = ExtResource("2_7wodc")

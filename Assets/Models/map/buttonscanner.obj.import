@@ -4,14 +4,14 @@ importer="wavefront_obj"
 importer_version=1
 type="Mesh"
 uid="uid://cnucxyh2k6vy1"
-path="res://.godot/imported/buttonscanner.obj-7ac477665334a7677184ba1d25ae0a3a.mesh"
+path="res://.godot/imported/buttonscanner.obj-b1e7474b1d514978b7233cf6b988c698.mesh"
 
 [deps]
 
-files=["res://.godot/imported/buttonscanner.obj-7ac477665334a7677184ba1d25ae0a3a.mesh"]
+files=["res://.godot/imported/buttonscanner.obj-b1e7474b1d514978b7233cf6b988c698.mesh"]
 
-source_file="res://assets/models/map/buttonscanner.obj"
-dest_files=["res://.godot/imported/buttonscanner.obj-7ac477665334a7677184ba1d25ae0a3a.mesh", "res://.godot/imported/buttonscanner.obj-7ac477665334a7677184ba1d25ae0a3a.mesh"]
+source_file="res://Assets/Models/map/buttonscanner.obj"
+dest_files=["res://.godot/imported/buttonscanner.obj-b1e7474b1d514978b7233cf6b988c698.mesh", "res://.godot/imported/buttonscanner.obj-b1e7474b1d514978b7233cf6b988c698.mesh"]
 
 [params]
 

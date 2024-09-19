@@ -13,7 +13,7 @@ static func equip(item: Item):
 
 static func interact(item: Item):
 	print("Gasa")
-	var scene: PackedScene = load(mod_dir_path+"scenes/Part.tscn")
+	var scene: PackedScene = load(mod_dir_path+"Scenes/Part.tscn")
 	var node: Node3D = scene.instantiate()
 	
 	Global.game.add_child(node)

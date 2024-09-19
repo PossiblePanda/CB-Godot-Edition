@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bo443p4snqhcv"
-path.s3tc="res://.godot/imported/controlpanel.jpg-b7e47aac32838cc7a3801d0a3f686ef4.s3tc.ctex"
+path.s3tc="res://.godot/imported/controlpanel.jpg-6de4c508220538b3ab34e2564043825d.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/textures/materials/controlpanel.jpg"
-dest_files=["res://.godot/imported/controlpanel.jpg-b7e47aac32838cc7a3801d0a3f686ef4.s3tc.ctex"]
+source_file="res://Assets/Textures/materials/controlpanel.jpg"
+dest_files=["res://.godot/imported/controlpanel.jpg-6de4c508220538b3ab34e2564043825d.s3tc.ctex"]
 
 [params]
 

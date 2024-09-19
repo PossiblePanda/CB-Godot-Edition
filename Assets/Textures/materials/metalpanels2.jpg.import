@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cx6ka6ekjqnyi"
-path.s3tc="res://.godot/imported/metalpanels2.jpg-0cbae7e17b4a9a81b96a8c57a83e9044.s3tc.ctex"
+path.s3tc="res://.godot/imported/metalpanels2.jpg-543eea43d8b8048146159745b0043c20.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/textures/materials/metalpanels2.jpg"
-dest_files=["res://.godot/imported/metalpanels2.jpg-0cbae7e17b4a9a81b96a8c57a83e9044.s3tc.ctex"]
+source_file="res://Assets/Textures/materials/metalpanels2.jpg"
+dest_files=["res://.godot/imported/metalpanels2.jpg-543eea43d8b8048146159745b0043c20.s3tc.ctex"]
 
 [params]
 

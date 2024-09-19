@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b61gkqxuvkc8n"
-path="res://.godot/imported/origami.jpg-f040791b70d7a23024dcc5685e41934d.ctex"
+path="res://.godot/imported/origami.jpg-db10e82e811775166bb67fb132410959.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/textures/items/icon/origami.jpg"
-dest_files=["res://.godot/imported/origami.jpg-f040791b70d7a23024dcc5685e41934d.ctex"]
+source_file="res://Assets/Textures/items/icon/origami.jpg"
+dest_files=["res://.godot/imported/origami.jpg-db10e82e811775166bb67fb132410959.ctex"]
 
 [params]
 

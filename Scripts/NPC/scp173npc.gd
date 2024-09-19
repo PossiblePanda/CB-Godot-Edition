@@ -30,7 +30,7 @@ func _physics_process(delta):
 		var check_collision: KinematicCollision3D = get_slide_collision(i)
 		var collided_with = check_collision.get_collider()
 		if collided_with is Player:
-			$InteractSound.stream = load("res://assets/sounds/character/173/NeckSnap" + str(rng.randi_range(1, 3)) + ".ogg")
+			$InteractSound.stream = load("res://Assets/Sounds/Character/173/NeckSnap" + str(rng.randi_range(1, 3)) + ".ogg")
 			$InteractSound.play()
 			collided_with.call("health_manage", -16777216, 0)
 			# disable statue function

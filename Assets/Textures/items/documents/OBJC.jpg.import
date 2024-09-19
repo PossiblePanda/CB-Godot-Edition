@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cw74im2t4cwx0"
-path="res://.godot/imported/OBJC.jpg-a03c0bd87f7f80d209a6da257bc79259.ctex"
+path="res://.godot/imported/OBJC.jpg-86e305e69fa2df2bef6123131709a443.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/textures/items/documents/OBJC.jpg"
-dest_files=["res://.godot/imported/OBJC.jpg-a03c0bd87f7f80d209a6da257bc79259.ctex"]
+source_file="res://Assets/Textures/items/documents/OBJC.jpg"
+dest_files=["res://.godot/imported/OBJC.jpg-86e305e69fa2df2bef6123131709a443.ctex"]
 
 [params]
 

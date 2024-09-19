@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://dh10trw81fhd"
-path="res://.godot/imported/Courier New.ttf-ace021461a2d8f6d3d6777220abacd08.fontdata"
+path="res://.godot/imported/Courier New.ttf-b6a03759f5d5edc0c060edcdce507017.fontdata"
 
 [deps]
 
-source_file="res://assets/fonts/Courier New.ttf"
-dest_files=["res://.godot/imported/Courier New.ttf-ace021461a2d8f6d3d6777220abacd08.fontdata"]
+source_file="res://Assets/Fonts/Courier New.ttf"
+dest_files=["res://.godot/imported/Courier New.ttf-b6a03759f5d5edc0c060edcdce507017.fontdata"]
 
 [params]
 

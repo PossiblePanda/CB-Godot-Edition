@@ -3,12 +3,12 @@
 importer="oggvorbisstr"
 type="AudioStreamOggVorbis"
 uid="uid://xbigd1trp2g3"
-path="res://.godot/imported/Run7.ogg-2667673b8cece5aafd59ea0663971569.oggvorbisstr"
+path="res://.godot/imported/Run7.ogg-57400142cf5221056f70ddc31a068110.oggvorbisstr"
 
 [deps]
 
-source_file="res://assets/sounds/character/human/step/Run7.ogg"
-dest_files=["res://.godot/imported/Run7.ogg-2667673b8cece5aafd59ea0663971569.oggvorbisstr"]
+source_file="res://Assets/Sounds/Character/Human/Step/Run7.ogg"
+dest_files=["res://.godot/imported/Run7.ogg-57400142cf5221056f70ddc31a068110.oggvorbisstr"]
 
 [params]
 
