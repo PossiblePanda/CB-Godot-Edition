@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://d2qwpeh7cogwi"]
+
+[ext_resource type="Texture2D" uid="uid://bysky2ahsg8t3" path="res://assets/textures/menu/logo.png" id="1_bfn1l"]
+[ext_resource type="Script" path="res://data/resources/items/Item.gd" id="1_owgxu"]
+
+[resource]
+script = ExtResource("1_owgxu")
+image = ExtResource("1_bfn1l")
+item_name = "Godot Edition Logo"
+component_names = Array[String](["can_hold"])

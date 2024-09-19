@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="KeyCardItem" load_steps=3 format=3 uid="uid://cwb7734obo52"]
+
+[ext_resource type="Texture2D" uid="uid://pgd0ywq65hb7" path="res://assets/textures/items/icon/key3.jpg" id="1_g8cvr"]
+[ext_resource type="Script" path="res://data/resources/items/key_card_item.gd" id="2_ppoba"]
+
+[resource]
+script = ExtResource("2_ppoba")
+card_level = 3
+image = ExtResource("1_g8cvr")
+item_name = "Level 3 Key Card"
+component_names = Array[String](["can_hold"])

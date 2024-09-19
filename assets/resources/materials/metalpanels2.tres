@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://b3pg8p250w7wh"]
+
+[ext_resource type="Texture2D" uid="uid://cx6ka6ekjqnyi" path="res://assets/textures/materials/metalpanels2.jpg" id="1_sase6"]
+[ext_resource type="Texture2D" uid="uid://beetwit345hg8" path="res://assets/textures/materials/metalpanels2_normal.jpg" id="2_m6ay0"]
+
+[resource]
+albedo_texture = ExtResource("1_sase6")
+normal_enabled = true
+normal_texture = ExtResource("2_m6ay0")

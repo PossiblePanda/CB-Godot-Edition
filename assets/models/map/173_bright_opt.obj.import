@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bci1xcjm12kvv"
+path="res://.godot/imported/173_bright_opt.obj-a9916b1924be930845be955d20d78090.mesh"
+
+[deps]
+
+files=["res://.godot/imported/173_bright_opt.obj-a9916b1924be930845be955d20d78090.mesh"]
+
+source_file="res://assets/models/map/173_bright_opt.obj"
+dest_files=["res://.godot/imported/173_bright_opt.obj-a9916b1924be930845be955d20d78090.mesh", "res://.godot/imported/173_bright_opt.obj-a9916b1924be930845be955d20d78090.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

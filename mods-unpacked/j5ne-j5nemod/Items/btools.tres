@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://c3l47dfscqxax"]
+
+[ext_resource type="Texture2D" uid="uid://ygc5a35jpnn4" path="res://mods-unpacked/j5ne-j5nemod/Textures/btools@42.png" id="1_thevu"]
+[ext_resource type="Script" path="res://data/resources/items/Item.gd" id="2_0ttk6"]
+
+[resource]
+script = ExtResource("2_0ttk6")
+image = ExtResource("1_thevu")
+item_name = "BTools"
+component_names = Array[String](["can_hold", "BTools"])

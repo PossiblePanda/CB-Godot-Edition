@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://b5x8dhbi2bty8"]
+
+[ext_resource type="Texture2D" uid="uid://cjrls8tb6yoc3" path="res://mods-unpacked/j5ne-j5nemod/Textures/studs.png" id="1_rxq3c"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kcrrr"]
+albedo_texture = ExtResource("1_rxq3c")
+uv1_scale = Vector3(0.5, 111, 0.5)
+uv1_triplanar = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_rkxpo"]
+size = Vector3(4, 1, 2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1is7g"]
+size = Vector3(4, 1, 2)
+
+[node name="Part" type="StaticBody3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+material_override = SubResource("StandardMaterial3D_kcrrr")
+mesh = SubResource("BoxMesh_rkxpo")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_1is7g")

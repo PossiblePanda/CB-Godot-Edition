@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://cnfh7pi5iuy2k"]
+
+[ext_resource type="Texture2D" uid="uid://cyqoiap8vs78d" path="res://assets/textures/materials/concretefloor.jpg" id="1_sf2wf"]
+[ext_resource type="Texture2D" uid="uid://cyu3ddrxmwftt" path="res://assets/textures/materials/concretefloor_normal.jpg" id="2_6dvgk"]
+
+[resource]
+albedo_texture = ExtResource("1_sf2wf")
+normal_enabled = true
+normal_texture = ExtResource("2_6dvgk")

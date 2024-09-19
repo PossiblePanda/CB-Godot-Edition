@@ -1,3 +1,11 @@
-res://Scenes/Menus/Loading.tscn
-res://Data/Resources/Items/Item.gd
-res://Scripts/Menus/LoadingScreen.gd
+res://scenes/menus/loading.tscn
+res://data/singletons/item_manager.gd
+res://data/singletons/load_manager.gd
+res://scripts/game/player.gd
+res://scripts/game/inventory.gd
+res://scripts/menus/options.gd
+res://scripts/menus/main_menu.gd
+res://scripts/menus/loading_screen.gd
+res://scripts/npc/scp173npc.gd
+res://scripts/ui/pause_menu.gd
+res://scripts/interaction_prompt.gd
