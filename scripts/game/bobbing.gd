@@ -39,8 +39,6 @@ func update_footstep(delta : float,player_speed : float):
 		footstep_time = -.5
 
 func _process(delta: float) -> void:
-	
-	
 	if player.velocity.abs().length() > 0:
 		var player_speed = clampf(player.velocity.abs().length() / 2.8,0.5,10)
 		
