@@ -169,6 +169,11 @@ func _input(event):
 			if held_item:
 				for component in held_item.components:
 					component.interact(held_item)
+		elif event.button_mask == MOUSE_BUTTON_RIGHT:
+			if held_item:
+				held_item = null
+			if current_document:
+				current_document = null
 
 func full_blink():
 	await show_blink()
