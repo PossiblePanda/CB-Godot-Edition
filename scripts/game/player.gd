@@ -31,7 +31,6 @@ const BREATH_2 = preload("res://assets/sounds/sfx/player/breath2.ogg")
 const BREATH_3 = preload("res://assets/sounds/sfx/player/breath3.ogg")
 
 var current_health: Array[float] = health
-
 var current_document: DocumentItem:
 	set(val):
 		if val == null:
@@ -42,7 +41,6 @@ var current_document: DocumentItem:
 			document_texture.show()
 			
 		current_document = val
-
 var held_item: Item:
 	set(val):
 		if val == null:
@@ -53,7 +51,6 @@ var held_item: Item:
 			held_item_rect.show()
 		
 		held_item = val
-
 var interact_visible: bool = false:
 	set(val):
 		interact_texture.visible = val
@@ -62,6 +59,7 @@ var interact_visible: bool = false:
 
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 var speed = 3
+var input_dir := Vector2.ZERO
 
 
 var can_see: bool = true
@@ -123,7 +121,7 @@ func _process(delta: float) -> void:
 	if not is_on_floor():
 		velocity.y -= gravity * delta
 	
-	var input_dir = Input.get_vector("left", "right", "forward", "backward")
+	input_dir = Input.get_vector("left", "right", "forward", "backward")
 	var direction = transform.basis * Vector3(input_dir.x, 0, input_dir.y).normalized()
 	
 	if direction and Global.game.pause_menu.visible == false and inventory.visible == false:
