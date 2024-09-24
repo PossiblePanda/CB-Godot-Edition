@@ -1,18 +1,64 @@
-[gd_scene load_steps=4 format=3 uid="uid://j0ntohhf53pg"]
+[gd_scene load_steps=25 format=3 uid="uid://j0ntohhf53pg"]
 
 [ext_resource type="Script" path="res://scripts/game/player.gd" id="1_j8efa"]
 [ext_resource type="Script" path="res://scripts/game/player_neck.gd" id="2_yhuym"]
+[ext_resource type="AudioStream" uid="uid://bf5psici58kyl" path="res://assets/sounds/character/human/step/Step1.ogg" id="3_i5nc7"]
+[ext_resource type="Script" path="res://scripts/game/bobbing.gd" id="3_winjo"]
+[ext_resource type="AudioStream" uid="uid://bhqi22weo8tgn" path="res://assets/sounds/character/human/step/Step2.ogg" id="4_gigje"]
+[ext_resource type="Curve" uid="uid://dicgsat2qqgik" path="res://scripts/game/up_down_bobbing.tres" id="5_4pujx"]
+[ext_resource type="AudioStream" uid="uid://d04cmoouoo67r" path="res://assets/sounds/character/human/step/Step3.ogg" id="5_dt006"]
+[ext_resource type="AudioStream" uid="uid://ddehwkc610ea7" path="res://assets/sounds/character/human/step/Run1.ogg" id="5_eh3i3"]
+[ext_resource type="AudioStream" uid="uid://djeoxnt35r5x4" path="res://assets/sounds/character/human/step/Step4.ogg" id="6_gquna"]
+[ext_resource type="AudioStream" uid="uid://lrma4vhwrhe6" path="res://assets/sounds/character/human/step/Run2.ogg" id="6_uwfks"]
+[ext_resource type="AudioStream" uid="uid://giy4c0je2hcn" path="res://assets/sounds/character/human/step/Run3.ogg" id="7_ayefr"]
+[ext_resource type="AudioStream" uid="uid://1iri5jwxfe0g" path="res://assets/sounds/character/human/step/Step5.ogg" id="7_hbfpj"]
+[ext_resource type="AudioStream" uid="uid://cwcf8c36g1eh0" path="res://assets/sounds/character/human/step/Run4.ogg" id="8_qrs1y"]
+[ext_resource type="AudioStream" uid="uid://cqnqem821o10d" path="res://assets/sounds/character/human/step/Run5.ogg" id="9_anqpx"]
+[ext_resource type="AudioStream" uid="uid://hw2r2v7e86qb" path="res://assets/sounds/character/human/step/Run6.ogg" id="10_05xvv"]
+[ext_resource type="AudioStream" uid="uid://dney5610mrxu3" path="res://assets/sounds/character/human/step/Step7.ogg" id="10_7cyj7"]
+[ext_resource type="AudioStream" uid="uid://b2rgaamevyjqs" path="res://assets/sounds/character/human/step/Step6.ogg" id="10_qwifo"]
+[ext_resource type="AudioStream" uid="uid://dve156xrbul0h" path="res://assets/sounds/character/human/step/Step8.ogg" id="11_170kr"]
+[ext_resource type="AudioStream" uid="uid://xbigd1trp2g3" path="res://assets/sounds/character/human/step/Run7.ogg" id="11_mlo2a"]
+[ext_resource type="AudioStream" uid="uid://2tg4l4wo6ljh" path="res://assets/sounds/character/human/step/Run8.ogg" id="12_8rfqc"]
+
+[sub_resource type="Curve" id="Curve_tu65r"]
+min_value = -1.0
+_data = [Vector2(0, 0), 0.0, 3.96341, 0, 1, Vector2(0.252308, 1), 0.0, 0.0, 0, 0, Vector2(0.753846, -1), 0.0, 0.0, 0, 0, Vector2(1, 0), 4.0625, 0.0, 1, 0]
+point_count = 4
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_vtysj"]
 radius = 0.3
 height = 2.9
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_b187s"]
+streams_count = 8
+stream_0/stream = ExtResource("3_i5nc7")
+stream_1/stream = ExtResource("4_gigje")
+stream_2/stream = ExtResource("5_dt006")
+stream_3/stream = ExtResource("6_gquna")
+stream_4/stream = ExtResource("7_hbfpj")
+stream_5/stream = ExtResource("10_qwifo")
+stream_6/stream = ExtResource("10_7cyj7")
+stream_7/stream = ExtResource("11_170kr")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_3w3aw"]
+streams_count = 8
+stream_0/stream = ExtResource("5_eh3i3")
+stream_1/stream = ExtResource("6_uwfks")
+stream_2/stream = ExtResource("7_ayefr")
+stream_3/stream = ExtResource("8_qrs1y")
+stream_4/stream = ExtResource("9_anqpx")
+stream_5/stream = ExtResource("10_05xvv")
+stream_6/stream = ExtResource("11_mlo2a")
+stream_7/stream = ExtResource("12_8rfqc")
+
 [node name="Player" type="CharacterBody3D" groups=["Players"]]
 script = ExtResource("1_j8efa")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.45, 0)
-shape = SubResource("CapsuleShape3D_vtysj")
+[node name="Bobbing" type="Node" parent="."]
+script = ExtResource("3_winjo")
+up_down = ExtResource("5_4pujx")
+left_right = SubResource("Curve_tu65r")
 
 [node name="Neck" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 0)
@@ -29,7 +75,17 @@ max_db = 0.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.02099, 0)
 max_db = 0.0
 
-[node name="Footstep" type="AudioStreamPlayer3D" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.45, 0)
+shape = SubResource("CapsuleShape3D_vtysj")
+
+[node name="Walking" type="AudioStreamPlayer3D" parent="."]
+stream = SubResource("AudioStreamRandomizer_b187s")
+volume_db = -12.209
+
+[node name="Running" type="AudioStreamPlayer3D" parent="."]
+stream = SubResource("AudioStreamRandomizer_3w3aw")
+volume_db = -12.209
 
 [node name="BlinkUpdate" type="Timer" parent="."]
 wait_time = 0.7

@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://dyefyts3kyxop" path="res://assets/textures/ui/StaminaMeter.jpg" id="6_7uwhp"]
 [ext_resource type="PackedScene" uid="uid://bcs2x61b04ffa" path="res://scenes/ui/button.tscn" id="6_g5ock"]
 [ext_resource type="Script" path="res://scripts/ui/pause_menu.gd" id="6_gq8mu"]
-[ext_resource type="FontVariation" path="res://assets/fonts/courier_new_bold_spacing.tres" id="7_le2t2"]
+[ext_resource type="FontVariation" uid="uid://do82tn1v8whll" path="res://assets/fonts/courier_new_bold_spacing.tres" id="7_le2t2"]
 [ext_resource type="FontFile" uid="uid://dh10trw81fhd" path="res://assets/fonts/courier_new.ttf" id="7_odpv4"]
 [ext_resource type="Script" path="res://scripts/game/inventory.gd" id="12_qglpn"]
 [ext_resource type="PackedScene" uid="uid://j0ntohhf53pg" path="res://scenes/game/player.tscn" id="13_6m25r"]
