@@ -4,6 +4,7 @@
 [ext_resource type="Script" path="res://scripts/game/player_neck.gd" id="2_yhuym"]
 [ext_resource type="AudioStream" uid="uid://bf5psici58kyl" path="res://assets/sounds/character/human/step/Step1.ogg" id="3_i5nc7"]
 [ext_resource type="Script" path="res://scripts/game/bobbing.gd" id="3_winjo"]
+[ext_resource type="Curve" uid="uid://bjs2jgv3o6dhv" path="res://scripts/game/left_right_bobbing.tres" id="4_8sqj3"]
 [ext_resource type="AudioStream" uid="uid://bhqi22weo8tgn" path="res://assets/sounds/character/human/step/Step2.ogg" id="4_gigje"]
 [ext_resource type="Curve" uid="uid://dicgsat2qqgik" path="res://scripts/game/up_down_bobbing.tres" id="5_4pujx"]
 [ext_resource type="AudioStream" uid="uid://d04cmoouoo67r" path="res://assets/sounds/character/human/step/Step3.ogg" id="5_dt006"]
@@ -20,11 +21,6 @@
 [ext_resource type="AudioStream" uid="uid://dve156xrbul0h" path="res://assets/sounds/character/human/step/Step8.ogg" id="11_170kr"]
 [ext_resource type="AudioStream" uid="uid://xbigd1trp2g3" path="res://assets/sounds/character/human/step/Run7.ogg" id="11_mlo2a"]
 [ext_resource type="AudioStream" uid="uid://2tg4l4wo6ljh" path="res://assets/sounds/character/human/step/Run8.ogg" id="12_8rfqc"]
-
-[sub_resource type="Curve" id="Curve_tu65r"]
-min_value = -1.0
-_data = [Vector2(0, 0), 0.0, 3.96341, 0, 1, Vector2(0.252308, 1), 0.0, 0.0, 0, 0, Vector2(0.753846, -1), 0.0, 0.0, 0, 0, Vector2(1, 0), 4.0625, 0.0, 1, 0]
-point_count = 4
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_vtysj"]
 radius = 0.3
@@ -58,7 +54,7 @@ script = ExtResource("1_j8efa")
 [node name="Bobbing" type="Node" parent="."]
 script = ExtResource("3_winjo")
 up_down = ExtResource("5_4pujx")
-left_right = SubResource("Curve_tu65r")
+left_right = ExtResource("4_8sqj3")
 
 [node name="Neck" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 0)
