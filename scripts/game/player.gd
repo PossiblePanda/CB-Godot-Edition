@@ -61,7 +61,6 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 var speed = 3
 var input_dir := Vector2.ZERO
 
-
 var can_see: bool = true
 var blinking: bool = false
 

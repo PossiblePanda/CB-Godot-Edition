@@ -7,3 +7,4 @@
 albedo_texture = ExtResource("1_sase6")
 normal_enabled = true
 normal_texture = ExtResource("2_m6ay0")
+texture_filter = 5
