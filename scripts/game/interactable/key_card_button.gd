@@ -17,7 +17,6 @@ func _no_card():
 
 func _ready():
 	interaction_prompt.triggered.connect(func():
-		print(Global.game.player.held_item)
 		if not enabled:
 			_fail()
 		if not Global.game.player.held_item:
