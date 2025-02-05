@@ -9,7 +9,6 @@ const MIN_PITCH = -70
 @onready var camera_3d: Camera3D = $Camera3D
 @onready var player: Player = $".."
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	Input.set_use_accumulated_input(false)
 

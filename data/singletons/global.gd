@@ -5,6 +5,8 @@ signal game_entered
 var ingame: bool = false
 var game: Game = null
 
+var player: Player = null
+
 func _init():
 	DiscordRPC.app_id = 1261084467783798805
 	DiscordRPC.details = "Open source SCP: Containment Breach recreation"

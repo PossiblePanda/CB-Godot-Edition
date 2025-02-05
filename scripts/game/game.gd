@@ -1,15 +1,6 @@
 class_name Game
 extends Node3D
 
-@onready var blink_bar: Bar = $CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer/BlinkBar
-@onready var sprint_bar: Bar = $CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer2/SprintBar
-
-@onready var blink_color: ColorRect = $CanvasLayer/Blink
-
-@onready var pause_menu: TextureRect = $CanvasLayer/PauseMenu
-@onready var options: Control = $CanvasLayer/PauseMenu/Options
-@onready var inventory: Inventory = $CanvasLayer/Inventory
-
 @onready var player: Player = $Player
 
 func _init():
@@ -26,11 +17,11 @@ func _input(_event):
 		toggle_inventory()
 
 func toggle_inventory():
-	var vis = inventory.visible
-	if pause_menu.visible:
+	var vis = Global.player.inventory.visible
+	if Global.player.pause_menu.visible:
 		return
 		
-	inventory.visible = not vis
+	Global.player.inventory.visible = not vis
 	get_tree().paused = not vis
 	
 	Input.mouse_mode = 2*int(vis)
@@ -39,14 +30,14 @@ func toggle_inventory():
 		player.current_document = null
 
 func toggle_pause():
-	var vis = pause_menu.visible
+	var vis = Global.player.pause_menu.visible
 	
-	if inventory.visible:
-		inventory.visible = false
+	if Global.player.inventory.visible:
+		Global.player.inventory.visible = false
 		
-	pause_menu.visible = not vis
+	Global.player.pause_menu.visible = not vis
 	get_tree().paused = not vis
-	options.visible = false
+	Global.player.options.visible = false
 	
 	
 	Input.mouse_mode = 2*int(vis)

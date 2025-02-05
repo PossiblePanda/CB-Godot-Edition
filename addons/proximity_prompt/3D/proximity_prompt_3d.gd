@@ -1,3 +1,6 @@
+# Created by Possible Panda
+# https://github.com/PossiblePanda/proximityprompt-gdscript
+
 extends Sprite3D
 
 enum ActivationType {

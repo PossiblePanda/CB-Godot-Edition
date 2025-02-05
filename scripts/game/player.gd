@@ -4,7 +4,6 @@ extends CharacterBody3D
 @export var DNA: Array[String] = ["D-9341", "Class-D"]
 @export var health: Array[float] = [100, 100]
 
-@onready var canvas_layer: CanvasLayer = $"../CanvasLayer"
 @onready var neck: Node3D = $Neck
 @onready var camera: Camera3D = $Neck/Camera3D
 @onready var breath: AudioStreamPlayer3D = $Neck/Breath
@@ -14,15 +13,18 @@ extends CharacterBody3D
 @onready var sprint_update: Timer = $SprintUpdate
 @onready var sprint_regeneration_update: Timer = $SprintRegenerationUpdate
 
-@onready var action_text = $"../CanvasLayer/ActionText"
-@onready var interact_texture = $"../CanvasLayer/InteractTexture"
-@onready var document_texture = $"../CanvasLayer/CenterContainer/DocumentTexture"
-@onready var held_item_rect = $"../CanvasLayer/CenterContainer/HeldItem"
-@onready var blink_bar: Bar = $"../CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer/BlinkBar"
-@onready var sprint_bar: Bar = $"../CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer2/SprintBar"
-@onready var blink_color: ColorRect = $"../CanvasLayer/Blink"
+@onready var canvas_layer: CanvasLayer = $CanvasLayer
+@onready var action_text = $CanvasLayer/ActionText
+@onready var interact_texture = $CanvasLayer/InteractTexture
+@onready var document_texture = $CanvasLayer/CenterContainer/DocumentTexture
+@onready var held_item_rect = $"CanvasLayer/CenterContainer/HeldItem"
+@onready var blink_bar: Bar = $"CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer/BlinkBar"
+@onready var sprint_bar: Bar = $"CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer2/SprintBar"
+@onready var blink_color: ColorRect = $"CanvasLayer/Blink"
 
-@onready var inventory: Inventory = $"../CanvasLayer/Inventory"
+@onready var pause_menu: TextureRect = $CanvasLayer/PauseMenu
+@onready var options: Control = $CanvasLayer/PauseMenu/Options
+@onready var inventory: Inventory = $CanvasLayer/Inventory
 
 const BLINK_TIME = 0.1
 const EXHAUSTED = preload("res://assets/sounds/sfx/player/exhausted.ogg")
@@ -123,7 +125,7 @@ func _process(delta: float) -> void:
 	input_dir = Input.get_vector("left", "right", "forward", "backward")
 	var direction = transform.basis * Vector3(input_dir.x, 0, input_dir.y).normalized()
 	
-	if direction and Global.game.pause_menu.visible == false and inventory.visible == false:
+	if direction and pause_menu.visible == false and inventory.visible == false:
 		velocity.x = direction.x * speed
 		velocity.z = direction.z * speed
 	else:
@@ -155,6 +157,7 @@ func _input(event):
 		show_blink()
 	elif Input.is_action_just_released("blink"):
 		hide_blink()
+		
 	if Input.is_action_just_pressed("sprint"):
 		if sprint_bar.value > 0:
 			start_sprint()
@@ -218,6 +221,9 @@ func add_dna(dna_string: String)->void:
 
 func has_dna(dna_string: String) -> bool:
 	return DNA.has(dna_string)
+
+func _init() -> void:
+	Global.player = self
 
 ## Health manager.
 func health_manage(amount: float, type: int):
