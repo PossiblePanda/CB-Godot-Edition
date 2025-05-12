@@ -24,7 +24,7 @@ func toggle_inventory():
 	Global.player.inventory.visible = not vis
 	get_tree().paused = not vis
 	
-	Input.mouse_mode = 2*int(vis)
+	Input.mouse_mode = 2 * int(vis) as Input.MouseMode
 	if vis == false:
 		player.held_item = null
 		player.current_document = null
@@ -40,4 +40,4 @@ func toggle_pause():
 	Global.player.options.visible = false
 	
 	
-	Input.mouse_mode = 2*int(vis)
+	Input.mouse_mode = 2*int(vis) as Input.MouseMode

@@ -22,15 +22,13 @@ func _ready():
 	
 	$BackgroundImage.visible = not hint.disabled_background
 	
-	
-
 func _input(event):
 	if loaded:
 		if event is InputEventKey or event is InputEventMouseButton:
 			var packed_scene = ResourceLoader.load_threaded_get(next_scene)
 			get_tree().change_scene_to_packed(packed_scene)
 
-func _process(delta):
+func _process(_delta):
 	var progress = []
 	ResourceLoader.load_threaded_get_status(next_scene, progress)
 	$ProgressBar.value = roundi(progress[0]*30)

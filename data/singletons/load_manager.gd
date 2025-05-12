@@ -19,19 +19,19 @@ func register_hint(hint: LoadingHint):
 
 func get_hints_in_dir(path: String):
 	var dir_access: DirAccess = DirAccess.open(path)
-	var hints: Array[LoadingHint] = []
+	var _hints: Array[LoadingHint] = []
 	
 	for file in dir_access.get_files():
 		if file.ends_with(".tres"):
 			var hint: LoadingHint = ResourceLoader.load(path+file)
-			hints.append(hint)
-	return hints
+			_hints.append(hint)
+	return _hints
 
 func register_hints(arr: Array[LoadingHint]):
 	for hint in arr:
 		register_hint(hint)
 
 func register_hint_dir(path: String = HINT_DIR):
-	var hints = get_hints_in_dir(path)
+	var _hints = get_hints_in_dir(path)
 	
-	register_hints(hints)
+	register_hints(_hints)

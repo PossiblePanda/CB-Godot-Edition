@@ -1,17 +1,17 @@
 class_name ItemComponent
 extends RefCounted
 
-static func added(item: Item):
+static func added(_item: Item):
 	pass
 
-static func removed(item: Item):
+static func removed(_item: Item):
 	pass
 
-static func equip(item: Item):
+static func equip(_item: Item):
 	pass
 
-static func interact(item: Item):
+static func interact(_item: Item):
 	pass
 
-static func drop(item: Item):
+static func drop(_item: Item):
 	pass

@@ -90,6 +90,7 @@ func _ready():
 			if sprint_bar.value > sprint_bar.minvalue:
 				sprint_bar.value -= 1
 				
+				@warning_ignore("integer_division")
 				if not breath.playing and sprint_bar.value <= sprint_bar.maxvalue / 2:
 					breath.stream = regular_breath_sounds.pick_random()
 					breath.play()
