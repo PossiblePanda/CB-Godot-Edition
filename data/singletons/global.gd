@@ -14,3 +14,7 @@ func _init():
 	DiscordRPC.start_timestamp = int(Time.get_unix_time_from_system())
 	
 	DiscordRPC.refresh()
+
+func _process(_delta: float):
+	if Input.is_action_just_pressed("fullscreen"):
+		Config.toggle_setting("fullscreen")

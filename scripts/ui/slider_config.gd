@@ -7,6 +7,5 @@ func _ready() -> void:
 	h_slider.value = Config.data[setting].val
 
 func _on_h_slider_value_changed(value: float) -> void:
-	Config.data[setting].val = value
-	text = Config.data[setting].string + " (" + str(Config.data[setting].val) + ")"
-	Config.setting_changed.emit(setting)
+	Config.set_setting(setting, value)
+	text = "%s (%d)" % [Config.data[setting].string, Config.data[setting].val]

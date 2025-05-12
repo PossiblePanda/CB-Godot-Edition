@@ -8,6 +8,5 @@ func _ready() -> void:
 	check.visible = Config.data[setting].val
 
 func _on_button_pressed() -> void:
-	Config.data[setting].val = not Config.data[setting].val
+	Config.toggle_setting(setting)
 	check.visible = Config.data[setting].val
-	Config.setting_changed.emit(setting)
