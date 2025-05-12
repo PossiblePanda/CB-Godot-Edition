@@ -27,6 +27,7 @@ Utils="*res://data/singletons/utils.gd"
 DiscordRPCLoader="*res://addons/discord-rpc-gd/nodes/discord_autoload.gd"
 ItemManager="*res://data/singletons/item_manager.gd"
 Config="*res://data/singletons/config.gd"
+GlobalUi="*res://data/singletons/global_ui.gd"
 
 [display]
 
