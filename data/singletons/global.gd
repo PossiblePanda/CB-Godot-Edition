@@ -3,6 +3,8 @@ extends Node
 @warning_ignore("unused_signal")
 signal game_entered
 
+const GAME_VERSION = "alpha-0"
+
 var ingame: bool = false
 var game: Game = null
 
