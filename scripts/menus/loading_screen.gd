@@ -7,7 +7,6 @@ extends Control
 var loaded: bool = false
 
 signal finished_loading
-signal scene_changed
 
 func _ready():
 	hint = LoadManager.hints.pick_random()

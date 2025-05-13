@@ -27,7 +27,7 @@ var can_interact: bool = false:
 				Global.game.player.interact_visible = false
 		can_interact = val
 
-func _process(delta):
+func _process(_delta):
 	if Global.game.player != null:
 		distance = Global.game.player.global_position.distance_to(global_position)
 		

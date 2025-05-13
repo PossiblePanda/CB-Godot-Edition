@@ -2,7 +2,7 @@ class_name HoldComponent
 extends ItemComponent
 
 static func equip(item: Item):
-	if Global.game.player.held_item != null:
+	if Global.game.player.held_item:
 		Global.game.player.held_item = null
 		return
 		
