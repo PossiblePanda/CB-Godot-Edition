@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://bk20e5tj3frid"]
 
-[ext_resource type="Script" path="res://scripts/menus/options.gd" id="1_pqnml"]
+[ext_resource type="Script" uid="uid://bjidgkwo6tpuu" path="res://scripts/menus/options.gd" id="1_pqnml"]
 [ext_resource type="PackedScene" uid="uid://bcs2x61b04ffa" path="res://scenes/ui/button.tscn" id="4_m4kt2"]
 [ext_resource type="Texture2D" uid="uid://bnd1xcsafxn01" path="res://assets/textures/menu/pausemenu.jpg" id="5_xs64t"]
 
@@ -17,17 +17,19 @@ offset_right = 633.0
 offset_bottom = 633.0
 texture = ExtResource("5_xs64t")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Main"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+[node name="MarginContainer" type="MarginContainer" parent="Main"]
+layout_mode = 0
 offset_left = 107.0
 offset_top = 98.0
-offset_right = -13.0
-offset_bottom = -46.0
-grow_horizontal = 2
-grow_vertical = 2
+offset_right = 620.0
+offset_bottom = 587.0
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Main/MarginContainer"]
+layout_mode = 2
 
 [node name="BackButton" parent="." instance=ExtResource("4_m4kt2")]
 layout_mode = 0

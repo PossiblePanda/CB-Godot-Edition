@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://qa1baayw2fuc"]
 
 [ext_resource type="FontFile" uid="uid://dh10trw81fhd" path="res://assets/fonts/courier_new.ttf" id="1_3ph3a"]
-[ext_resource type="Script" path="res://scripts/ui/slider_config.gd" id="2_bvwa7"]
+[ext_resource type="Script" uid="uid://cna4ynsmbscvw" path="res://scripts/ui/slider_config.gd" id="2_bvwa7"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_y4yak"]
 font = ExtResource("1_3ph3a")
