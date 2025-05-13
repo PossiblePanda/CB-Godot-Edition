@@ -8,7 +8,6 @@ extends CharacterBody3D
 @onready var breath: AudioStreamPlayer3D = $Neck/Breath
 @onready var exhausted: AudioStreamPlayer3D = $Neck/Exhausted
 
-@onready var blink_update: Timer = $BlinkUpdate
 @onready var sprint_update: Timer = $SprintUpdate
 @onready var sprint_regeneration_update: Timer = $SprintRegenerationUpdate
 @onready var exhaustion_timer: Timer = $ExhaustionTimer
@@ -25,8 +24,6 @@ extends CharacterBody3D
 @onready var pause_menu: TextureRect = $CanvasLayer/PauseMenu
 @onready var options: Control = $CanvasLayer/PauseMenu/Options
 @onready var inventory: Inventory = $CanvasLayer/Inventory
-
-const BLINK_TIME = 0.1
 
 var current_health: Array[float] = health
 var current_document: DocumentItem:
@@ -65,20 +62,10 @@ var blinking: bool = false
 var sprinting: bool = false
 var can_sprint: bool = true
 
-signal blink
 signal sprint_started
 signal sprint_ended
 
 func _ready():
-	blink_update.timeout.connect(func():
-		if blink_bar.value > blink_bar.min_value:
-			can_see = true
-			blink_bar.value -= 1
-			return
-		if blinking == false:
-			full_blink()
-		)
-		
 	sprint_update.timeout.connect(func():
 		if sprinting:
 			if sprint_bar.value > sprint_bar.min_value:
@@ -141,9 +128,9 @@ func show_action_text(text: String) -> void:
 
 func _input(event):
 	if Input.is_action_just_pressed("blink"):
-		show_blink()
+		self.get_meta("BlinkComponent").show_blink()
 	elif Input.is_action_just_released("blink"):
-		hide_blink()
+		self.get_meta("BlinkComponent").hide_blink()
 		
 	if Input.is_action_just_pressed("sprint"):
 		if sprint_bar.value > 0:
@@ -162,10 +149,6 @@ func _input(event):
 			if current_document:
 				current_document = null
 
-func full_blink():
-	await show_blink()
-	await hide_blink()
-
 func start_sprint():
 	if sprinting == false and can_sprint:
 		sprinting = true
@@ -183,23 +166,6 @@ func stop_sprint():
 		sprint_regeneration_update.paused = sprinting
 		
 		speed -= 4
-
-func show_blink():
-	blinking = true
-	can_see = false
-	
-	blink_bar.value = blink_bar.min_value # Remove all segments from bar when blinking
-	blink_update.start() # Reset timer
-	blink.emit()
-	
-	await Utils.tween_fade_in(blink_color, BLINK_TIME, 0, 0, "color:a").finished
-
-func hide_blink():
-	blinking = false
-	can_see = true
-	
-	await Utils.tween_fade_out(blink_color, BLINK_TIME, 0, 0, "color:a").finished
-	blink_bar.value = blink_bar.max_value # Reset bar to max
 
 func _init() -> void:
 	Global.player = self
