@@ -64,7 +64,7 @@ offset_left = 810.0
 offset_top = 470.0
 offset_right = 1114.0
 offset_bottom = 490.0
-maxvalue = 30
+max_value = 30
 
 [node name="TextureRect1" parent="ProgressBar/Panel/MarginContainer/HBoxContainer" index="0"]
 visible = false
