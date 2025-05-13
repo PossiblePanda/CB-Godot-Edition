@@ -1,6 +1,5 @@
-extends Node
-
 class_name DnaComponent
+extends Node
 
 @export var default_dna : Array[String]
 
