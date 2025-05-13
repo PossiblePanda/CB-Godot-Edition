@@ -26,8 +26,9 @@ func _ready():
 			return
 		
 		var has_dna := false
+		var dna_component : DnaComponent = Global.game.player.get_meta("DnaComponent")
 		for dna in required_dna:
-			if Global.game.player.has_dna(dna):
+			if dna_component.has_dna(dna):
 				has_dna = true
 		
 		var has_item_dna := false

@@ -40,7 +40,7 @@ border_color = Color(1, 1, 1, 1)
 [node name="Player" type="CharacterBody3D" groups=["Players"]]
 script = ExtResource("1_j8efa")
 
-[node name="DNAComponent" parent="." instance=ExtResource("2_1rckg")]
+[node name="DnaComponent" parent="." instance=ExtResource("2_1rckg")]
 default_dna = Array[String](["D-9341", "Class-D"])
 
 [node name="Neck" type="Node3D" parent="."]
