@@ -1,7 +1,6 @@
 class_name Player
 extends CharacterBody3D
 
-@export var DNA: Array[String] = ["D-9341", "Class-D"]
 @export var health: Array[float] = [100, 100]
 
 @onready var neck: Node3D = $Neck
@@ -28,7 +27,6 @@ extends CharacterBody3D
 @onready var inventory: Inventory = $CanvasLayer/Inventory
 
 const BLINK_TIME = 0.1
-const EXHAUSTED = preload("res://assets/sounds/sfx/player/exhausted.ogg")
 
 var current_health: Array[float] = health
 var current_document: DocumentItem:
@@ -202,12 +200,6 @@ func hide_blink():
 	
 	await Utils.tween_fade_out(blink_color, BLINK_TIME, 0, 0, "color:a").finished
 	blink_bar.value = blink_bar.max_value # Reset bar to max
-
-func add_dna(dna_string: String)->void:
-	DNA.append(dna_string)
-
-func has_dna(dna_string: String) -> bool:
-	return DNA.has(dna_string)
 
 func _init() -> void:
 	Global.player = self

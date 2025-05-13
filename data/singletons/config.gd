@@ -22,6 +22,7 @@ func save():
 	
 	config.save_encrypted_pass("user://options.cfg",password)
 
+
 func set_setting(setting_name: String, value: Variant):
 	if not data.has(setting_name):
 		push_error("No setting with the name %s" % setting_name)
@@ -36,6 +37,7 @@ func set_setting(setting_name: String, value: Variant):
 	
 	setting_changed.emit(setting_name)
 
+
 func toggle_setting(setting_name: String):
 	if not data.has(setting_name):
 		push_error("No setting with the name %s" % setting_name)
@@ -46,6 +48,7 @@ func toggle_setting(setting_name: String):
 		return
 	
 	set_setting(setting_name, not data[setting_name].val)
+
 
 func _init() -> void:
 	var err = config.load_encrypted_pass("user://options.cfg",password)

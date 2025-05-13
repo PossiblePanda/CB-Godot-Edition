@@ -1,6 +1,7 @@
-[gd_scene load_steps=26 format=3 uid="uid://j0ntohhf53pg"]
+[gd_scene load_steps=27 format=3 uid="uid://j0ntohhf53pg"]
 
 [ext_resource type="Script" uid="uid://d3uxokev7crye" path="res://scripts/game/player.gd" id="1_j8efa"]
+[ext_resource type="PackedScene" uid="uid://dv8ilfpwouieh" path="res://scenes/components/dna_component.tscn" id="2_1rckg"]
 [ext_resource type="Script" uid="uid://bvi6t4v5xqx2h" path="res://scripts/game/player_neck.gd" id="2_yhuym"]
 [ext_resource type="Script" uid="uid://deaj87uac66ql" path="res://scripts/game/bobbing.gd" id="3_winjo"]
 [ext_resource type="Curve" uid="uid://bjs2jgv3o6dhv" path="res://scenes/game/left_right_bobbing.tres" id="4_8sqj3"]
@@ -38,6 +39,9 @@ border_color = Color(1, 1, 1, 1)
 
 [node name="Player" type="CharacterBody3D" groups=["Players"]]
 script = ExtResource("1_j8efa")
+
+[node name="DNAComponent" parent="." instance=ExtResource("2_1rckg")]
+default_dna = Array[String](["D-9341", "Class-D"])
 
 [node name="Neck" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 0)
