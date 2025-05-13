@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://b6k0jddpfnugw"]
 
-[ext_resource type="Script" path="res://scripts/ui/bar.gd" id="1_25a1n"]
+[ext_resource type="Script" uid="uid://msx3hpxs2cdm" path="res://scripts/ui/bar.gd" id="1_25a1n"]
 [ext_resource type="Texture2D" uid="uid://uaq3nqpln5ae" path="res://assets/textures/ui/BlinkMeter.jpg" id="1_blev6"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ohwvc"]

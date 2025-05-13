@@ -3,7 +3,7 @@ extends Node
 signal setting_changed(key : String)
 
 var password = OS.get_unique_id()
-
+var config = ConfigFile.new()
 var data = {
 	mouse_sensitivity = {val = 50, string = "Mouse Sensitivity",min = 0, max = 200},
 	fullscreen = {val = true, string = "Fullscreen", changed = func(val):
@@ -15,7 +15,6 @@ var data = {
 	head_bobbing = {val = true, string = "Head Bobbing"}
 }
 
-var config = ConfigFile.new()
 
 func save():
 	for key in data:

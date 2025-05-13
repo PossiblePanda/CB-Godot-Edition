@@ -12,6 +12,7 @@ extends CharacterBody3D
 @onready var blink_update: Timer = $BlinkUpdate
 @onready var sprint_update: Timer = $SprintUpdate
 @onready var sprint_regeneration_update: Timer = $SprintRegenerationUpdate
+@onready var exhaustion_timer: Timer = $ExhaustionTimer
 
 @onready var canvas_layer: CanvasLayer = $CanvasLayer
 @onready var action_text = $CanvasLayer/ActionText
@@ -28,9 +29,6 @@ extends CharacterBody3D
 
 const BLINK_TIME = 0.1
 const EXHAUSTED = preload("res://assets/sounds/sfx/player/exhausted.ogg")
-const BREATH_1 = preload("res://assets/sounds/sfx/player/breath1.ogg")
-const BREATH_2 = preload("res://assets/sounds/sfx/player/breath2.ogg")
-const BREATH_3 = preload("res://assets/sounds/sfx/player/breath3.ogg")
 
 var current_health: Array[float] = health
 var current_document: DocumentItem:
@@ -69,15 +67,13 @@ var blinking: bool = false
 var sprinting: bool = false
 var can_sprint: bool = true
 
-var regular_breath_sounds = [BREATH_1, BREATH_2, BREATH_3]
-
 signal blink
 signal sprint_started
 signal sprint_ended
 
 func _ready():
 	blink_update.timeout.connect(func():
-		if blink_bar.value > blink_bar.minvalue:
+		if blink_bar.value > blink_bar.min_value:
 			can_see = true
 			blink_bar.value -= 1
 			return
@@ -87,21 +83,20 @@ func _ready():
 		
 	sprint_update.timeout.connect(func():
 		if sprinting:
-			if sprint_bar.value > sprint_bar.minvalue:
+			if sprint_bar.value > sprint_bar.min_value:
 				sprint_bar.value -= 1
 				
 				@warning_ignore("integer_division")
-				if not breath.playing and sprint_bar.value <= sprint_bar.maxvalue / 2:
-					breath.stream = regular_breath_sounds.pick_random()
+				if not breath.playing and sprint_bar.value <= sprint_bar.max_value / 2:
 					breath.play()
 			else:
 				stop_sprint()
 				can_sprint = false
 				
-				exhausted.stream = EXHAUSTED
 				exhausted.play()
 				
-				await Utils.wait(3)
+				exhaustion_timer.start()
+				await exhaustion_timer.timeout
 				
 				can_sprint = true
 		)
@@ -109,13 +104,6 @@ func _ready():
 	sprint_regeneration_update.timeout.connect(func():
 		if not sprinting and can_sprint:
 			sprint_bar.value += 1
-		)
-		
-	breath.finished.connect(func():
-		for sound in regular_breath_sounds:
-			if sound == breath.stream and sprinting:
-				breath.stream = regular_breath_sounds.pick_random()
-				breath.play()
 		)
 
 
@@ -188,8 +176,6 @@ func start_sprint():
 		sprint_regeneration_update.paused = sprinting
 		
 		speed += 4
-		
-		breath.stream = regular_breath_sounds.pick_random()
 
 func stop_sprint():
 	if sprinting == true:
@@ -204,7 +190,7 @@ func show_blink():
 	blinking = true
 	can_see = false
 	
-	blink_bar.value = blink_bar.minvalue # Remove all segments from bar when blinking
+	blink_bar.value = blink_bar.min_value # Remove all segments from bar when blinking
 	blink_update.start() # Reset timer
 	blink.emit()
 	
@@ -215,7 +201,7 @@ func hide_blink():
 	can_see = true
 	
 	await Utils.tween_fade_out(blink_color, BLINK_TIME, 0, 0, "color:a").finished
-	blink_bar.value = blink_bar.maxvalue # Reset bar to max
+	blink_bar.value = blink_bar.max_value # Reset bar to max
 
 func add_dna(dna_string: String)->void:
 	DNA.append(dna_string)
