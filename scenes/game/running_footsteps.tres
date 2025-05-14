@@ -1,0 +1,21 @@
+[gd_resource type="AudioStreamRandomizer" load_steps=9 format=3 uid="uid://b6yc4d7gpsumb"]
+
+[ext_resource type="AudioStream" uid="uid://ddehwkc610ea7" path="res://assets/sounds/character/human/step/Run1.ogg" id="1_ocfie"]
+[ext_resource type="AudioStream" uid="uid://lrma4vhwrhe6" path="res://assets/sounds/character/human/step/Run2.ogg" id="2_nxg6k"]
+[ext_resource type="AudioStream" uid="uid://giy4c0je2hcn" path="res://assets/sounds/character/human/step/Run3.ogg" id="3_jalav"]
+[ext_resource type="AudioStream" uid="uid://cwcf8c36g1eh0" path="res://assets/sounds/character/human/step/Run4.ogg" id="4_jppqj"]
+[ext_resource type="AudioStream" uid="uid://cqnqem821o10d" path="res://assets/sounds/character/human/step/Run5.ogg" id="5_2jkq0"]
+[ext_resource type="AudioStream" uid="uid://hw2r2v7e86qb" path="res://assets/sounds/character/human/step/Run6.ogg" id="6_0tnjt"]
+[ext_resource type="AudioStream" uid="uid://xbigd1trp2g3" path="res://assets/sounds/character/human/step/Run7.ogg" id="7_jwie2"]
+[ext_resource type="AudioStream" uid="uid://2tg4l4wo6ljh" path="res://assets/sounds/character/human/step/Run8.ogg" id="8_2wkpe"]
+
+[resource]
+streams_count = 8
+stream_0/stream = ExtResource("1_ocfie")
+stream_1/stream = ExtResource("2_nxg6k")
+stream_2/stream = ExtResource("3_jalav")
+stream_3/stream = ExtResource("4_jppqj")
+stream_4/stream = ExtResource("5_2jkq0")
+stream_5/stream = ExtResource("6_0tnjt")
+stream_6/stream = ExtResource("7_jwie2")
+stream_7/stream = ExtResource("8_2wkpe")

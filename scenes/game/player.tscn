@@ -1,26 +1,18 @@
-[gd_scene load_steps=39 format=3 uid="uid://j0ntohhf53pg"]
+[gd_scene load_steps=29 format=3 uid="uid://j0ntohhf53pg"]
 
 [ext_resource type="Script" uid="uid://d3uxokev7crye" path="res://scripts/game/player.gd" id="1_j8efa"]
+[ext_resource type="PackedScene" uid="uid://dv8ilfpwouieh" path="res://scenes/components/dna_component.tscn" id="2_1rckg"]
+[ext_resource type="PackedScene" uid="uid://24a88s1b1j10" path="res://scenes/components/health_component.tscn" id="2_shvm5"]
+[ext_resource type="PackedScene" uid="uid://bqnaed2u1fo40" path="res://scenes/components/blink_component.tscn" id="2_vrrwq"]
 [ext_resource type="Script" uid="uid://bvi6t4v5xqx2h" path="res://scripts/game/player_neck.gd" id="2_yhuym"]
-[ext_resource type="AudioStream" uid="uid://bf5psici58kyl" path="res://assets/sounds/character/human/step/Step1.ogg" id="3_i5nc7"]
 [ext_resource type="Script" uid="uid://deaj87uac66ql" path="res://scripts/game/bobbing.gd" id="3_winjo"]
-[ext_resource type="Curve" uid="uid://bjs2jgv3o6dhv" path="res://scripts/game/left_right_bobbing.tres" id="4_8sqj3"]
-[ext_resource type="AudioStream" uid="uid://bhqi22weo8tgn" path="res://assets/sounds/character/human/step/Step2.ogg" id="4_gigje"]
-[ext_resource type="Curve" uid="uid://dicgsat2qqgik" path="res://scripts/game/up_down_bobbing.tres" id="5_4pujx"]
-[ext_resource type="AudioStream" uid="uid://d04cmoouoo67r" path="res://assets/sounds/character/human/step/Step3.ogg" id="5_dt006"]
-[ext_resource type="AudioStream" uid="uid://ddehwkc610ea7" path="res://assets/sounds/character/human/step/Run1.ogg" id="5_eh3i3"]
-[ext_resource type="AudioStream" uid="uid://djeoxnt35r5x4" path="res://assets/sounds/character/human/step/Step4.ogg" id="6_gquna"]
-[ext_resource type="AudioStream" uid="uid://lrma4vhwrhe6" path="res://assets/sounds/character/human/step/Run2.ogg" id="6_uwfks"]
-[ext_resource type="AudioStream" uid="uid://giy4c0je2hcn" path="res://assets/sounds/character/human/step/Run3.ogg" id="7_ayefr"]
-[ext_resource type="AudioStream" uid="uid://1iri5jwxfe0g" path="res://assets/sounds/character/human/step/Step5.ogg" id="7_hbfpj"]
-[ext_resource type="AudioStream" uid="uid://cwcf8c36g1eh0" path="res://assets/sounds/character/human/step/Run4.ogg" id="8_qrs1y"]
-[ext_resource type="AudioStream" uid="uid://cqnqem821o10d" path="res://assets/sounds/character/human/step/Run5.ogg" id="9_anqpx"]
-[ext_resource type="AudioStream" uid="uid://hw2r2v7e86qb" path="res://assets/sounds/character/human/step/Run6.ogg" id="10_05xvv"]
-[ext_resource type="AudioStream" uid="uid://dney5610mrxu3" path="res://assets/sounds/character/human/step/Step7.ogg" id="10_7cyj7"]
-[ext_resource type="AudioStream" uid="uid://b2rgaamevyjqs" path="res://assets/sounds/character/human/step/Step6.ogg" id="10_qwifo"]
-[ext_resource type="AudioStream" uid="uid://dve156xrbul0h" path="res://assets/sounds/character/human/step/Step8.ogg" id="11_170kr"]
-[ext_resource type="AudioStream" uid="uid://xbigd1trp2g3" path="res://assets/sounds/character/human/step/Run7.ogg" id="11_mlo2a"]
-[ext_resource type="AudioStream" uid="uid://2tg4l4wo6ljh" path="res://assets/sounds/character/human/step/Run8.ogg" id="12_8rfqc"]
+[ext_resource type="Curve" uid="uid://bjs2jgv3o6dhv" path="res://scenes/game/left_right_bobbing.tres" id="4_8sqj3"]
+[ext_resource type="Curve" uid="uid://dicgsat2qqgik" path="res://scenes/game/up_down_bobbing.tres" id="5_4pujx"]
+[ext_resource type="AudioStream" uid="uid://bbe4o08grt4jf" path="res://scenes/game/walking_footsteps.tres" id="5_shvm5"]
+[ext_resource type="AudioStream" uid="uid://bp413qmao2yw1" path="res://scenes/game/player_breathing.tres" id="6_6ycxi"]
+[ext_resource type="AudioStream" uid="uid://b6yc4d7gpsumb" path="res://scenes/game/running_footsteps.tres" id="6_knjtp"]
+[ext_resource type="AudioStream" uid="uid://b6c87fhqmpju5" path="res://assets/sounds/sfx/player/exhausted.ogg" id="7_rrwdd"]
+[ext_resource type="Script" uid="uid://bpqfmvtb63soi" path="res://scripts/game/player_ui.gd" id="8_yful8"]
 [ext_resource type="Texture2D" uid="uid://344csfi0w4tg" path="res://assets/textures/ui/BlinkIcon.png" id="22_pki56"]
 [ext_resource type="PackedScene" uid="uid://b6k0jddpfnugw" path="res://scenes/ui/bar.tscn" id="23_p53di"]
 [ext_resource type="Texture2D" uid="uid://cltlb1oblttih" path="res://assets/textures/ui/sprinticon.png" id="24_4x634"]
@@ -39,28 +31,6 @@
 radius = 0.3
 height = 2.9
 
-[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_b187s"]
-streams_count = 8
-stream_0/stream = ExtResource("3_i5nc7")
-stream_1/stream = ExtResource("4_gigje")
-stream_2/stream = ExtResource("5_dt006")
-stream_3/stream = ExtResource("6_gquna")
-stream_4/stream = ExtResource("7_hbfpj")
-stream_5/stream = ExtResource("10_qwifo")
-stream_6/stream = ExtResource("10_7cyj7")
-stream_7/stream = ExtResource("11_170kr")
-
-[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_3w3aw"]
-streams_count = 8
-stream_0/stream = ExtResource("5_eh3i3")
-stream_1/stream = ExtResource("6_uwfks")
-stream_2/stream = ExtResource("7_ayefr")
-stream_3/stream = ExtResource("8_qrs1y")
-stream_4/stream = ExtResource("9_anqpx")
-stream_5/stream = ExtResource("10_05xvv")
-stream_6/stream = ExtResource("11_mlo2a")
-stream_7/stream = ExtResource("12_8rfqc")
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y6v7x"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 border_width_left = 1
@@ -72,10 +42,12 @@ border_color = Color(1, 1, 1, 1)
 [node name="Player" type="CharacterBody3D" groups=["Players"]]
 script = ExtResource("1_j8efa")
 
-[node name="Bobbing" type="Node" parent="."]
-script = ExtResource("3_winjo")
-up_down = ExtResource("5_4pujx")
-left_right = ExtResource("4_8sqj3")
+[node name="HealthComponent" parent="." instance=ExtResource("2_shvm5")]
+
+[node name="BlinkComponent" parent="." instance=ExtResource("2_vrrwq")]
+
+[node name="DnaComponent" parent="." instance=ExtResource("2_1rckg")]
+default_dna = Array[String](["D-9341", "Class-D"])
 
 [node name="Neck" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 0)
@@ -83,13 +55,18 @@ script = ExtResource("2_yhuym")
 
 [node name="Camera3D" type="Camera3D" parent="Neck"]
 current = true
+script = ExtResource("3_winjo")
+up_down = ExtResource("5_4pujx")
+left_right = ExtResource("4_8sqj3")
 
 [node name="Breath" type="AudioStreamPlayer3D" parent="Neck"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.02099, 0)
+stream = ExtResource("6_6ycxi")
 max_db = 0.0
 
 [node name="Exhausted" type="AudioStreamPlayer3D" parent="Neck"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.02099, 0)
+stream = ExtResource("7_rrwdd")
 max_db = 0.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
@@ -97,11 +74,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.45, 0)
 shape = SubResource("CapsuleShape3D_vtysj")
 
 [node name="Walking" type="AudioStreamPlayer3D" parent="."]
-stream = SubResource("AudioStreamRandomizer_b187s")
+stream = ExtResource("5_shvm5")
 volume_db = -12.209
 
 [node name="Running" type="AudioStreamPlayer3D" parent="."]
-stream = SubResource("AudioStreamRandomizer_3w3aw")
+stream = ExtResource("6_knjtp")
 volume_db = -12.209
 
 [node name="BlinkUpdate" type="Timer" parent="."]
@@ -116,7 +93,11 @@ autostart = true
 wait_time = 0.7
 autostart = true
 
+[node name="ExhaustionTimer" type="Timer" parent="."]
+wait_time = 3.0
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+script = ExtResource("8_yful8")
 
 [node name="Blink" type="ColorRect" parent="CanvasLayer"]
 anchors_preset = 15

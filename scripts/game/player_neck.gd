@@ -33,6 +33,7 @@ func aim_look(event: InputEventMouseMotion)-> void:
 	add_pitch(motion.y)
 	clamp_pitch()
 
+
 #Rotates the character around the local Y axis by a given amount (In degrees) to achieve yaw.
 func add_yaw(amount)->void:
 	if is_zero_approx(amount):
