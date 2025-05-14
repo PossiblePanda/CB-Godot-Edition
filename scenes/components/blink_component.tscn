@@ -4,3 +4,6 @@
 
 [node name="BlinkComponent" type="Node"]
 script = ExtResource("1_0wjar")
+
+[node name="BlinkTimer" type="Timer" parent="."]
+wait_time = 0.15
