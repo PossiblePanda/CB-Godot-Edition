@@ -34,11 +34,7 @@ func _ready() -> void:
 				v_box_container.add_child(template)
 
 func _on_back_button_pressed() -> void:
-	Config.save()
-	visible = false
-	
-	if buttons:
-		buttons.visible = true
+	hide()
 
 func _on_hidden() -> void:
 	Config.save()

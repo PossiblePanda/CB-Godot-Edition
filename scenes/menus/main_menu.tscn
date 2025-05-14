@@ -1,16 +1,15 @@
-[gd_scene load_steps=16 format=3 uid="uid://hm3egqqxdan5"]
+[gd_scene load_steps=15 format=3 uid="uid://hm3egqqxdan5"]
 
-[ext_resource type="Script" path="res://scripts/menus/main_menu.gd" id="1_3k6pw"]
+[ext_resource type="Script" uid="uid://c4jcpbgph05pe" path="res://scripts/menus/main_menu.gd" id="1_3k6pw"]
 [ext_resource type="Texture2D" uid="uid://yb3gs6jxmfpx" path="res://assets/textures/menu/back.jpg" id="1_nn8c6"]
 [ext_resource type="Texture2D" uid="uid://cjc6bd7mhahrc" path="res://assets/textures/menu/menuwhite.jpg" id="2_1s2i1"]
 [ext_resource type="Texture2D" uid="uid://cxqp5wem0rgph" path="res://assets/textures/menu/scptext.jpg" id="3_a28n1"]
-[ext_resource type="FontFile" uid="uid://b37s1t3ogf87e" path="res://assets/fonts/sansserif.ttf" id="4_giwlm"]
 [ext_resource type="AudioStream" uid="uid://di3r1cngj6bbg" path="res://assets/sounds/music/Menu.ogg" id="5_073g2"]
 [ext_resource type="Texture2D" uid="uid://b4xijmwdgsnrb" path="res://assets/textures/menu/173back.jpg" id="8_0hy1w"]
 [ext_resource type="PackedScene" uid="uid://bcs2x61b04ffa" path="res://scenes/ui/button.tscn" id="8_e5j5s"]
 [ext_resource type="Texture2D" uid="uid://bysky2ahsg8t3" path="res://assets/textures/menu/logo.png" id="9_6pr82"]
 [ext_resource type="Texture2D" uid="uid://bnd1xcsafxn01" path="res://assets/textures/menu/pausemenu.jpg" id="10_bkf4f"]
-[ext_resource type="FontVariation" path="res://assets/fonts/courier_new_bold_spacing.tres" id="12_6ofn8"]
+[ext_resource type="FontVariation" uid="uid://do82tn1v8whll" path="res://assets/fonts/courier_new_bold_spacing.tres" id="12_6ofn8"]
 [ext_resource type="FontFile" uid="uid://dh10trw81fhd" path="res://assets/fonts/courier_new.ttf" id="13_0yiuc"]
 [ext_resource type="Texture2D" uid="uid://lmp5f6f0rrf8" path="res://assets/textures/menu/undertow.png" id="14_3nvhd"]
 [ext_resource type="FontVariation" uid="uid://cjctpsg1h7vx4" path="res://assets/fonts/courier_new_spacing.tres" id="14_yrkc2"]
@@ -122,17 +121,6 @@ grow_horizontal = 0
 pivot_offset = Vector2(59, 59)
 texture = ExtResource("9_6pr82")
 expand_mode = 1
-
-[node name="Label" type="Label" parent="MarginContainer/Control"]
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_top = -23.0
-offset_right = 157.0
-grow_vertical = 0
-theme_override_fonts/font = ExtResource("4_giwlm")
-text = "Godot Edition Alpha-1"
 
 [node name="CreditsMenu" type="TextureRect" parent="."]
 process_mode = 3
