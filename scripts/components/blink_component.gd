@@ -2,7 +2,7 @@ class_name BlinkComponent
 extends Node
 
 signal blink
-signal blinking_changed
+signal end_blink
 
 const BLINK_METER_MAX := 20
 const BLINK_METER_MIN := 0
@@ -14,7 +14,6 @@ var can_see: bool:
 		return
 var blinking: bool = false:
 	set(val):
-		blinking_changed.emit()
 		blinking = val
 var blink_meter = 20
 
@@ -59,6 +58,7 @@ func hide_blink():
 	if blinking == false:
 		return
 	blinking = false
+	end_blink.emit()
 	
 	await_blink_timer()
 	#await Utils.tween_fade_out(blink_color, BLINK_TIME, 0, 0, "color:a").finished
@@ -66,5 +66,5 @@ func hide_blink():
 
 
 func full_blink():
-	await show_blink()
-	await hide_blink()
+	show_blink()
+	hide_blink()
