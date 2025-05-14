@@ -5,7 +5,7 @@ signal health_changed
 signal died
 
 @export var _health: Dictionary[String,float] = {blood_loss = 0,injury = 0}
-@export var heal_timer = 0
+@export var _heal_timer = 0
 var _dead = false
 
 func _process(delta: float) -> void:
@@ -23,8 +23,8 @@ func _health_update(delta: float):
 			_dead = true
 		return
 	
-	if heal_timer > 0: #temporary flat rate for healing
-		heal_timer -= delta
+	if _heal_timer > 0: #temporary flat rate for healing
+		_heal_timer -= delta
 		health_set(max(_health["injury"] - 0.0005 * delta * 60,0.0),"injury")
 	if _health["injury"] > 1.0: #slightly off compared to base game???
 		var updated_blood_loss = _health["blood_loss"]
