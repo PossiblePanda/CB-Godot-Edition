@@ -14,7 +14,7 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
 	# If is watching, set velocity to zero, else - go to player.
-	if !is_watching || get_tree().get_first_node_in_group("Players").blinking:
+	if !is_watching || get_tree().get_first_node_in_group("Players").get_meta("BlinkComponent").blinking:
 		var player_direction: Vector3 = global_position.direction_to(get_tree().root.get_node("Game/Player").global_position)
 		velocity += speed * player_direction * delta
 		# Look at player
@@ -30,9 +30,11 @@ func _physics_process(delta):
 		var check_collision: KinematicCollision3D = get_slide_collision(i)
 		var collided_with = check_collision.get_collider()
 		if collided_with is Player:
+			var healh_component : HealthComponent = collided_with.get_meta("HealthComponent")
+			healh_component.health_manage(-16777216, 0)
 			$InteractSound.stream = load("res://assets/sounds/character/173/neck_snap" + str(rng.randi_range(1, 3)) + ".ogg")
 			$InteractSound.play()
-			collided_with.call("health_manage", -16777216, 0)
+			
 			# disable statue function
 			set_physics_process(false)
 

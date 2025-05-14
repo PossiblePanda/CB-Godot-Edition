@@ -1,28 +1,6 @@
 class_name Player
 extends CharacterBody3D
 
-@onready var neck: Node3D = $Neck
-@onready var camera: Camera3D = $Neck/Camera3D
-@onready var breath: AudioStreamPlayer3D = $Neck/Breath
-@onready var exhausted: AudioStreamPlayer3D = $Neck/Exhausted
-
-@onready var sprint_update: Timer = $SprintUpdate
-@onready var sprint_regeneration_update: Timer = $SprintRegenerationUpdate
-@onready var exhaustion_timer: Timer = $ExhaustionTimer
-
-@onready var canvas_layer: CanvasLayer = $CanvasLayer
-@onready var action_text = $CanvasLayer/ActionText
-@onready var interact_texture = $CanvasLayer/InteractTexture
-@onready var document_texture = $CanvasLayer/CenterContainer/DocumentTexture
-@onready var held_item_rect = $"CanvasLayer/CenterContainer/HeldItem"
-@onready var blink_bar: Bar = $"CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer/BlinkBar"
-@onready var sprint_bar: Bar = $"CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer2/SprintBar"
-@onready var blink_color: ColorRect = $"CanvasLayer/Blink"
-
-@onready var pause_menu: TextureRect = $CanvasLayer/PauseMenu
-@onready var options: Control = $CanvasLayer/PauseMenu/Options
-@onready var inventory: Inventory = $CanvasLayer/Inventory
-
 signal sprint_started
 signal sprint_ended
 
@@ -63,6 +41,28 @@ var blinking: bool = false
 var sprinting: bool = false
 var can_sprint: bool = true
 
+@onready var neck: Node3D = $Neck
+@onready var camera: Camera3D = $Neck/Camera3D
+@onready var breath: AudioStreamPlayer3D = $Neck/Breath
+@onready var exhausted: AudioStreamPlayer3D = $Neck/Exhausted
+
+@onready var sprint_update: Timer = $SprintUpdate
+@onready var sprint_regeneration_update: Timer = $SprintRegenerationUpdate
+@onready var exhaustion_timer: Timer = $ExhaustionTimer
+
+@onready var canvas_layer: CanvasLayer = $CanvasLayer
+@onready var action_text = $CanvasLayer/ActionText
+@onready var interact_texture = $CanvasLayer/InteractTexture
+@onready var document_texture = $CanvasLayer/CenterContainer/DocumentTexture
+@onready var held_item_rect = $"CanvasLayer/CenterContainer/HeldItem"
+@onready var blink_bar: Bar = $"CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer/BlinkBar"
+@onready var sprint_bar: Bar = $"CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer2/SprintBar"
+@onready var blink_color: ColorRect = $"CanvasLayer/Blink"
+
+@onready var pause_menu: TextureRect = $CanvasLayer/PauseMenu
+@onready var options: Control = $CanvasLayer/PauseMenu/Options
+@onready var inventory: Inventory = $CanvasLayer/Inventory
+
 func _input(event):
 	if Input.is_action_just_pressed("blink"):
 		self.get_meta("BlinkComponent").show_blink()
@@ -85,6 +85,10 @@ func _input(event):
 				held_item = null
 			if current_document:
 				current_document = null
+
+
+func _init() -> void:
+	Global.player = self
 
 
 func _ready():
@@ -112,6 +116,8 @@ func _ready():
 		if not sprinting and can_sprint:
 			sprint_bar.value += 1
 		)
+	
+	connect_components.call_deferred()
 
 
 func _process(delta: float) -> void:
@@ -136,6 +142,10 @@ func _process(delta: float) -> void:
 	move_and_slide()
 
 var action_tween: Tween
+
+func connect_components() -> void:
+	var health_component : HealthComponent = get_meta("HealthComponent")
+	health_component.died.connect(died)
 
 func show_action_text(text: String) -> void:
 	if action_tween:
@@ -171,15 +181,5 @@ func stop_sprint():
 		speed -= 4
 
 
-func _init() -> void:
-	Global.player = self
-
-
-## Health manager.
-func health_manage(amount: float, type: int):
-	if current_health[type] + amount <= health[type]:
-		current_health[type] += amount
-	else:
-		current_health = health
-	if current_health[type] <= 0:
-		get_parent().toggle_pause()
+func died() -> void:
+	get_parent().toggle_pause()
