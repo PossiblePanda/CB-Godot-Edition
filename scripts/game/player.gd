@@ -1,8 +1,6 @@
 class_name Player
 extends CharacterBody3D
 
-@export var health: Array[float] = [100, 100]
-
 @onready var neck: Node3D = $Neck
 @onready var camera: Camera3D = $Neck/Camera3D
 @onready var breath: AudioStreamPlayer3D = $Neck/Breath
@@ -28,7 +26,6 @@ extends CharacterBody3D
 signal sprint_started
 signal sprint_ended
 
-var current_health: Array[float] = health
 var current_document: DocumentItem:
 	set(val):
 		if val == null:
@@ -88,6 +85,7 @@ func _input(event):
 				held_item = null
 			if current_document:
 				current_document = null
+
 
 func _ready():
 	sprint_update.timeout.connect(func():
@@ -152,6 +150,7 @@ func show_action_text(text: String) -> void:
 	
 	action_text.visible = false
 
+
 func start_sprint():
 	if sprinting == false and can_sprint:
 		sprinting = true
@@ -160,6 +159,7 @@ func start_sprint():
 		sprint_regeneration_update.paused = sprinting
 		
 		speed += 4
+
 
 func stop_sprint():
 	if sprinting == true:
@@ -170,8 +170,10 @@ func stop_sprint():
 		
 		speed -= 4
 
+
 func _init() -> void:
 	Global.player = self
+
 
 ## Health manager.
 func health_manage(amount: float, type: int):
