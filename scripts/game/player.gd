@@ -3,22 +3,17 @@ extends CharacterBody3D
 
 signal sprint_started
 signal sprint_ended
-signal document
+signal document_changed
+signal held_item_changed
 
 var current_document: DocumentItem:
 	set(val):
 		current_document = val
-		document.emit(val)
+		document_changed.emit(val)
 var held_item: Item:
 	set(val):
-		if val == null:
-			held_item_rect.texture = null
-			held_item_rect.hide()
-		else:
-			held_item_rect.texture = val.image
-			held_item_rect.show()
-		
 		held_item = val
+		held_item_changed.emit(val)
 var interact_visible: bool = false:
 	set(val):
 		interact_texture.visible = val
