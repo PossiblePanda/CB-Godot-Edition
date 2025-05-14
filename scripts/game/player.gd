@@ -6,7 +6,7 @@ signal sprint_ended
 signal document_changed
 signal held_item_changed
 
-var current_document: DocumentItem:
+var current_document: Item:
 	set(val):
 		current_document = val
 		document_changed.emit(val)

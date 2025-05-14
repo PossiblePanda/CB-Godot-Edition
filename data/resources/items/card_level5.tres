@@ -1,11 +1,22 @@
-[gd_resource type="Resource" script_class="KeyCardItem" load_steps=3 format=3 uid="uid://bjnf8xqobdmi2"]
+[gd_resource type="Resource" script_class="Item" load_steps=8 format=3 uid="uid://bjnf8xqobdmi2"]
 
 [ext_resource type="Texture2D" uid="uid://dnwvviqo128a4" path="res://assets/textures/items/icon/key5.jpg" id="1_lf37r"]
-[ext_resource type="Script" path="res://data/resources/items/key_card_item.gd" id="2_g5typ"]
+[ext_resource type="Script" uid="uid://buw3jh7ni7iqm" path="res://data/components/item/base_item_component.gd" id="1_n4e2c"]
+[ext_resource type="Script" uid="uid://c3ndnmlv6ly8d" path="res://data/components/item/can_hold.gd" id="2_n4e2c"]
+[ext_resource type="Script" uid="uid://dn26y22q66uas" path="res://data/resources/items/Item.gd" id="3_5g1oe"]
+[ext_resource type="Script" uid="uid://rdp1ien3g26k" path="res://data/components/item/card_component.gd" id="3_fj5v1"]
+
+[sub_resource type="Resource" id="Resource_fo254"]
+script = ExtResource("2_n4e2c")
+metadata/_custom_type_script = "uid://c3ndnmlv6ly8d"
+
+[sub_resource type="Resource" id="Resource_n4e2c"]
+script = ExtResource("3_fj5v1")
+card_level = 5
+metadata/_custom_type_script = "uid://rdp1ien3g26k"
 
 [resource]
-script = ExtResource("2_g5typ")
-card_level = 5
+script = ExtResource("3_5g1oe")
 image = ExtResource("1_lf37r")
 item_name = "Level 5 Key Card"
-component_names = Array[String](["can_hold"])
+components = Array[ExtResource("1_n4e2c")]([SubResource("Resource_fo254"), SubResource("Resource_n4e2c")])

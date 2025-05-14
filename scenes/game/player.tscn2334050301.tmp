@@ -1,0 +1,431 @@
+[gd_scene load_steps=29 format=3 uid="uid://j0ntohhf53pg"]
+
+[ext_resource type="Script" uid="uid://d3uxokev7crye" path="res://scripts/game/player.gd" id="1_j8efa"]
+[ext_resource type="PackedScene" uid="uid://dv8ilfpwouieh" path="res://scenes/components/dna_component.tscn" id="2_1rckg"]
+[ext_resource type="PackedScene" uid="uid://24a88s1b1j10" path="res://scenes/components/health_component.tscn" id="2_shvm5"]
+[ext_resource type="PackedScene" uid="uid://bqnaed2u1fo40" path="res://scenes/components/blink_component.tscn" id="2_vrrwq"]
+[ext_resource type="Script" uid="uid://bvi6t4v5xqx2h" path="res://scripts/game/player_neck.gd" id="2_yhuym"]
+[ext_resource type="Script" uid="uid://deaj87uac66ql" path="res://scripts/game/bobbing.gd" id="3_winjo"]
+[ext_resource type="Curve" uid="uid://bjs2jgv3o6dhv" path="res://scenes/game/left_right_bobbing.tres" id="4_8sqj3"]
+[ext_resource type="Curve" uid="uid://dicgsat2qqgik" path="res://scenes/game/up_down_bobbing.tres" id="5_4pujx"]
+[ext_resource type="AudioStream" uid="uid://bbe4o08grt4jf" path="res://scenes/game/walking_footsteps.tres" id="5_shvm5"]
+[ext_resource type="AudioStream" uid="uid://bp413qmao2yw1" path="res://scenes/game/player_breathing.tres" id="6_6ycxi"]
+[ext_resource type="AudioStream" uid="uid://b6yc4d7gpsumb" path="res://scenes/game/running_footsteps.tres" id="6_knjtp"]
+[ext_resource type="AudioStream" uid="uid://b6c87fhqmpju5" path="res://assets/sounds/sfx/player/exhausted.ogg" id="7_rrwdd"]
+[ext_resource type="Script" uid="uid://bpqfmvtb63soi" path="res://scripts/game/player_ui.gd" id="8_yful8"]
+[ext_resource type="Texture2D" uid="uid://344csfi0w4tg" path="res://assets/textures/ui/BlinkIcon.png" id="22_pki56"]
+[ext_resource type="PackedScene" uid="uid://b6k0jddpfnugw" path="res://scenes/ui/bar.tscn" id="23_p53di"]
+[ext_resource type="Texture2D" uid="uid://cltlb1oblttih" path="res://assets/textures/ui/sprinticon.png" id="24_4x634"]
+[ext_resource type="Script" uid="uid://msx3hpxs2cdm" path="res://scripts/ui/bar.gd" id="25_m6mdu"]
+[ext_resource type="Texture2D" uid="uid://dyefyts3kyxop" path="res://assets/textures/ui/StaminaMeter.jpg" id="26_22crd"]
+[ext_resource type="Script" uid="uid://b5r0vqs5kei18" path="res://scripts/game/inventory.gd" id="27_003uy"]
+[ext_resource type="Texture2D" uid="uid://vsu3nj61ls5s" path="res://assets/textures/ui/handicon.png" id="28_cnyvm"]
+[ext_resource type="FontFile" uid="uid://dh10trw81fhd" path="res://assets/fonts/courier_new.ttf" id="29_hydrm"]
+[ext_resource type="Texture2D" uid="uid://bnd1xcsafxn01" path="res://assets/textures/menu/pausemenu.jpg" id="30_b6sxn"]
+[ext_resource type="Script" uid="uid://cmbvs6y031ajy" path="res://scripts/ui/pause_menu.gd" id="31_ajxrq"]
+[ext_resource type="PackedScene" uid="uid://bcs2x61b04ffa" path="res://scenes/ui/button.tscn" id="32_lle1u"]
+[ext_resource type="FontVariation" uid="uid://do82tn1v8whll" path="res://assets/fonts/courier_new_bold_spacing.tres" id="33_8gn3s"]
+[ext_resource type="PackedScene" uid="uid://bk20e5tj3frid" path="res://scenes/menus/options.tscn" id="34_jiq03"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_vtysj"]
+radius = 0.3
+height = 2.9
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y6v7x"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 1, 1, 1)
+
+[node name="Player" type="CharacterBody3D" groups=["Players"]]
+script = ExtResource("1_j8efa")
+
+[node name="HealthComponent" parent="." instance=ExtResource("2_shvm5")]
+
+[node name="BlinkComponent" parent="." instance=ExtResource("2_vrrwq")]
+
+[node name="DnaComponent" parent="." instance=ExtResource("2_1rckg")]
+default_dna = Array[String](["D-9341", "Class-D"])
+
+[node name="Neck" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 0)
+script = ExtResource("2_yhuym")
+
+[node name="Camera3D" type="Camera3D" parent="Neck"]
+current = true
+script = ExtResource("3_winjo")
+up_down = ExtResource("5_4pujx")
+left_right = ExtResource("4_8sqj3")
+
+[node name="Breath" type="AudioStreamPlayer3D" parent="Neck"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.02099, 0)
+stream = ExtResource("6_6ycxi")
+max_db = 0.0
+
+[node name="Exhausted" type="AudioStreamPlayer3D" parent="Neck"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.02099, 0)
+stream = ExtResource("7_rrwdd")
+max_db = 0.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.45, 0)
+shape = SubResource("CapsuleShape3D_vtysj")
+
+[node name="Walking" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("5_shvm5")
+volume_db = -12.209
+
+[node name="Running" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("6_knjtp")
+volume_db = -12.209
+
+[node name="BlinkUpdate" type="Timer" parent="."]
+wait_time = 0.7
+autostart = true
+
+[node name="SprintUpdate" type="Timer" parent="."]
+wait_time = 0.25
+autostart = true
+
+[node name="SprintRegenerationUpdate" type="Timer" parent="."]
+wait_time = 0.7
+autostart = true
+
+[node name="ExhaustionTimer" type="Timer" parent="."]
+wait_time = 3.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+script = ExtResource("8_yful8")
+
+[node name="Blink" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0)
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 28
+theme_override_constants/margin_bottom = 24
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+theme_override_constants/separation = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("22_pki56")
+metadata/_edit_group_ = true
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer/TextureRect"]
+show_behind_parent = true
+layout_mode = 0
+offset_left = -1.0
+offset_top = -1.0
+offset_right = 31.0
+offset_bottom = 31.0
+
+[node name="BlinkBar" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("23_p53di")]
+layout_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+texture = ExtResource("24_4x634")
+metadata/_edit_group_ = true
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer2/TextureRect"]
+show_behind_parent = true
+layout_mode = 0
+offset_left = -1.0
+offset_top = -1.0
+offset_right = 31.0
+offset_bottom = 31.0
+
+[node name="SprintBar" type="Control" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(204, 20)
+layout_mode = 2
+script = ExtResource("25_m6mdu")
+
+[node name="Panel" type="Panel" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer2/SprintBar"]
+layout_mode = 0
+offset_right = 204.0
+offset_bottom = 20.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_y6v7x")
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer2/SprintBar/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 3
+theme_override_constants/margin_top = 3
+theme_override_constants/margin_right = 3
+theme_override_constants/margin_bottom = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer2/SprintBar/Panel/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="TextureRect1" type="TextureRect" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer2/SprintBar/Panel/MarginContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("26_22crd")
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer2/SprintBar/Panel/MarginContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("26_22crd")
+
+[node name="TextureRect3" type="TextureRect" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer2/SprintBar/Panel/MarginContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("26_22crd")
+
+[node name="TextureRect4" type="TextureRect" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer2/SprintBar/Panel/MarginContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("26_22crd")
+
+[node name="TextureRect5" type="TextureRect" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer2/SprintBar/Panel/MarginContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("26_22crd")
+
+[node name="TextureRect6" type="TextureRect" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer2/SprintBar/Panel/MarginContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("26_22crd")
+
+[node name="TextureRect7" type="TextureRect" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer2/SprintBar/Panel/MarginContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("26_22crd")
+
+[node name="TextureRect8" type="TextureRect" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer2/SprintBar/Panel/MarginContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("26_22crd")
+
+[node name="TextureRect9" type="TextureRect" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer2/SprintBar/Panel/MarginContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("26_22crd")
+
+[node name="TextureRect10" type="TextureRect" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer2/SprintBar/Panel/MarginContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("26_22crd")
+
+[node name="TextureRect11" type="TextureRect" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer2/SprintBar/Panel/MarginContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("26_22crd")
+
+[node name="TextureRect12" type="TextureRect" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer2/SprintBar/Panel/MarginContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("26_22crd")
+
+[node name="TextureRect13" type="TextureRect" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer2/SprintBar/Panel/MarginContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("26_22crd")
+
+[node name="TextureRect14" type="TextureRect" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer2/SprintBar/Panel/MarginContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("26_22crd")
+
+[node name="TextureRect15" type="TextureRect" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer2/SprintBar/Panel/MarginContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("26_22crd")
+
+[node name="TextureRect16" type="TextureRect" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer2/SprintBar/Panel/MarginContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("26_22crd")
+
+[node name="TextureRect17" type="TextureRect" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer2/SprintBar/Panel/MarginContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("26_22crd")
+
+[node name="TextureRect18" type="TextureRect" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer2/SprintBar/Panel/MarginContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("26_22crd")
+
+[node name="TextureRect19" type="TextureRect" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer2/SprintBar/Panel/MarginContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("26_22crd")
+
+[node name="TextureRect20" type="TextureRect" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer2/SprintBar/Panel/MarginContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("26_22crd")
+
+[node name="Inventory" type="HFlowContainer" parent="CanvasLayer"]
+visible = false
+offset_left = 715.0
+offset_top = 470.0
+offset_right = 1205.0
+offset_bottom = 680.0
+theme_override_constants/h_separation = 35
+theme_override_constants/v_separation = 70
+script = ExtResource("27_003uy")
+
+[node name="InteractTexture" type="TextureRect" parent="CanvasLayer"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -32.0
+offset_right = 32.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("28_cnyvm")
+
+[node name="ActionText" type="Label" parent="CanvasLayer"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -221.5
+offset_top = 199.5
+offset_right = 233.5
+offset_bottom = 222.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.878431, 0.878431, 0.878431, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0.0627451, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = ExtResource("29_hydrm")
+theme_override_font_sizes/font_size = 17
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="HeldItem" type="TextureRect" parent="CanvasLayer/CenterContainer"]
+custom_minimum_size = Vector2(0, 0.935)
+layout_mode = 2
+
+[node name="DocumentTexture" type="TextureRect" parent="CanvasLayer/CenterContainer"]
+layout_mode = 2
+
+[node name="PauseMenu" type="TextureRect" parent="CanvasLayer"]
+process_mode = 3
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -316.5
+offset_top = -316.5
+offset_right = 316.5
+offset_bottom = 316.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("30_b6sxn")
+expand_mode = 2
+script = ExtResource("31_ajxrq")
+
+[node name="Buttons" type="VBoxContainer" parent="CanvasLayer/PauseMenu"]
+layout_mode = 0
+offset_left = 140.0
+offset_top = 216.0
+offset_right = 563.0
+offset_bottom = 595.0
+theme_override_constants/separation = 14
+
+[node name="Resume" parent="CanvasLayer/PauseMenu/Buttons" instance=ExtResource("32_lle1u")]
+custom_minimum_size = Vector2(0, 63)
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Resume"
+
+[node name="LoadGame" parent="CanvasLayer/PauseMenu/Buttons" instance=ExtResource("32_lle1u")]
+custom_minimum_size = Vector2(0, 63)
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Load Game"
+
+[node name="Achievements" parent="CanvasLayer/PauseMenu/Buttons" instance=ExtResource("32_lle1u")]
+custom_minimum_size = Vector2(0, 63)
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Achievements"
+
+[node name="Options" parent="CanvasLayer/PauseMenu/Buttons" instance=ExtResource("32_lle1u")]
+custom_minimum_size = Vector2(0, 63)
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Options"
+
+[node name="Quit" parent="CanvasLayer/PauseMenu/Buttons" instance=ExtResource("32_lle1u")]
+custom_minimum_size = Vector2(0, 63)
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Quit"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayer/PauseMenu"]
+layout_mode = 0
+offset_left = 139.0
+offset_top = 130.0
+offset_right = 309.0
+offset_bottom = 191.0
+theme_override_constants/separation = 3
+
+[node name="Difficulty" type="Label" parent="CanvasLayer/PauseMenu/VBoxContainer2"]
+layout_mode = 2
+theme_override_constants/line_spacing = 0
+theme_override_fonts/font = ExtResource("33_8gn3s")
+theme_override_font_sizes/font_size = 15
+text = "Difficulty: Safe"
+
+[node name="Save" type="Label" parent="CanvasLayer/PauseMenu/VBoxContainer2"]
+layout_mode = 2
+theme_override_constants/line_spacing = 0
+theme_override_fonts/font = ExtResource("33_8gn3s")
+theme_override_font_sizes/font_size = 15
+text = "Save: untitled"
+
+[node name="MapSeed" type="Label" parent="CanvasLayer/PauseMenu/VBoxContainer2"]
+layout_mode = 2
+theme_override_constants/line_spacing = 0
+theme_override_fonts/font = ExtResource("33_8gn3s")
+theme_override_font_sizes/font_size = 15
+text = "Map seed:"
+
+[node name="Label" type="Label" parent="CanvasLayer/PauseMenu"]
+layout_mode = 0
+offset_left = 139.5
+offset_top = 14.5
+offset_right = 341.5
+offset_bottom = 78.5
+theme_override_fonts/font = ExtResource("29_hydrm")
+theme_override_font_sizes/font_size = 57
+text = "PAUSED"
+
+[node name="Options" parent="CanvasLayer/PauseMenu" node_paths=PackedStringArray("buttons") instance=ExtResource("34_jiq03")]
+offset_left = -0.5
+offset_top = -0.5
+offset_right = -0.5
+offset_bottom = -0.5
+buttons = NodePath("../Buttons")

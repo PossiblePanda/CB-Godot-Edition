@@ -23,12 +23,14 @@ func _ready():
 			_no_card()
 			sound.play()
 			return
-		if not Global.game.player.held_item is KeyCardItem:
+		if not Global.game.player.held_item.has_component("CardComponent"):
 			_no_card()
 			sound.play()
 			return
+		
+		var component: CardComponent = Global.game.player.held_item.get_component("CardComponent") as CardComponent
 			
-		if Global.game.player.held_item.card_level >= card_level:
+		if component.card_level >= card_level:
 			sound.stream = interact_sound
 			
 			interact.emit()

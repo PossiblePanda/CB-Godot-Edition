@@ -29,12 +29,13 @@ func on_held_item_changed(item):
 		held_item_rect.show()
 
 
-func on_document(document : DocumentItem):
+func on_document(document: Item):
 	if document == null:
 		document_texture.texture = null
 		document_texture.hide()
 	else:
-		document_texture.texture = document.document_image
+		var document_component: DocumentComponent = document.get_component("DocumentComponent") as DocumentComponent
+		document_texture.texture = document_component.document_image
 		document_texture.show()
 
 

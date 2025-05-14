@@ -3,15 +3,20 @@ extends Resource
 
 @export var image: CompressedTexture2D
 @export var item_name: String = "Name"
-@export var component_names: Array[String] = []
+@export var components: Array[BaseItemComponent] = []
 
-var components: Array = []: 
-	get:
-		components = []
-		
-		for component_name in component_names:
-			var component = ItemManager.components[component_name]
-			
-			components.append(component)
-		
-		return components
+func has_component(name: String) -> bool:
+	for component in components:
+		if component.get_component_name() == name:
+			return true
+	
+	return false
+
+func get_component(name: String) -> BaseItemComponent:
+	assert(has_component(name), "Item does not have component %s" % name)
+	
+	for component in components:
+		if component.get_component_name() == name:
+			return component
+	
+	return

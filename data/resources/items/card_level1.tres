@@ -1,11 +1,22 @@
-[gd_resource type="Resource" script_class="KeyCardItem" load_steps=3 format=3 uid="uid://dovsb6rdhhv7j"]
+[gd_resource type="Resource" script_class="Item" load_steps=8 format=3 uid="uid://dovsb6rdhhv7j"]
 
+[ext_resource type="Script" uid="uid://buw3jh7ni7iqm" path="res://data/components/item/base_item_component.gd" id="1_lgfhj"]
 [ext_resource type="Texture2D" uid="uid://dddj3eauu1pei" path="res://assets/textures/items/icon/key1.jpg" id="1_x3fim"]
-[ext_resource type="Script" path="res://data/resources/items/key_card_item.gd" id="2_ms2ys"]
+[ext_resource type="Script" uid="uid://c3ndnmlv6ly8d" path="res://data/components/item/can_hold.gd" id="2_lgfhj"]
+[ext_resource type="Script" uid="uid://rdp1ien3g26k" path="res://data/components/item/card_component.gd" id="3_4fswt"]
+[ext_resource type="Script" uid="uid://dn26y22q66uas" path="res://data/resources/items/Item.gd" id="3_eomtd"]
+
+[sub_resource type="Resource" id="Resource_bw51e"]
+script = ExtResource("2_lgfhj")
+metadata/_custom_type_script = "uid://c3ndnmlv6ly8d"
+
+[sub_resource type="Resource" id="Resource_lgfhj"]
+script = ExtResource("3_4fswt")
+card_level = 1
+metadata/_custom_type_script = "uid://rdp1ien3g26k"
 
 [resource]
-script = ExtResource("2_ms2ys")
-card_level = 1
+script = ExtResource("3_eomtd")
 image = ExtResource("1_x3fim")
 item_name = "Level 1 Key Card"
-component_names = Array[String](["can_hold"])
+components = Array[ExtResource("1_lgfhj")]([SubResource("Resource_bw51e"), SubResource("Resource_lgfhj")])

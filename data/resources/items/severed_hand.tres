@@ -1,11 +1,22 @@
-[gd_resource type="Resource" script_class="DnaItem" load_steps=3 format=3 uid="uid://bcw3xdwor5s6w"]
+[gd_resource type="Resource" script_class="Item" load_steps=8 format=3 uid="uid://bcw3xdwor5s6w"]
 
-[ext_resource type="Script" path="res://data/resources/items/dna_item.gd" id="1_1c000"]
 [ext_resource type="Texture2D" uid="uid://maucesaql0sv" path="res://assets/textures/items/icon/hand.jpg" id="1_hr2o5"]
+[ext_resource type="Script" uid="uid://buw3jh7ni7iqm" path="res://data/components/item/base_item_component.gd" id="1_huhlg"]
+[ext_resource type="Script" uid="uid://c3ndnmlv6ly8d" path="res://data/components/item/can_hold.gd" id="2_knpfw"]
+[ext_resource type="Script" uid="uid://btngrt4v141si" path="res://data/components/item/dna_component.gd" id="3_knpfw"]
+[ext_resource type="Script" uid="uid://dn26y22q66uas" path="res://data/resources/items/Item.gd" id="4_knpfw"]
+
+[sub_resource type="Resource" id="Resource_rqw2u"]
+script = ExtResource("2_knpfw")
+metadata/_custom_type_script = "uid://c3ndnmlv6ly8d"
+
+[sub_resource type="Resource" id="Resource_6vac7"]
+script = ExtResource("3_knpfw")
+dna = Array[String](["SeveredHand"])
+metadata/_custom_type_script = "uid://btngrt4v141si"
 
 [resource]
-script = ExtResource("1_1c000")
-dna = Array[String](["SeveredHand"])
+script = ExtResource("4_knpfw")
 image = ExtResource("1_hr2o5")
 item_name = "Severed Hand"
-component_names = Array[String](["can_hold"])
+components = Array[ExtResource("1_huhlg")]([SubResource("Resource_rqw2u"), SubResource("Resource_6vac7")])

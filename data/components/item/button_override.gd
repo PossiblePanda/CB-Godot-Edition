@@ -1,4 +1,4 @@
 class_name ButtonOverrideComponent
-extends ItemComponent
+extends BaseItemComponent
 
 # No component implementation

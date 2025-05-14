@@ -12,10 +12,12 @@ func check_has_item_dna(dna_string: String) -> bool:
 	if not Global.game.player.held_item:
 		return false
 	
-	if not "dna" in Global.game.player.held_item:
+	if not Global.game.player.held_item.has_component("DnaComponent"):
 		return false
 		
-	if Global.game.player.held_item.has_dna(dna_string):
+	var dna_component: DnaItemComponent = Global.game.player.held_item.get_component("DnaComponent") as DnaItemComponent
+	
+	if dna_component.has_dna(dna_string):
 		return true
 	return false
 

@@ -1,5 +1,5 @@
 class_name HoldComponent
-extends ItemComponent
+extends BaseItemComponent
 
 static func equip(item: Item):
 	if Global.game.player.held_item:

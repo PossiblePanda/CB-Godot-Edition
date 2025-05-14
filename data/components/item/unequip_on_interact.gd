@@ -1,5 +1,5 @@
 class_name UnequipOnInteractComponent
-extends ItemComponent
+extends BaseItemComponent
 
 static func interact(_item: Item):
 	if Global.game.player.held_item != null:
