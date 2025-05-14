@@ -58,6 +58,7 @@ func hide_blink():
 	if blinking == false:
 		return
 	blinking = false
+	
 	end_blink.emit()
 	
 	await_blink_timer()

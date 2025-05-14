@@ -6,14 +6,25 @@ var tween : Tween
 @onready var blink_component : BlinkComponent = player.get_meta("BlinkComponent")
 @onready var blink_rect: ColorRect = $Blink
 @onready var blink_bar: Bar = $MarginContainer/VBoxContainer/HBoxContainer/BlinkBar
+@onready var document_texture: TextureRect = $CenterContainer/DocumentTexture
 
 func _ready() -> void:
-	blink_component.connect("blink",on_blink)
-	blink_component.connect("end_blink",on_end_blink)
+	blink_component.blink.connect(on_blink)
+	blink_component.end_blink.connect(on_end_blink)
+	player.document.connect(on_document)
 
 
 func _process(_delta: float) -> void:
 	blink_bar.value = blink_component.blink_meter
+
+
+func on_document(document : DocumentItem):
+	if document == null:
+		document_texture.texture = null
+		document_texture.hide()
+	else:
+		document_texture.texture = document.document_image
+		document_texture.show()
 
 
 func on_blink():

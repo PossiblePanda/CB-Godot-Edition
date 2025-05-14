@@ -3,17 +3,12 @@ extends CharacterBody3D
 
 signal sprint_started
 signal sprint_ended
+signal document
 
 var current_document: DocumentItem:
 	set(val):
-		if val == null:
-			document_texture.texture = null
-			document_texture.hide()
-		else:
-			document_texture.texture = val.document_image
-			document_texture.show()
-			
 		current_document = val
+		document.emit(val)
 var held_item: Item:
 	set(val):
 		if val == null:
@@ -40,6 +35,8 @@ var blinking: bool = false
 
 var sprinting: bool = false
 var can_sprint: bool = true
+
+var action_tween: Tween
 
 @onready var neck: Node3D = $Neck
 @onready var camera: Camera3D = $Neck/Camera3D
@@ -140,8 +137,6 @@ func _process(delta: float) -> void:
 		pass
 	
 	move_and_slide()
-
-var action_tween: Tween
 
 func connect_components() -> void:
 	var health_component : HealthComponent = get_meta("HealthComponent")
