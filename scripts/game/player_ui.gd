@@ -22,6 +22,7 @@ func on_blink():
 	tween = get_tree().create_tween()
 	tween.tween_property(blink_rect,"color:a",1,.05)
 
+
 func on_end_blink():
 	if tween and tween.is_running():
 		await tween.finished

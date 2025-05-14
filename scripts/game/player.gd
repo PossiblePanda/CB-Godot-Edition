@@ -25,6 +25,9 @@ extends CharacterBody3D
 @onready var options: Control = $CanvasLayer/PauseMenu/Options
 @onready var inventory: Inventory = $CanvasLayer/Inventory
 
+signal sprint_started
+signal sprint_ended
+
 var current_health: Array[float] = health
 var current_document: DocumentItem:
 	set(val):
@@ -55,6 +58,7 @@ var interact_visible: bool = false:
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 var speed = 3
 var input_dir := Vector2.ZERO
+var is_moving := false
 
 var can_see: bool = true
 var blinking: bool = false
@@ -62,8 +66,28 @@ var blinking: bool = false
 var sprinting: bool = false
 var can_sprint: bool = true
 
-signal sprint_started
-signal sprint_ended
+func _input(event):
+	if Input.is_action_just_pressed("blink"):
+		self.get_meta("BlinkComponent").show_blink()
+	elif Input.is_action_just_released("blink"):
+		self.get_meta("BlinkComponent").hide_blink()
+		
+	if Input.is_action_just_pressed("sprint"):
+		if sprint_bar.value > 0:
+			start_sprint()
+	elif Input.is_action_just_released("sprint"):
+		stop_sprint()
+		
+	if event is InputEventMouseButton:
+		if event.button_mask == MOUSE_BUTTON_LEFT:
+			if held_item:
+				for component in held_item.components:
+					component.interact(held_item)
+		elif event.button_mask == MOUSE_BUTTON_RIGHT:
+			if held_item:
+				held_item = null
+			if current_document:
+				current_document = null
 
 func _ready():
 	sprint_update.timeout.connect(func():
@@ -102,9 +126,11 @@ func _process(delta: float) -> void:
 	if direction and pause_menu.visible == false and inventory.visible == false:
 		velocity.x = direction.x * speed
 		velocity.z = direction.z * speed
+		is_moving = true
 	else:
 		velocity.x = move_toward(velocity.x, 0, speed)
 		velocity.z = move_toward(velocity.z, 0, speed)
+		is_moving = false
 	
 	if direction and is_on_floor():
 		pass
@@ -125,29 +151,6 @@ func show_action_text(text: String) -> void:
 	await action_tween.finished
 	
 	action_text.visible = false
-
-func _input(event):
-	if Input.is_action_just_pressed("blink"):
-		self.get_meta("BlinkComponent").show_blink()
-	elif Input.is_action_just_released("blink"):
-		self.get_meta("BlinkComponent").hide_blink()
-		
-	if Input.is_action_just_pressed("sprint"):
-		if sprint_bar.value > 0:
-			start_sprint()
-	elif Input.is_action_just_released("sprint"):
-		stop_sprint()
-		
-	if event is InputEventMouseButton:
-		if event.button_mask == MOUSE_BUTTON_LEFT:
-			if held_item:
-				for component in held_item.components:
-					component.interact(held_item)
-		elif event.button_mask == MOUSE_BUTTON_RIGHT:
-			if held_item:
-				held_item = null
-			if current_document:
-				current_document = null
 
 func start_sprint():
 	if sprinting == false and can_sprint:

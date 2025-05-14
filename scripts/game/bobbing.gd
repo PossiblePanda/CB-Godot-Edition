@@ -38,7 +38,7 @@ func update_footstep(delta : float,player_speed : float):
 		footstep_time = -.5
 
 func _process(delta: float) -> void:
-	if player.input_dir.length() > 0:
+	if player.input_dir.length() > 0 and player.is_moving:
 		var player_speed = clampf(player.input_dir.length() * player.speed / 2.8,0.5,10)
 		
 		if Config.data.head_bobbing.val:
