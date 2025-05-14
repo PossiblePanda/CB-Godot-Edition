@@ -63,9 +63,9 @@ func _input(event):
 		
 	if Input.is_action_just_pressed("sprint"):
 		if sprint_bar.value > 0:
-			start_sprint()
+			_start_sprint()
 	elif Input.is_action_just_released("sprint"):
-		stop_sprint()
+		_stop_sprint()
 		
 	if event is InputEventMouseButton:
 		if event.button_mask == MOUSE_BUTTON_LEFT:
@@ -93,7 +93,7 @@ func _ready():
 				if not breath.playing and sprint_bar.value <= sprint_bar.max_value / 2:
 					breath.play()
 			else:
-				stop_sprint()
+				_stop_sprint()
 				can_sprint = false
 				
 				exhausted.play()
@@ -133,9 +133,11 @@ func _process(delta: float) -> void:
 	
 	move_and_slide()
 
+
 func connect_components() -> void:
 	var health_component : HealthComponent = get_meta("HealthComponent")
-	health_component.died.connect(died)
+	health_component.died.connect(_died)
+
 
 func show_action_text(text: String) -> void:
 	if action_tween:
@@ -151,7 +153,7 @@ func show_action_text(text: String) -> void:
 	action_text.visible = false
 
 
-func start_sprint():
+func _start_sprint():
 	if sprinting == false and can_sprint:
 		sprinting = true
 		sprint_started.emit()
@@ -161,7 +163,7 @@ func start_sprint():
 		speed += 4
 
 
-func stop_sprint():
+func _stop_sprint():
 	if sprinting == true:
 		sprinting = false
 		sprint_ended.emit()
@@ -171,5 +173,5 @@ func stop_sprint():
 		speed -= 4
 
 
-func died() -> void:
+func _died() -> void:
 	get_parent().toggle_pause()
