@@ -22,10 +22,10 @@ var blink_meter = 20
 
 func _ready():
 	get_parent().set_meta(self.name,self)
-	blink_update.timeout.connect(blink_update_timeout)
+	blink_update.timeout.connect(_blink_update_timeout)
 
 
-func blink_update_timeout():
+func _blink_update_timeout():
 	if blink_meter > 0:
 		blink_meter -= 1
 		return
@@ -33,7 +33,7 @@ func blink_update_timeout():
 		full_blink()
 
 
-func await_blink_timer():
+func _await_blink_timer():
 	if not blink_timer.is_stopped():
 		await blink_timer.timeout
 	
@@ -50,7 +50,7 @@ func show_blink():
 	blink_update.start()
 	blink.emit()
 	
-	await_blink_timer()
+	_await_blink_timer()
 	#await Utils.tween_fade_in(blink_color, BLINK_TIME, 0, 0, "color:a").finished
 
 
@@ -61,7 +61,7 @@ func hide_blink():
 	
 	end_blink.emit()
 	
-	await_blink_timer()
+	_await_blink_timer()
 	#await Utils.tween_fade_out(blink_color, BLINK_TIME, 0, 0, "color:a").finished
 	blink_meter = 20 # Reset bar to max
 

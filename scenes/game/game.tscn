@@ -1,7 +1,7 @@
 [gd_scene load_steps=33 format=3 uid="uid://c7ycjjma26xn1"]
 
 [ext_resource type="Script" uid="uid://dqtwg6rf4iuqn" path="res://scripts/game/game.gd" id="1_6saia"]
-[ext_resource type="PackedScene" uid="uid://j0ntohhf53pg" path="res://scenes/game/Player.tscn" id="13_6m25r"]
+[ext_resource type="PackedScene" uid="uid://j0ntohhf53pg" path="res://scenes/game/player.tscn" id="13_6m25r"]
 [ext_resource type="ArrayMesh" uid="uid://bci1xcjm12kvv" path="res://assets/models/map/173_bright_opt.obj" id="14_gbaeh"]
 [ext_resource type="PackedScene" uid="uid://bmmsblkdw32ik" path="res://scenes/npc/scp173npc.tscn" id="14_y3a37"]
 [ext_resource type="Material" uid="uid://cr0ecbvax25js" path="res://assets/resources/materials/containment_door.tres" id="15_vos60"]

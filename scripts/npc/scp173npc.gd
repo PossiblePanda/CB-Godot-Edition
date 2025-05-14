@@ -31,7 +31,7 @@ func _physics_process(delta):
 		var collided_with = check_collision.get_collider()
 		if collided_with is Player:
 			var healh_component : HealthComponent = collided_with.get_meta("HealthComponent")
-			healh_component.health_manage(-16777216, 0)
+			healh_component.health_manage(16777216, "blood_loss")
 			$InteractSound.stream = load("res://assets/sounds/character/173/neck_snap" + str(rng.randi_range(1, 3)) + ".ogg")
 			$InteractSound.play()
 			
