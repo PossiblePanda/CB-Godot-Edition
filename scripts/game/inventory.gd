@@ -6,12 +6,9 @@ const INVENTORY_SLOT = preload("res://scenes/ui/inventory_slot.tscn")
 @export var inventory_slots: Array[InventorySlot] = []
 
 var hovered_slot: InventorySlot
+var held_item: InventorySlot
 
 @onready var inventory_component : InventoryComponent = Global.player.get_meta("InventoryComponent")
-
-func _ready() -> void:
-	print(inventory_component)
-
 
 func _on_items_changed(_item) -> void:
 	for index in len(inventory_component.items):

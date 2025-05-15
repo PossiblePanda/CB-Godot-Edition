@@ -6,6 +6,7 @@ signal item_removed(item : Item)
 signal slot_count_changed
 
 const INVENTORY_SLOT = preload("res://scenes/ui/inventory_slot.tscn")
+const DROPPED_ITEM = preload("res://scenes/game/dropped_item.tscn")
 
 @export var items: Array[Item] = []:
 	set(val):
@@ -55,14 +56,35 @@ func add_item(item: Item) -> bool:
 		
 	return false
 
+
 func remove_item(item: Item) -> void:
 	remove_item_index(items.find(item))
 	item_removed.emit(item)
 
 
-func drop_item() -> void:
-	pass
-
-
 func remove_item_index(index: int) -> void:
-	items.remove_at(index)
+	print(index)
+	items[index] = null
+
+
+func drop_item(item) -> void:
+	remove_item(item)
+	var dropped_item = DROPPED_ITEM.instantiate()
+	Global.game.add_child(dropped_item)
+	dropped_item.position = Global.player.position
+	dropped_item.item = item
+
+
+func move_item(item : Item,to : int) -> void:
+	if to > slot_count + 1:
+		return
+	var old_location = items.find(item)
+	if not old_location:
+		return
+	items[old_location] = null
+	if items[to]:
+		var item2 = items[to]
+		items[old_location] = item2
+	
+	items[to] = item
+	item_added.emit(item)
