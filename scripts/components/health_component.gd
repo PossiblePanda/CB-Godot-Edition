@@ -6,16 +6,16 @@ signal injury_changed
 signal died
 
 @export var heal_timer = 0
-
-var _dead = false
-var blood_loss := 0.0:
+@export var blood_loss := 0.0:
 	set(val):
 		blood_loss = clamp(val,0.0,100.0)
 		blood_loss_changed.emit()
-var injury := 0.0:
+@export var injury := 0.0:
 	set(val):
 		injury = clamp(injury,0.0,5.0)
 		injury_changed.emit()
+
+var _dead = false
 
 func _process(delta: float) -> void:
 	_health_update(delta)
