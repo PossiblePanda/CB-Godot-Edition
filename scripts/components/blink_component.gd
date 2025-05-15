@@ -18,11 +18,10 @@ var blinking: bool = false:
 var blink_meter = 20
 
 @onready var blink_timer: Timer = $BlinkTimer
-@onready var blink_update: Timer = $"../BlinkUpdate"
 
 func _ready():
 	get_parent().set_meta(self.name,self)
-	blink_update.timeout.connect(_blink_update_timeout)
+	Global.game.player.blink_update.timeout.connect(_blink_update_timeout)
 
 
 func _blink_update_timeout():
@@ -47,7 +46,7 @@ func show_blink():
 	blinking = true
 	
 	blink_meter = BLINK_METER_MIN
-	blink_update.start()
+	Global.game.player.blink_update.start()
 	blink.emit()
 	
 	_await_blink_timer()

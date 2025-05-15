@@ -38,6 +38,7 @@ var action_tween: Tween
 @onready var breath: AudioStreamPlayer3D = $Neck/Breath
 @onready var exhausted: AudioStreamPlayer3D = $Neck/Exhausted
 
+@onready var blink_update: Timer = $BlinkUpdate
 @onready var sprint_update: Timer = $SprintUpdate
 @onready var sprint_regeneration_update: Timer = $SprintRegenerationUpdate
 @onready var exhaustion_timer: Timer = $ExhaustionTimer

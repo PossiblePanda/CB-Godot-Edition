@@ -2,7 +2,6 @@ extends TextureRect
 
 const MAIN_MENU = "res://scenes/menus/main_menu.tscn"
 
-@onready var game = $"../../.."
 @onready var buttons = $Buttons
 @onready var options: Control = $Options
 
@@ -16,7 +15,7 @@ func connect_buttons():
 func _on_button_pressed(button: Button):
 	match button.name:
 		"Resume":
-			game.toggle_pause()
+			Global.game.toggle_pause()
 			options.visible = false
 		"Quit":
 			get_tree().paused = false

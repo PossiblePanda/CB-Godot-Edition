@@ -1,7 +1,7 @@
 [gd_scene load_steps=17 format=3 uid="uid://khal16sod4bq"]
 
 [ext_resource type="FontFile" uid="uid://dh10trw81fhd" path="res://assets/fonts/courier_new.ttf" id="1_3ghy6"]
-[ext_resource type="Script" path="res://scripts/ui/checkbox_config.gd" id="2_efwtw"]
+[ext_resource type="Script" uid="uid://e0r5tid1rwu5" path="res://scripts/ui/checkbox_config.gd" id="2_efwtw"]
 [ext_resource type="Texture2D" uid="uid://cjc6bd7mhahrc" path="res://assets/textures/menu/menuwhite.jpg" id="3_76nm2"]
 [ext_resource type="Texture2D" uid="uid://dxify33xk3x6j" path="res://assets/textures/menu/menublack.jpg" id="4_vaiv4"]
 
@@ -74,7 +74,6 @@ region_enabled = true
 region_rect = Rect2(0, 0, 22, 22)
 
 [node name="Check" type="Sprite2D" parent="Button/White"]
-visible = false
 show_behind_parent = true
 z_index = 1
 position = Vector2(4.20102, 4.20102)
