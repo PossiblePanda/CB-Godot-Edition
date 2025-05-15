@@ -3,7 +3,7 @@ extends BaseItemComponent
 
 @export var document_image: CompressedTexture2D
 
-static func equip(item: Item):
+func equip(item: Item):
 	if not item.has_component("DocumentComponent"):
 		push_error("Item has document component but isn't a DocumentItem!")
 		
