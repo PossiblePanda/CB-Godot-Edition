@@ -435,3 +435,7 @@ offset_top = -0.5
 offset_right = -0.5
 offset_bottom = -0.5
 buttons = NodePath("../Buttons")
+
+[connection signal="item_added" from="InventoryComponent" to="CanvasLayer/InventoryCenterContainer/Inventory" method="_on_items_changed"]
+[connection signal="item_removed" from="InventoryComponent" to="CanvasLayer/InventoryCenterContainer/Inventory" method="_on_items_changed"]
+[connection signal="slot_count_changed" from="InventoryComponent" to="CanvasLayer/InventoryCenterContainer/Inventory" method="_on_inventory_component_slot_count_changed"]
