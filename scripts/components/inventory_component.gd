@@ -26,7 +26,7 @@ func _setup() -> void:
 	slot_count = slot_count # update setter
 	
 	for item in ItemManager.items:
-		add_item(item)
+		add_item(item.duplicate(true))
 
 
 func get_amount_of_items() -> int:
