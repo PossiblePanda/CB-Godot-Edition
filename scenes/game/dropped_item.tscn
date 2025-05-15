@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://cwwrxci2ie66r"]
+
+[ext_resource type="Script" uid="uid://bhwkjrym8s752" path="res://scripts/game/dropped_item.gd" id="1_72p2o"]
+[ext_resource type="Script" uid="uid://236khdnmudqn" path="res://scripts/interaction_prompt.gd" id="2_o8nvc"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_k84tu"]
+size = Vector3(0.5, 0.5, 0.5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_k84tu"]
+size = Vector3(0.5, 0.5, 0.5)
+
+[node name="DroppedItem" type="RigidBody3D"]
+collision_layer = 0
+lock_rotation = true
+script = ExtResource("1_72p2o")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_k84tu")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_k84tu")
+
+[node name="InteractionPrompt" type="Node3D" parent="."]
+script = ExtResource("2_o8nvc")
+metadata/_custom_type_script = "uid://236khdnmudqn"
+
+[connection signal="triggered" from="InteractionPrompt" to="." method="_on_interaction_prompt_triggered"]

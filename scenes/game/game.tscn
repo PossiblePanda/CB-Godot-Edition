@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://c7ycjjma26xn1"]
+[gd_scene load_steps=35 format=3 uid="uid://c7ycjjma26xn1"]
 
 [ext_resource type="Script" uid="uid://dqtwg6rf4iuqn" path="res://scripts/game/game.gd" id="1_6saia"]
 [ext_resource type="PackedScene" uid="uid://j0ntohhf53pg" path="res://scenes/game/player.tscn" id="13_6m25r"]
@@ -19,8 +19,10 @@
 [ext_resource type="Texture2D" uid="uid://chw7y6eyg7gck" path="res://assets/textures/other/label173.jpg" id="28_q2tfm"]
 [ext_resource type="Material" uid="uid://hjv28qikk3ev" path="res://assets/resources/materials/tilefloor.tres" id="29_p2u1c"]
 [ext_resource type="Material" uid="uid://dk24k0kwu0ree" path="res://assets/resources/materials/white_wall.tres" id="30_pbfva"]
+[ext_resource type="PackedScene" uid="uid://cwwrxci2ie66r" path="res://scenes/game/dropped_item.tscn" id="31_8krtj"]
 [ext_resource type="Material" uid="uid://cw73xn3uscg87" path="res://assets/resources/materials/ceiling.tres" id="31_nauhg"]
 [ext_resource type="Material" uid="uid://b3pg8p250w7wh" path="res://assets/resources/materials/metalpanels2.tres" id="32_au5g6"]
+[ext_resource type="Resource" uid="uid://bjnf8xqobdmi2" path="res://data/resources/items/card_level5.tres" id="32_fydea"]
 [ext_resource type="Material" uid="uid://duttcyywppgu7" path="res://assets/resources/materials/cloth.tres" id="33_tscf1"]
 [ext_resource type="Material" uid="uid://ccc4wpyhul1yl" path="res://assets/resources/materials/transparent.tres" id="34_nm6f7"]
 [ext_resource type="Material" uid="uid://disg1f4047e6k" path="res://assets/resources/materials/control_panel.tres" id="34_w0aux"]
@@ -117,5 +119,12 @@ transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 2.1083
 
 [node name="scp173" parent="." instance=ExtResource("14_y3a37")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.3261, 1.44691, 6.97842)
+
+[node name="DroppedItem" parent="." instance=ExtResource("31_8krtj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.579202, 1.2499, -5.99083)
+item = ExtResource("32_fydea")
+
+[node name="DroppedItem2" parent="." instance=ExtResource("31_8krtj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5792, 2.2499, -5.99083)
 
 [editable path="Player"]
