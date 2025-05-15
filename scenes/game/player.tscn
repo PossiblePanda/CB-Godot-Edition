@@ -81,10 +81,6 @@ volume_db = -12.209
 stream = ExtResource("6_knjtp")
 volume_db = -12.209
 
-[node name="BlinkUpdate" type="Timer" parent="."]
-wait_time = 0.7
-autostart = true
-
 [node name="SprintUpdate" type="Timer" parent="."]
 wait_time = 0.25
 autostart = true

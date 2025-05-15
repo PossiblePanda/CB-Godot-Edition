@@ -38,7 +38,6 @@ var action_tween: Tween
 @onready var breath: AudioStreamPlayer3D = $Neck/Breath
 @onready var exhausted: AudioStreamPlayer3D = $Neck/Exhausted
 
-@onready var blink_update: Timer = $BlinkUpdate
 @onready var sprint_update: Timer = $SprintUpdate
 @onready var sprint_regeneration_update: Timer = $SprintRegenerationUpdate
 @onready var exhaustion_timer: Timer = $ExhaustionTimer
@@ -46,11 +45,7 @@ var action_tween: Tween
 @onready var canvas_layer: CanvasLayer = $CanvasLayer
 @onready var action_text = $CanvasLayer/ActionText
 @onready var interact_texture = $CanvasLayer/InteractTexture
-@onready var document_texture = $CanvasLayer/CenterContainer/DocumentTexture
-@onready var held_item_rect = $"CanvasLayer/CenterContainer/HeldItem"
-@onready var blink_bar: Bar = $"CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer/BlinkBar"
 @onready var sprint_bar: Bar = $"CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer2/SprintBar"
-@onready var blink_color: ColorRect = $"CanvasLayer/Blink"
 
 @onready var pause_menu: TextureRect = $CanvasLayer/PauseMenu
 @onready var options: Control = $CanvasLayer/PauseMenu/Options
