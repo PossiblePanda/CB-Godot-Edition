@@ -14,9 +14,7 @@ func _ready() -> void:
 
 
 func _on_items_changed(_item) -> void:
-	print("Item")
 	for index in len(inventory_component.items):
-		print(index)
 		inventory_slots[index].item = inventory_component.items[index]
 
 

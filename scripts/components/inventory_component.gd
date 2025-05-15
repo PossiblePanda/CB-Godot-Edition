@@ -12,8 +12,9 @@ const INVENTORY_SLOT = preload("res://scenes/ui/inventory_slot.tscn")
 		items = val
 @export var slot_count: int = 10:
 	set(val):
-		slot_count_changed.emit()
 		slot_count = val
+		items.resize(val)
+		slot_count_changed.emit()
 
 func _ready():
 	super()
@@ -27,12 +28,29 @@ func _setup() -> void:
 		add_item(item)
 
 
+func get_amount_of_items() -> int:
+	var count = 0
+	for item in items:
+		if item:
+			count += 1
+	return count
+
+
+func get_empty_slot() -> int:
+	for index in len(items):
+		if items[index] == null:
+			return index
+	return -1
+
+
 func add_item(item: Item) -> bool:
-	var itemslen = len(items)
 	if not item:
 		return false
-	if itemslen < slot_count:
-		items.append(item)
+	if get_amount_of_items() < slot_count:
+		var pos = get_empty_slot()
+		if pos == -1:
+			return false
+		items[pos] = item
 		item_added.emit(item)
 		
 	return false
