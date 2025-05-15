@@ -18,7 +18,7 @@ var hovered_slot: InventorySlot
 		update_slot_count()
 
 func _ready():
-	slot_count = 10
+	slot_count = slot_count # update setter
 	
 	for item in ItemManager.items:
 		add_item(item)

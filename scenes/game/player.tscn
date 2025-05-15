@@ -267,16 +267,6 @@ texture = ExtResource("26_22crd")
 layout_mode = 2
 texture = ExtResource("26_22crd")
 
-[node name="Inventory" type="HFlowContainer" parent="CanvasLayer"]
-visible = false
-offset_left = 715.0
-offset_top = 470.0
-offset_right = 1205.0
-offset_bottom = 680.0
-theme_override_constants/h_separation = 35
-theme_override_constants/v_separation = 70
-script = ExtResource("27_003uy")
-
 [node name="InteractTexture" type="TextureRect" parent="CanvasLayer"]
 visible = false
 anchors_preset = 8
@@ -429,3 +419,18 @@ offset_top = -0.5
 offset_right = -0.5
 offset_bottom = -0.5
 buttons = NodePath("../Buttons")
+
+[node name="InventoryCenterContainer" type="CenterContainer" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Inventory" type="HFlowContainer" parent="CanvasLayer/InventoryCenterContainer"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+theme_override_constants/h_separation = 35
+theme_override_constants/v_separation = 70
+alignment = 1
+script = ExtResource("27_003uy")

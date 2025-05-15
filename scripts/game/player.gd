@@ -53,7 +53,7 @@ var action_tween: Tween
 
 @onready var pause_menu: TextureRect = $CanvasLayer/PauseMenu
 @onready var options: Control = $CanvasLayer/PauseMenu/Options
-@onready var inventory: Inventory = $CanvasLayer/Inventory
+@onready var inventory: Inventory = $CanvasLayer/InventoryCenterContainer/Inventory
 
 func _input(event):
 	if Input.is_action_just_pressed("blink"):
