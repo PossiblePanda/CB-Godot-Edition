@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://cyrqurnnbdmk3"]
 
-[ext_resource type="Script" uid="uid://dqrtiquf1nc45" path="res://scripts/ui/invenory_slot.gd" id="1_jixcj"]
+[ext_resource type="Script" uid="uid://dqrtiquf1nc45" path="res://scripts/ui/inventory_slot.gd" id="1_jixcj"]
 [ext_resource type="Texture2D" uid="uid://cjc6bd7mhahrc" path="res://assets/textures/menu/menuwhite.jpg" id="1_qnfql"]
 [ext_resource type="Texture2D" uid="uid://dxify33xk3x6j" path="res://assets/textures/menu/menublack.jpg" id="2_4acc2"]
 [ext_resource type="FontVariation" uid="uid://cjctpsg1h7vx4" path="res://assets/fonts/courier_new_spacing.tres" id="4_p440q"]
@@ -9,6 +9,8 @@
 custom_minimum_size = Vector2(70, 70)
 layout_mode = 3
 anchors_preset = 0
+offset_right = 70.0
+offset_bottom = 70.0
 script = ExtResource("1_jixcj")
 
 [node name="HoverOutline" type="ColorRect" parent="."]

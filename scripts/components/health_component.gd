@@ -1,5 +1,5 @@
 class_name HealthComponent
-extends Node
+extends BaseComponent
 
 signal blood_loss_changed
 signal injury_changed
@@ -19,10 +19,6 @@ var _dead = false
 
 func _process(delta: float) -> void:
 	_health_update(delta)
-
-
-func _ready() -> void:
-	get_parent().set_meta(self.name,self)
 
 
 func _health_update(delta: float):

@@ -1,5 +1,5 @@
 class_name BlinkComponent
-extends Node
+extends BaseComponent
 
 signal blink
 signal end_blink
@@ -21,7 +21,7 @@ var blink_meter = 20
 @onready var blink_update: Timer = %BlinkUpdate
 
 func _ready():
-	get_parent().set_meta(self.name,self)
+	super()
 	blink_update.timeout.connect(_blink_update_timeout)
 
 

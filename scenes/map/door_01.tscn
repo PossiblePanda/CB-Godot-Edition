@@ -1,6 +1,6 @@
 [gd_scene load_steps=13 format=3 uid="uid://cekjnxwgw27gr"]
 
-[ext_resource type="Script" path="res://scripts/map/door.gd" id="1_pg4fh"]
+[ext_resource type="Script" uid="uid://duymeutb2pajg" path="res://scripts/map/door.gd" id="1_pg4fh"]
 [ext_resource type="ArrayMesh" uid="uid://djmgtsnk8hbb2" path="res://assets/models/map/door_frame.obj" id="1_tsuj4"]
 [ext_resource type="AudioStream" uid="uid://codm7xhgu45b5" path="res://assets/sounds/sfx/door/DoorOpen2.ogg" id="2_ble3t"]
 [ext_resource type="ArrayMesh" uid="uid://cdgr7h4i5p42y" path="res://assets/models/map/door_01.obj" id="2_ksjap"]
@@ -45,7 +45,6 @@ surface_material_override/0 = ExtResource("3_imlpt")
 [node name="StaticBody3D" type="StaticBody3D" parent="Door1"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Door1/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 shape = SubResource("ConcavePolygonShape3D_jhet6")
 
 [node name="Door2" type="MeshInstance3D" parent="."]

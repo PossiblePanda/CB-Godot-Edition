@@ -1,12 +1,12 @@
 class_name DnaComponent
-extends Node
+extends BaseComponent
 
 @export var default_dna : Array[String]
 
 var dna : Array[String] = []
 
 func _ready() -> void:
-	get_parent().set_meta(self.name,self)
+	super()
 	for dna_string in default_dna:
 		dna.push_back(dna_string)
 

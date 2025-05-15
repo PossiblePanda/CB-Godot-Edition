@@ -8,7 +8,7 @@ extends Node3D
 
 @export var interactable: bool = true
 
-const MARGIN = 250
+const MARGIN = 50
 const POS_MULTIPLIER = Vector2(1, 1)
 
 signal triggered
@@ -35,9 +35,9 @@ func _process(_delta):
 		
 		if can_interact:
 			var pos = Global.game.player.get_node("Neck").get_node("Camera3D").unproject_position(global_position)
-			
-			pos.x = clamp(pos.x*POS_MULTIPLIER.x, MARGIN, (Global.game.player.blink_color.size.x - MARGIN) - Global.game.player.interact_texture.size.x)
-			pos.y = clamp(pos.y*POS_MULTIPLIER.y, MARGIN, (Global.game.player.blink_color.size.y - MARGIN) - Global.game.player.interact_texture.size.y)
+			var window_size = DisplayServer.window_get_size()
+			pos.x = clamp(pos.x*POS_MULTIPLIER.x, MARGIN, (window_size.x - MARGIN) - Global.game.player.interact_texture.size.x)
+			pos.y = clamp(pos.y*POS_MULTIPLIER.y, MARGIN, (window_size.y - MARGIN) - Global.game.player.interact_texture.size.y)
 			
 			Global.game.player.interact_texture.position = pos
 		
