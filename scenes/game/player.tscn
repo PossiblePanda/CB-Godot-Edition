@@ -428,6 +428,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Inventory" type="HFlowContainer" parent="CanvasLayer/InventoryCenterContainer"]
+visible = false
 custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
 theme_override_constants/h_separation = 35
