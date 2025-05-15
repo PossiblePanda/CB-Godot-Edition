@@ -303,6 +303,22 @@ theme_override_constants/shadow_outline_size = 0
 theme_override_fonts/font = ExtResource("29_hydrm")
 theme_override_font_sizes/font_size = 17
 
+[node name="InventoryCenterContainer" type="CenterContainer" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Inventory" type="HFlowContainer" parent="CanvasLayer/InventoryCenterContainer"]
+visible = false
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+theme_override_constants/h_separation = 35
+theme_override_constants/v_separation = 70
+alignment = 1
+script = ExtResource("27_003uy")
+
 [node name="CenterContainer" type="CenterContainer" parent="CanvasLayer"]
 anchors_preset = 15
 anchor_right = 1.0
@@ -419,19 +435,3 @@ offset_top = -0.5
 offset_right = -0.5
 offset_bottom = -0.5
 buttons = NodePath("../Buttons")
-
-[node name="InventoryCenterContainer" type="CenterContainer" parent="CanvasLayer"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Inventory" type="HFlowContainer" parent="CanvasLayer/InventoryCenterContainer"]
-visible = false
-custom_minimum_size = Vector2(500, 0)
-layout_mode = 2
-theme_override_constants/h_separation = 35
-theme_override_constants/v_separation = 70
-alignment = 1
-script = ExtResource("27_003uy")
