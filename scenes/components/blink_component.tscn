@@ -6,4 +6,8 @@
 script = ExtResource("1_0wjar")
 
 [node name="BlinkTimer" type="Timer" parent="."]
+unique_name_in_owner = true
 wait_time = 0.15
+
+[node name="BlinkUpdate" type="Timer" parent="."]
+unique_name_in_owner = true

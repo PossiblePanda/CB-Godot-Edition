@@ -17,11 +17,12 @@ var blinking: bool = false:
 		blinking = val
 var blink_meter = 20
 
-@onready var blink_timer: Timer = $BlinkTimer
+@onready var blink_timer: Timer = %BlinkTimer
+@onready var blink_update: Timer = %BlinkUpdate
 
 func _ready():
 	get_parent().set_meta(self.name,self)
-	Global.game.player.blink_update.timeout.connect(_blink_update_timeout)
+	blink_update.timeout.connect(_blink_update_timeout)
 
 
 func _blink_update_timeout():
@@ -46,11 +47,10 @@ func show_blink():
 	blinking = true
 	
 	blink_meter = BLINK_METER_MIN
-	Global.game.player.blink_update.start()
+	blink_update.start()
 	blink.emit()
 	
 	_await_blink_timer()
-	#await Utils.tween_fade_in(blink_color, BLINK_TIME, 0, 0, "color:a").finished
 
 
 func hide_blink():
@@ -61,7 +61,6 @@ func hide_blink():
 	end_blink.emit()
 	
 	_await_blink_timer()
-	#await Utils.tween_fade_out(blink_color, BLINK_TIME, 0, 0, "color:a").finished
 	blink_meter = 20 # Reset bar to max
 
 
