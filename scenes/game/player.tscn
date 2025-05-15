@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://j0ntohhf53pg"]
+[gd_scene load_steps=30 format=3 uid="uid://j0ntohhf53pg"]
 
 [ext_resource type="Script" uid="uid://d3uxokev7crye" path="res://scripts/game/player.gd" id="1_j8efa"]
 [ext_resource type="PackedScene" uid="uid://dv8ilfpwouieh" path="res://scenes/components/dna_component.tscn" id="2_1rckg"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://deaj87uac66ql" path="res://scripts/game/bobbing.gd" id="3_winjo"]
 [ext_resource type="Curve" uid="uid://bjs2jgv3o6dhv" path="res://scenes/game/left_right_bobbing.tres" id="4_8sqj3"]
 [ext_resource type="Curve" uid="uid://dicgsat2qqgik" path="res://scenes/game/up_down_bobbing.tres" id="5_4pujx"]
+[ext_resource type="PackedScene" uid="uid://d1l4h0sxf2r7j" path="res://scenes/components/inventory_component.tscn" id="5_fmmik"]
 [ext_resource type="AudioStream" uid="uid://bbe4o08grt4jf" path="res://scenes/game/walking_footsteps.tres" id="5_shvm5"]
 [ext_resource type="AudioStream" uid="uid://bp413qmao2yw1" path="res://scenes/game/player_breathing.tres" id="6_6ycxi"]
 [ext_resource type="AudioStream" uid="uid://b6yc4d7gpsumb" path="res://scenes/game/running_footsteps.tres" id="6_knjtp"]
@@ -49,6 +50,8 @@ script = ExtResource("1_j8efa")
 
 [node name="DnaComponent" parent="." instance=ExtResource("2_1rckg")]
 default_dna = Array[String](["D-9341", "Class-D"])
+
+[node name="InventoryComponent" parent="." instance=ExtResource("5_fmmik")]
 
 [node name="Neck" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 0)
