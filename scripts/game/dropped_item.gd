@@ -22,6 +22,6 @@ func _update_enabled() -> void:
 
 
 func _on_interaction_prompt_triggered() -> void:
-	var inventory : Inventory = Global.player.get_node("CanvasLayer/InventoryCenterContainer/Inventory")
+	var inventory : InventoryComponent = Global.player.get_meta("InventoryComponent")
 	inventory.add_item(item)
 	item = null
