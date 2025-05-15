@@ -19,6 +19,7 @@ func _ready() -> void:
 			position.y = 0
 		)
 
+
 func update_bobbing(delta : float,player_speed : float):
 	bobbing_time += delta * player_speed
 	
@@ -28,14 +29,14 @@ func update_bobbing(delta : float,player_speed : float):
 
 func update_footstep(delta : float,player_speed : float):
 	footstep_time += delta * player_speed
-	
-	if footstep_time > .5:
+	if footstep_time >= .5:
 		if player.sprinting:
 			running.play()
 		else:
 			walking.play()
 		
-		footstep_time = -.5
+		footstep_time = footstep_time - 1
+
 
 func _process(delta: float) -> void:
 	if player.input_dir.length() > 0 and player.is_moving:

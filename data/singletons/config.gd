@@ -12,7 +12,10 @@ var data = {
 		else:
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 		},
-	head_bobbing = {val = true, string = "Head Bobbing"}
+	head_bobbing = {val = true, string = "Head Bobbing"},
+	max_fps = {val = 165, string = "Max FPS",min = 1, max = 240, changed = func(val):
+		Engine.max_fps = val
+		},
 }
 
 
