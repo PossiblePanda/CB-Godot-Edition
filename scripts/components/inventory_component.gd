@@ -26,7 +26,8 @@ func _setup() -> void:
 	slot_count = slot_count # update setter
 	
 	for item in ItemManager.items:
-		add_item(item.duplicate(true))
+		assert(item, "Unknown item.")
+		add_item(item)
 
 
 func get_amount_of_items() -> int:
@@ -45,6 +46,8 @@ func get_empty_slot() -> int:
 
 
 func add_item(item: Item) -> bool:
+	item.duplicate(true)
+	
 	if not item:
 		return false
 	if get_amount_of_items() < slot_count:
@@ -72,6 +75,7 @@ func drop_item(item) -> void:
 	var dropped_item = DROPPED_ITEM.instantiate()
 	Global.game.add_child(dropped_item)
 	dropped_item.position = Global.player.position
+	dropped_item.position.y = dropped_item.position.y + 0.25 # arbitrary offset
 	dropped_item.item = item
 
 

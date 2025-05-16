@@ -5,6 +5,10 @@ extends Resource
 @export var item_name: String = "Name"
 @export var components: Array[BaseItemComponent] = []
 
+@export_category("Dropped Info")
+@export var mesh: Mesh
+@export var mesh_texture: CompressedTexture2D
+
 func has_component(name: String) -> bool:
 	for component in components:
 		if component.get_component_name() == name:
