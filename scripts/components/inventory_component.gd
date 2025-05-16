@@ -74,8 +74,9 @@ func drop_item(item) -> void:
 	remove_item(item)
 	var dropped_item = DROPPED_ITEM.instantiate()
 	Global.game.add_child(dropped_item)
+	
 	dropped_item.position = Global.player.position
-	dropped_item.position.y = dropped_item.position.y + 0.25 # arbitrary offset
+	dropped_item.position.y = dropped_item.position.y + dropped_item.collision_shape.shape.size.y / 2
 	dropped_item.item = item
 
 

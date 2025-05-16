@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://cwwrxci2ie66r"]
+[gd_scene load_steps=7 format=3 uid="uid://cwwrxci2ie66r"]
 
 [ext_resource type="Script" uid="uid://bhwkjrym8s752" path="res://scripts/game/dropped_item.gd" id="1_72p2o"]
 [ext_resource type="Script" uid="uid://236khdnmudqn" path="res://scripts/interaction_prompt.gd" id="2_o8nvc"]
 [ext_resource type="Texture2D" uid="uid://bhqjthf7g8068" path="res://assets/textures/ui/handicon2.png" id="3_yfav3"]
+[ext_resource type="AudioStream" uid="uid://cxgr42jhxjm6q" path="res://assets/sounds/sfx/interact/PickItem2.ogg" id="4_7l5wu"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_k84tu"]
 size = Vector3(0.5, 0.5, 0.5)
@@ -25,5 +26,8 @@ mesh = SubResource("BoxMesh_k84tu")
 script = ExtResource("2_o8nvc")
 interact_texture = ExtResource("3_yfav3")
 metadata/_custom_type_script = "uid://236khdnmudqn"
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("4_7l5wu")
 
 [connection signal="triggered" from="InteractionPrompt" to="." method="_on_interaction_prompt_triggered"]

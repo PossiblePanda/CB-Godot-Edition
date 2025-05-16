@@ -8,6 +8,7 @@ extends Resource
 @export_category("Dropped Info")
 @export var mesh: Mesh
 @export var mesh_texture: CompressedTexture2D
+@export var pickup_sound: AudioStream
 
 func has_component(name: String) -> bool:
 	for component in components:
