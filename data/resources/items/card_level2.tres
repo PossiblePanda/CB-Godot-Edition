@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://buw3jh7ni7iqm" path="res://data/components/item/base_item_component.gd" id="1_ce0df"]
 [ext_resource type="Texture2D" uid="uid://0gqrjxmseqi3" path="res://assets/textures/items/icon/key2.jpg" id="1_lmsp0"]
 [ext_resource type="Script" uid="uid://c3ndnmlv6ly8d" path="res://data/components/item/can_hold.gd" id="2_ce0df"]
-[ext_resource type="Script" uid="uid://dn26y22q66uas" path="res://data/resources/items/Item.gd" id="3_nryjm"]
+[ext_resource type="Script" uid="uid://dn26y22q66uas" path="res://data/resources/item.gd" id="3_nryjm"]
 [ext_resource type="Script" uid="uid://rdp1ien3g26k" path="res://data/components/item/card_component.gd" id="3_raxru"]
 
 [sub_resource type="Resource" id="Resource_c2ffv"]

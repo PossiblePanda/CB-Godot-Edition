@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dddj3eauu1pei" path="res://assets/textures/items/icon/key1.jpg" id="1_x3fim"]
 [ext_resource type="Script" uid="uid://c3ndnmlv6ly8d" path="res://data/components/item/can_hold.gd" id="2_lgfhj"]
 [ext_resource type="Script" uid="uid://rdp1ien3g26k" path="res://data/components/item/card_component.gd" id="3_4fswt"]
-[ext_resource type="Script" uid="uid://dn26y22q66uas" path="res://data/resources/items/Item.gd" id="3_eomtd"]
+[ext_resource type="Script" uid="uid://dn26y22q66uas" path="res://data/resources/item.gd" id="3_eomtd"]
 
 [sub_resource type="Resource" id="Resource_bw51e"]
 script = ExtResource("2_lgfhj")
