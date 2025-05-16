@@ -79,7 +79,7 @@ func move_item(item : Item,to : int) -> void:
 	if to > slot_count + 1:
 		return
 	var old_location = items.find(item)
-	if not old_location:
+	if old_location == -1:
 		return
 	items[old_location] = null
 	if items[to]:
