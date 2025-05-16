@@ -7,14 +7,11 @@ extends Node3D
 @export var interact_texture: CompressedTexture2D = preload("res://assets/textures/ui/handicon.png")
 @export var interactable: bool = true
 
+@warning_ignore("unused_signal")
 signal triggered
 
 func _ready() -> void:
 	add_to_group("InteractionPrompt",true)
-
-
-func activate():
-	triggered.emit()
 
 
 func can_interact(distance) -> bool:

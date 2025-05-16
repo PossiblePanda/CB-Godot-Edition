@@ -8,6 +8,7 @@ var tween : Tween
 var current_prompt : InteractionPrompt
 
 @onready var player: Player = $".."
+@onready var camera_3d: Camera3D = $"../Neck/Camera3D"
 @onready var blink_component : BlinkComponent = player.get_meta("BlinkComponent")
 @onready var blink_rect: ColorRect = $Blink
 @onready var blink_bar: Bar = $MarginContainer/VBoxContainer/HBoxContainer/BlinkBar
@@ -30,7 +31,7 @@ func _process(_delta: float) -> void:
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
 		if event.button_mask == MOUSE_BUTTON_LEFT and current_prompt:
-			current_prompt.activate()
+			current_prompt.triggered.emit()
 
 
 func on_held_item_changed(item) -> void:
@@ -67,18 +68,21 @@ func on_end_blink() -> void:
 
 
 func _get_closest_prompt(prompts : Array[Node]):
-	var closest_prompt = -1
+	var closest_prompt : InteractionPrompt = null
 	var dist : float = 999999
-	for index in prompts.size():
+	for index in range(prompts.size() - 1, -1, -1):
 		var prompt : InteractionPrompt = prompts[index]
-		var current_dist = Global.game.player.global_position.distance_to(prompt.global_position)
-		if prompt.interactable == false:
+		var current_dist = player.global_position.distance_to(prompt.global_position)
+		if not prompt.can_interact(current_dist):
+			prompts.remove_at(index)
 			continue
-		if current_dist < dist:
-			dist = current_dist
-			closest_prompt = index
-	if closest_prompt > -1:
-		return prompts[closest_prompt]
+		if current_dist > dist:
+			continue
+		dist = current_dist
+		closest_prompt = prompt
+	
+	if closest_prompt:
+		return closest_prompt
 	else:
 		return
 
@@ -86,20 +90,18 @@ func _get_closest_prompt(prompts : Array[Node]):
 func _update_prompts() -> void:
 	var prompts : Array[Node] = get_tree().get_nodes_in_group(PROMPT_GROUP)
 	var prompt : InteractionPrompt = _get_closest_prompt(prompts)
-	if not prompt:
-		return
 	
-	var dist = player.global_position.distance_to(prompt.global_position)
-	if prompt.can_interact(dist):
-		var pos = player.get_node("Neck").get_node("Camera3D").unproject_position(prompt.global_position)
+	if prompt:
+		var pos = camera_3d.unproject_position(prompt.global_position)
 		var window_size = DisplayServer.window_get_size()
 		pos.x = clamp(pos.x*POS_MULTIPLIER.x, MARGIN, (window_size.x - MARGIN) - player.interact_texture.size.x)
 		pos.y = clamp(pos.y*POS_MULTIPLIER.y, MARGIN, (window_size.y - MARGIN) - player.interact_texture.size.y)
 		
-		Global.game.player.interact_texture.position = pos
-		Global.game.player.interact_texture.texture = prompt.interact_texture
-		Global.game.player.interact_texture.visible = true
+		interact_texture.position = pos
+		interact_texture.texture = prompt.interact_texture
+		interact_texture.visible = true
 		current_prompt = prompt
 	else:
-		Global.game.player.interact_texture.visible = false
+		interact_texture.texture = null
+		interact_texture.visible = false
 		current_prompt = null

@@ -42,3 +42,4 @@ func _on_interaction_prompt_triggered() -> void:
 	var inventory : InventoryComponent = Global.player.get_meta("InventoryComponent")
 	inventory.add_item(item)
 	item = null
+	queue_free()
