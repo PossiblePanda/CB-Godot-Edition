@@ -2,8 +2,8 @@
 
 [ext_resource type="ArrayMesh" uid="uid://dovkaekgxscue" path="res://assets/models/map/button.obj" id="1_3d46o"]
 [ext_resource type="Texture2D" uid="uid://3twv5dhsj5a7" path="res://assets/textures/models/keypad.jpg" id="2_rbg73"]
-[ext_resource type="Script" path="res://scripts/game/interactable/button.gd" id="3_3ygk1"]
-[ext_resource type="Script" path="res://scripts/interaction_prompt.gd" id="3_pfbfs"]
+[ext_resource type="Script" uid="uid://bdf0covi0pbpt" path="res://scripts/game/interactable/button.gd" id="3_3ygk1"]
+[ext_resource type="Script" uid="uid://236khdnmudqn" path="res://scripts/interaction_prompt.gd" id="3_pfbfs"]
 [ext_resource type="AudioStream" uid="uid://vinnlhu02k0d" path="res://assets/sounds/sfx/interact/Button.ogg" id="4_mnns7"]
 [ext_resource type="AudioStream" uid="uid://cg6xt5vj2jtpl" path="res://assets/sounds/sfx/interact/Button2.ogg" id="5_5xeao"]
 

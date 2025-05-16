@@ -2,10 +2,10 @@
 
 [ext_resource type="ArrayMesh" uid="uid://cnucxyh2k6vy1" path="res://assets/models/map/buttonscanner.obj" id="1_2g68d"]
 [ext_resource type="Texture2D" uid="uid://3twv5dhsj5a7" path="res://assets/textures/models/keypad.jpg" id="2_rrk0x"]
-[ext_resource type="Script" path="res://scripts/game/interactable/scanner_button.gd" id="3_hwlr7"]
+[ext_resource type="Script" uid="uid://bdumj45kjahst" path="res://scripts/game/interactable/scanner_button.gd" id="3_hwlr7"]
 [ext_resource type="AudioStream" uid="uid://bhbudds6bbp73" path="res://assets/sounds/sfx/interact/ScannerUse1.ogg" id="4_tot63"]
 [ext_resource type="AudioStream" uid="uid://kgfhv40s1mxp" path="res://assets/sounds/sfx/interact/ScannerUse2.ogg" id="5_y8c28"]
-[ext_resource type="Script" path="res://scripts/interaction_prompt.gd" id="7_1kfqg"]
+[ext_resource type="Script" uid="uid://236khdnmudqn" path="res://scripts/interaction_prompt.gd" id="7_1kfqg"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b642x"]
 albedo_texture = ExtResource("2_rrk0x")
