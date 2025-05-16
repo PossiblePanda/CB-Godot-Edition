@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Item" load_steps=5 format=3 uid="uid://bhr86klmyv8hy"]
+
+[ext_resource type="Script" uid="uid://buw3jh7ni7iqm" path="res://data/components/item/base_item_component.gd" id="1_idmrf"]
+[ext_resource type="Texture2D" uid="uid://cxhildjvcwg7v" path="res://assets/textures/items/icon/coin.jpg" id="2_0ak3y"]
+[ext_resource type="Script" uid="uid://dn26y22q66uas" path="res://data/resources/item.gd" id="2_8m62v"]
+[ext_resource type="AudioStream" uid="uid://c2ewdt1xj6m21" path="res://assets/sounds/sfx/interact/PickItem3.ogg" id="3_ceapt"]
+
+[resource]
+script = ExtResource("2_8m62v")
+image = ExtResource("2_0ak3y")
+item_name = "Quarter"
+components = Array[ExtResource("1_idmrf")]([])
+pickup_sound = ExtResource("3_ceapt")
+metadata/_custom_type_script = "uid://dn26y22q66uas"

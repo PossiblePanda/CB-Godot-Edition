@@ -8,7 +8,7 @@ const DEFAULT_PICKUP_SOUND = preload("res://assets/sounds/sfx/interact/PickItem2
 
 var stream: AudioStream = DEFAULT_PICKUP_SOUND
 
-@export var item : Item : 
+@export var item : Item: 
 	set(val):
 		item = val
 		_update_enabled()
