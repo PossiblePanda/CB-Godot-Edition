@@ -5,6 +5,7 @@ extends Node3D
 
 func _init():
 	Global.game = self
+	Global.ingame = true
 	Global.game_entered.emit()
 
 func _ready():

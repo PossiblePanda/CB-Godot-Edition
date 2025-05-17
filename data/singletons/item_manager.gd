@@ -39,6 +39,13 @@ func get_items_in_dir(path: String):
 			items.append(item)
 	return dir_items
 
+func get_item_by_name(item_name: String) -> Item:
+	for item in items:
+		if item.item_name.to_lower() == item_name.to_lower():
+			return item
+	
+	return
+
 func register_hints(arr: Array[Item]):
 	for item in arr:
 		register_item(item)

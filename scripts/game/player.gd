@@ -112,20 +112,18 @@ func _process(delta: float) -> void:
 	if not is_on_floor():
 		velocity.y -= gravity * delta
 	
-	input_dir = Input.get_vector("left", "right", "forward", "backward")
-	var direction = transform.basis * Vector3(input_dir.x, 0, input_dir.y).normalized()
-	
-	if direction and pause_menu.visible == false and inventory.visible == false:
-		velocity.x = direction.x * speed
-		velocity.z = direction.z * speed
-		is_moving = true
-	else:
-		velocity.x = move_toward(velocity.x, 0, speed)
-		velocity.z = move_toward(velocity.z, 0, speed)
-		is_moving = false
-	
-	if direction and is_on_floor():
-		pass
+	if not LimboConsole.is_open():
+		input_dir = Input.get_vector("left", "right", "forward", "backward")
+		var direction = transform.basis * Vector3(input_dir.x, 0, input_dir.y).normalized()
+		
+		if direction and pause_menu.visible == false and inventory.visible == false:
+			velocity.x = direction.x * speed
+			velocity.z = direction.z * speed
+			is_moving = true
+		else:
+			velocity.x = move_toward(velocity.x, 0, speed)
+			velocity.z = move_toward(velocity.z, 0, speed)
+			is_moving = false
 	
 	move_and_slide()
 
