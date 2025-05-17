@@ -5,6 +5,7 @@ extends Node3D
 
 func _init():
 	Global.game = self
+	Global.ingame = true
 	Global.game_entered.emit()
 
 func _ready():
@@ -14,7 +15,8 @@ func _input(_event):
 	if Input.is_action_just_pressed("pause"):
 		toggle_pause()
 	elif Input.is_action_just_pressed("inventory"):
-		toggle_inventory()
+		if not LimboConsole.is_open():
+			toggle_inventory()
 
 func toggle_inventory():
 	var vis = Global.player.inventory.visible

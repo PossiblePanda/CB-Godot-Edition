@@ -20,3 +20,4 @@ script = ExtResource("3_pmcjt")
 image = ExtResource("1_41omf")
 item_name = "Key Card Omni"
 components = Array[ExtResource("1_3mbbe")]([SubResource("Resource_d8bxs"), SubResource("Resource_3mbbe")])
+id = "card_omni"

@@ -20,3 +20,4 @@ script = ExtResource("3_eomtd")
 image = ExtResource("1_x3fim")
 item_name = "Level 1 Key Card"
 components = Array[ExtResource("1_lgfhj")]([SubResource("Resource_bw51e"), SubResource("Resource_lgfhj")])
+id = "card_level1"

@@ -4,6 +4,8 @@ extends Resource
 @export var image: CompressedTexture2D
 @export var item_name: String = "Name"
 @export var components: Array[BaseItemComponent] = []
+@export var id: String
+
 
 @export_category("Dropped Info")
 @export var mesh: Mesh
