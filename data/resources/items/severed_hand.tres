@@ -20,3 +20,4 @@ script = ExtResource("4_knpfw")
 image = ExtResource("1_hr2o5")
 item_name = "Severed Hand"
 components = Array[ExtResource("1_huhlg")]([SubResource("Resource_rqw2u"), SubResource("Resource_6vac7")])
+id = "severed_hand"

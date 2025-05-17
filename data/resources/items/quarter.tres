@@ -10,5 +10,6 @@ script = ExtResource("2_8m62v")
 image = ExtResource("2_0ak3y")
 item_name = "Quarter"
 components = Array[ExtResource("1_idmrf")]([])
+id = "quarter"
 pickup_sound = ExtResource("3_ceapt")
 metadata/_custom_type_script = "uid://dn26y22q66uas"

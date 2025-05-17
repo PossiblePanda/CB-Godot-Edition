@@ -17,4 +17,5 @@ script = ExtResource("4_6ae0q")
 image = ExtResource("1_4beti")
 item_name = "Document SCP-173"
 components = Array[ExtResource("1_iga56")]([SubResource("Resource_4p0v8")])
+id = "document_173"
 pickup_sound = ExtResource("5_qwgke")

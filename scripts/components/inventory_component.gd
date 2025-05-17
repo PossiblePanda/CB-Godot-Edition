@@ -25,7 +25,7 @@ func _ready():
 func _setup() -> void:
 	slot_count = slot_count # update setter
 	
-	for item in ItemManager.items:
+	for item in Register.get_all_items():
 		assert(item, "Unknown item.")
 		add_item(item)
 

@@ -24,9 +24,9 @@ const CONFIG_PATH := "res://addons/limbo_console.cfg"
 @export var sparse_mode: bool = false # Print empty line after each command execution.
 
 @export_category("greet")
-@export var greet_user: bool = true
-@export var greeting_message: String = "{project_name}"
-@export var greet_using_ascii_art: bool = true
+@export var greet_user: bool = false
+@export var greeting_message: String = "Containment Breach: Godot Edition %s" % Global.GAME_VERSION
+@export var greet_using_ascii_art: bool = false
 
 @export_category("history")
 @export var persist_history: bool = true
