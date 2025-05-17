@@ -1,19 +1,24 @@
-[gd_scene load_steps=3 format=3 uid="uid://7ymqyfuoik07"]
+[gd_scene load_steps=4 format=3 uid="uid://7ymqyfuoik07"]
+
+[ext_resource type="Script" uid="uid://d0i7ki4oclvbq" path="res://scripts/npc/scp_049_npc.gd" id="1_87lgv"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_adj5w"]
 radius = 0.45
-height = 3.0
+height = 2.5
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_adj5w"]
 radius = 0.45
-height = 3.0
+height = 2.5
 
-[node name="CharacterBody3D" type="CharacterBody3D"]
+[node name="SCP049" type="CharacterBody3D"]
+script = ExtResource("1_87lgv")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
 shape = SubResource("CapsuleShape3D_adj5w")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
 mesh = SubResource("CapsuleMesh_adj5w")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+
+[connection signal="target_reached" from="NavigationAgent3D" to="." method="_on_navigation_agent_3d_target_reached"]
