@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://7ymqyfuoik07"]
+[gd_scene load_steps=39 format=3 uid="uid://7ymqyfuoik07"]
 
 [ext_resource type="Script" uid="uid://d0i7ki4oclvbq" path="res://scripts/npc/scp_049_npc.gd" id="1_87lgv"]
 [ext_resource type="PackedScene" uid="uid://bby0kw1i36is" path="res://assets/models/049test.glb" id="2_uwpg8"]
@@ -16,6 +16,8 @@
 [ext_resource type="AudioStream" uid="uid://v3iw7c7fcmy8" path="res://assets/sounds/character/049/Step1.ogg" id="10_t7o8r"]
 [ext_resource type="AudioStream" uid="uid://bjfisojrlxxtd" path="res://assets/sounds/character/049/Step2.ogg" id="11_wkh1f"]
 [ext_resource type="AudioStream" uid="uid://cu4bxabqcbne" path="res://assets/sounds/character/049/Step3.ogg" id="12_6nl6k"]
+[ext_resource type="AudioStream" uid="uid://dxpoou8lbhb6c" path="res://assets/sounds/character/049/0492Breath.ogg" id="17_ij5dw"]
+[ext_resource type="AudioStream" uid="uid://d4cmk53i1pc4e" path="res://assets/sounds/horror/Horror13.ogg" id="18_ht7ps"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_adj5w"]
 radius = 0.35
@@ -39,11 +41,6 @@ _data = {
 _data = {
 &"049walk": ExtResource("6_5pf2b"),
 &"walk": SubResource("Animation_hwsde")
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_brep5"]
-_data = {
-&"049walk": ExtResource("6_5pf2b")
 }
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ij5dw"]
@@ -138,28 +135,28 @@ shape = SubResource("CapsuleShape3D_adj5w")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
-visible = false
 mesh = SubResource("CapsuleMesh_11n18")
 
 [node name="Model" parent="." instance=ExtResource("2_uwpg8")]
-
-[node name="Head" type="Node3D" parent="Model"]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 2.3, 0)
 visible = false
 
-[node name="AnimationPlayer" parent="Model" index="2"]
+[node name="Skeleton3D" parent="Model/Scene_Root/armature" index="0"]
+bones/3/rotation = Quaternion(0.772536, 0.338315, 0.521006, -0.131469)
+bones/22/rotation = Quaternion(0.776673, -0.342266, -0.502401, -0.165005)
+bones/48/rotation = Quaternion(0.866982, -0.347763, -0.33578, -0.121058)
+
+[node name="AnimationPlayer" parent="Model" index="1"]
 libraries = {
 &"": SubResource("AnimationLibrary_cpic3"),
 &"gdxg": SubResource("AnimationLibrary_g0ghm")
 }
 
-[node name="AnimationPlayer2" type="AnimationPlayer" parent="Model"]
-libraries = {
-&"a": SubResource("AnimationLibrary_brep5")
-}
+[node name="Head" type="Node3D" parent="Model"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 2.3, 0)
+visible = false
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
-target_desired_distance = 2.0
+target_desired_distance = 0.75
 avoidance_enabled = true
 height = 2.5
 radius = 0.6
@@ -180,6 +177,7 @@ target_position = Vector3(0, 0, 0)
 collision_mask = 3
 
 [node name="Spotted" type="AudioStreamPlayer3D" parent="."]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 stream = SubResource("AudioStreamRandomizer_uwpg8")
 volume_db = -1.91
@@ -189,6 +187,19 @@ max_distance = 27.92
 stream = SubResource("AudioStreamRandomizer_11n18")
 volume_db = -6.667
 max_distance = 50.0
+
+[node name="Breathing" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+stream = ExtResource("17_ij5dw")
+autoplay = true
+max_distance = 10.0
+
+[node name="Horror" type="AudioStreamPlayer3D" parent="."]
+unique_name_in_owner = true
+process_mode = 3
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+stream = ExtResource("18_ht7ps")
+max_distance = 10.0
 
 [connection signal="velocity_computed" from="NavigationAgent3D" to="." method="_on_navigation_agent_3d_velocity_computed"]
 
