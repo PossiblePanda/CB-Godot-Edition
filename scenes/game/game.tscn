@@ -63,10 +63,19 @@ script = ExtResource("36_sikks")
 image = ExtResource("35_5q2xh")
 item_name = "Level 5 Key Card"
 components = Array[ExtResource("32_0gkf7")]([SubResource("Resource_fo254"), SubResource("Resource_n4e2c")])
+id = ""
 
 [node name="Game" type="Node3D"]
 process_mode = 3
 script = ExtResource("1_6saia")
+
+[node name="PatrolPoints" type="Node" parent="."]
+
+[node name="Node3D" type="Node3D" parent="PatrolPoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.3029, 1, -8.18599)
+
+[node name="Node3D2" type="Node3D" parent="PatrolPoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.6295, 1, -12.7441)
 
 [node name="Map" type="Node3D" parent="."]
 process_mode = 1

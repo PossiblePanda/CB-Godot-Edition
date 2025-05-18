@@ -41,6 +41,7 @@ border_width_bottom = 1
 border_color = Color(1, 1, 1, 1)
 
 [node name="Player" type="CharacterBody3D" groups=["Players"]]
+process_mode = 1
 collision_layer = 2
 script = ExtResource("1_j8efa")
 
@@ -97,6 +98,7 @@ autostart = true
 wait_time = 3.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+process_mode = 3
 script = ExtResource("8_yful8")
 
 [node name="Blink" type="ColorRect" parent="CanvasLayer"]
