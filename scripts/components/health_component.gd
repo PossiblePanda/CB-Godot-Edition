@@ -8,14 +8,28 @@ signal died
 @export var heal_timer = 0
 @export var blood_loss := 0.0:
 	set(val):
+		if val > blood_loss and god:
+			return
 		blood_loss = clamp(val,0.0,100.0)
 		blood_loss_changed.emit()
 @export var injury := 0.0:
 	set(val):
+		if val > injury and god:
+			return
 		injury = clamp(injury,0.0,5.0)
 		injury_changed.emit()
-
+var god = false:
+	set(val):
+		if val == true:
+			_dead = false
+			blood_loss = 0.0
+			injury = 0.0
+		god = val
 var _dead = false
+
+func god_mode():
+	god = not god
+
 
 func _process(delta: float) -> void:
 	_health_update(delta)

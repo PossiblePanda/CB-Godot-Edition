@@ -3,7 +3,10 @@ extends CharacterBody3D
 #TODO current state machine is temporary and needs to be replaced
 enum States {IDLE,PATROL,SEARCHING,CHASING} 
 
-var state : States
+var state : States:
+	set(val):
+		state = val
+		state_entered[state].call()
 var speed: float = 2.0
 var spotted_player := false
 var last_spotted_player := false
@@ -27,10 +30,8 @@ var state_entered : Dictionary[States,Callable] = {
 @onready var patrol_points: Node = $/root/Game/PatrolPoints
 @onready var head: Node3D = $Model/Head
 
-@onready var sounds: Dictionary = {"spotted": $Spotted}
-
 func _ready() -> void:
-	change_state(States.IDLE)
+	state = States.IDLE
 
 
 func _physics_process(delta: float) -> void:
@@ -42,10 +43,10 @@ func _physics_process(delta: float) -> void:
 				is_moving = false
 			idle_time += delta
 			if idle_time >= 1:
-				change_state(States.PATROL)
+				state = States.PATROL
 		States.PATROL:
 			if patrol_point and navigation_agent.is_navigation_finished():
-				change_state(States.IDLE)
+				state = States.IDLE
 				patrol_point = null
 				return
 			if not patrol_point:
@@ -53,36 +54,38 @@ func _physics_process(delta: float) -> void:
 				navigation_agent.set_target_position(patrol_point.global_position)
 				is_moving = true
 		States.SEARCHING: #unimplemented
-			change_state(States.IDLE)
+			state = States.IDLE
 		States.CHASING:
 			if spotted_player:
+				if _distance_to_player(Global.player) < 1:
+					var health_component : HealthComponent = Global.player.get_meta("HealthComponent")
+					health_component.blood_loss = 100000
+					%Horror.play()
 				last_player_position = Global.player.global_position
 				navigation_agent.set_target_position(last_player_position)
 				is_moving = true
 			elif navigation_agent.is_navigation_finished():
-				change_state(States.SEARCHING)
+				state = States.SEARCHING
 	_update_movement(delta)
 
 
 func _process(delta: float) -> void:
 	if last_spotted_player == false and spotted_player == true:
-		sounds["spotted"].play()
+		%Spotted.play()
 	_update_animations(delta)
-
-
-func change_state(change_to : States) -> void:
-	state = change_to
-	state_entered[state].call()
 
 
 func _on_idle_entered():
 	idle_time = 0
 
+
 func _on_patrol_entered():
 	pass
 
+
 func _on_searching_entered():
 	pass
+
 
 func _on_chasing_entered():
 	last_player_position = Global.player.global_position
@@ -94,6 +97,7 @@ func _update_movement(_delta) -> void:
 	var new_velocity = (next_position - global_position).normalized() * speed
 	navigation_agent.velocity = new_velocity
 
+
 func _update_spotted() -> void:
 	_update_ray()
 	
@@ -103,7 +107,7 @@ func _update_spotted() -> void:
 	if (ray_collider_is_player() and facing > fov) or _distance_to_player(Global.player) < 1:
 		last_spotted_player = spotted_player
 		spotted_player = true
-		change_state(States.CHASING)
+		state = States.CHASING
 	else:
 		last_spotted_player = spotted_player
 		spotted_player = false
