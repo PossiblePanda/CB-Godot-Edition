@@ -51,6 +51,7 @@ func _on_interaction_prompt_triggered() -> void:
 	
 	var sound_player = AudioStreamPlayer3D.new()
 	sound_player.stream = stream
+	sound_player.position = global_position
 	
 	get_parent().add_child(sound_player)
 	
@@ -58,3 +59,5 @@ func _on_interaction_prompt_triggered() -> void:
 	
 	item = null
 	queue_free()
+	await sound_player.finished
+	sound_player.queue_free()
