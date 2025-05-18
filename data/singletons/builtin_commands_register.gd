@@ -1,8 +1,10 @@
 extends Node
 
 func _ready() -> void:
-	LimboConsole.register_command(give_command, "give", "Gives the player an item.")
+	LimboConsole.register_command(give_command, "give", "gives the player an item")
 	LimboConsole.add_argument_autocomplete_source("give", 0, give_autocomplete_0)
+	
+	LimboConsole.register_command(speed_command, "speed", "sets the player's speed")
 
 func give_command(item: String):
 	if not Global.ingame:
@@ -40,3 +42,13 @@ func give_autocomplete_0():
 			item_names.append("%s:%s" % [namespace_name, item.id])
 		
 	return item_names
+
+func speed_command(speed: float = 3):
+	if not Global.ingame:
+		LimboConsole.error("Player is not in-game")
+		return
+		
+	Global.game.player.speed = speed
+	
+	LimboConsole.info("Set the player's speed to %s" % speed)
+	
