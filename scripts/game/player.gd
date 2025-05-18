@@ -130,6 +130,8 @@ func _process(delta: float) -> void:
 func connect_components() -> void:
 	var health_component : HealthComponent = get_meta("HealthComponent")
 	health_component.died.connect(_died)
+	
+	LimboConsole.register_command(health_component.god_mode,"god")
 
 
 func show_action_text(text: String) -> void:
