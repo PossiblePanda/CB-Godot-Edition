@@ -8,8 +8,8 @@ extends Resource
 
 
 @export_category("Dropped Info")
-@export var mesh: Mesh
-@export var mesh_texture: CompressedTexture2D
+@export var mesh: PackedScene
+@export var collision_size: Vector3 = Vector3(0.5,0.5,0.5)
 @export var pickup_sound: AudioStream
 
 func has_component(name: String) -> bool:
