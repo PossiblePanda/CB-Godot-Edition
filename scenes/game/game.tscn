@@ -64,6 +64,7 @@ image = ExtResource("35_5q2xh")
 item_name = "Level 5 Key Card"
 components = Array[ExtResource("32_0gkf7")]([SubResource("Resource_fo254"), SubResource("Resource_n4e2c")])
 id = ""
+collision_size = Vector3(0.5, 0.5, 0.5)
 
 [node name="Game" type="Node3D"]
 process_mode = 3
