@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://d2kegjt4chsgi"]
+
+[ext_resource type="PackedScene" uid="uid://bby0kw1i36is" path="res://assets/models/049test.glb" id="1_58aqv"]
+
+[node name="049test" instance=ExtResource("1_58aqv")]
+
+[node name="Skeleton3D" parent="Scene_Root/armature" index="0"]
+bones/3/rotation = Quaternion(0.772536, 0.338315, 0.521006, -0.131469)
+bones/22/rotation = Quaternion(0.776673, -0.342266, -0.502401, -0.165005)
+bones/48/rotation = Quaternion(0.866982, -0.347763, -0.33578, -0.121058)

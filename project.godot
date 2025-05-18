@@ -50,6 +50,10 @@ enabled=PackedStringArray("res://addons/discord-rpc-gd/plugin.cfg", "res://addon
 
 import/blender/enabled=false
 
+[global_group]
+
+Players=""
+
 [input]
 
 pause={
@@ -125,6 +129,10 @@ limbo_console_search_history={
 [layer_names]
 
 3d_physics/layer_2="Players"
+
+[physics]
+
+common/physics_interpolation=true
 
 [rendering]
 
