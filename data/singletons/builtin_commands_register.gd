@@ -5,6 +5,8 @@ func _ready() -> void:
 	LimboConsole.add_argument_autocomplete_source("give", 0, give_autocomplete_0)
 	
 	LimboConsole.register_command(speed_command, "speed", "sets the player's speed")
+	
+	LimboConsole.register_command(inventory_slots_command, "inventory_slots", "set the player's amount of inventory slots")
 
 func give_command(item: String):
 	if not Global.ingame:
@@ -52,3 +54,13 @@ func speed_command(speed: float = 3):
 	
 	LimboConsole.info("Set the player's speed to %s" % speed)
 	
+func inventory_slots_command(slot_count: int = 10):
+	if not Global.ingame:
+		LimboConsole.error("Player is not in-game")
+		return
+	
+	var inventory_component: InventoryComponent = Global.game.player.get_meta("InventoryComponent")
+	
+	inventory_component.slot_count = slot_count
+	
+	LimboConsole.info("Set the player's inventory slot count to %s" % slot_count)
