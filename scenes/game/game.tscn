@@ -72,10 +72,10 @@ script = ExtResource("1_6saia")
 [node name="PatrolPoints" type="Node" parent="."]
 
 [node name="Node3D" type="Node3D" parent="PatrolPoints"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.3029, 1, -8.18599)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.9416, -0.000100255, -10.2279)
 
 [node name="Node3D2" type="Node3D" parent="PatrolPoints"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.6295, 1, -12.7441)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.8385, -0.000100255, -12.5575)
 
 [node name="Map" type="Node3D" parent="."]
 process_mode = 1

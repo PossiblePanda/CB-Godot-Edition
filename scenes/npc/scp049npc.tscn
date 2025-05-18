@@ -1,24 +1,195 @@
-[gd_scene load_steps=4 format=3 uid="uid://7ymqyfuoik07"]
+[gd_scene load_steps=38 format=3 uid="uid://7ymqyfuoik07"]
 
 [ext_resource type="Script" uid="uid://d0i7ki4oclvbq" path="res://scripts/npc/scp_049_npc.gd" id="1_87lgv"]
+[ext_resource type="PackedScene" uid="uid://bby0kw1i36is" path="res://assets/models/049test.glb" id="2_uwpg8"]
+[ext_resource type="Animation" uid="uid://blotwps3wwbkc" path="res://scenes/models/hand_out.res" id="3_1kpe2"]
+[ext_resource type="AudioStream" uid="uid://c5cp56hmsaxej" path="res://assets/sounds/character/049/Spotted1.ogg" id="3_mtfxx"]
+[ext_resource type="AudioStream" uid="uid://t0dwt1nbb6e4" path="res://assets/sounds/character/049/Spotted2.ogg" id="4_854rv"]
+[ext_resource type="Animation" uid="uid://cl3m2qhbvp4f6" path="res://scenes/models/049idle.res" id="4_ij5dw"]
+[ext_resource type="AudioStream" uid="uid://b68h4bc1s24ui" path="res://assets/sounds/character/049/Spotted3.ogg" id="5_03y1y"]
+[ext_resource type="Animation" uid="uid://b330b05rkr4vb" path="res://scenes/models/idle_001.res" id="5_ht7ps"]
+[ext_resource type="Animation" uid="uid://bkos65aibj35n" path="res://scenes/models/049walk.res" id="6_5pf2b"]
+[ext_resource type="AudioStream" uid="uid://hfo0hrfxm5a8" path="res://assets/sounds/character/049/Spotted4.ogg" id="6_5vrgs"]
+[ext_resource type="AudioStream" uid="uid://d1kxsi2exloyd" path="res://assets/sounds/character/049/Spotted5.ogg" id="7_rlob7"]
+[ext_resource type="AudioStream" uid="uid://bb0sorho72v8q" path="res://assets/sounds/character/049/Spotted6.ogg" id="8_rq8r8"]
+[ext_resource type="AudioStream" uid="uid://bjk57dtaqrqjy" path="res://assets/sounds/character/049/Spotted7.ogg" id="9_11n18"]
+[ext_resource type="AudioStream" uid="uid://v3iw7c7fcmy8" path="res://assets/sounds/character/049/Step1.ogg" id="10_t7o8r"]
+[ext_resource type="AudioStream" uid="uid://bjfisojrlxxtd" path="res://assets/sounds/character/049/Step2.ogg" id="11_wkh1f"]
+[ext_resource type="AudioStream" uid="uid://cu4bxabqcbne" path="res://assets/sounds/character/049/Step3.ogg" id="12_6nl6k"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_adj5w"]
-radius = 0.45
+radius = 0.35
 height = 2.5
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_adj5w"]
-radius = 0.45
-height = 2.5
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_11n18"]
+radius = 0.35
+height = 3.0
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cpic3"]
+_data = {
+&"hand_out": ExtResource("3_1kpe2"),
+&"idle": ExtResource("4_ij5dw"),
+&"idle_001": ExtResource("5_ht7ps"),
+&"walk_001": ExtResource("6_5pf2b")
+}
+
+[sub_resource type="Animation" id="Animation_hwsde"]
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_g0ghm"]
+_data = {
+&"049walk": ExtResource("6_5pf2b"),
+&"walk": SubResource("Animation_hwsde")
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_brep5"]
+_data = {
+&"049walk": ExtResource("6_5pf2b")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ij5dw"]
+animation = &"hand_out"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ht7ps"]
+animation = &"idle"
+
+[sub_resource type="AnimationNodeAdd2" id="AnimationNodeAdd2_1kpe2"]
+filter_enabled = true
+filters = ["Scene_Root/armature/Skeleton3D:Bone_013"]
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_5pf2b"]
+graph_offset = Vector2(-417.599, 76.8239)
+nodes/Animation/node = SubResource("AnimationNodeAnimation_ht7ps")
+nodes/Animation/position = Vector2(-80, 60)
+"nodes/Animation 2/node" = SubResource("AnimationNodeAnimation_ij5dw")
+"nodes/Animation 2/position" = Vector2(-80, 240)
+"nodes/Hand Out Blend/node" = SubResource("AnimationNodeAdd2_1kpe2")
+"nodes/Hand Out Blend/position" = Vector2(114.036, 170.479)
+node_connections = [&"Hand Out Blend", 0, &"Animation", &"Hand Out Blend", 1, &"Animation 2", &"output", 0, &"Hand Out Blend"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_03y1y"]
+animation = &"hand_out"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_854rv"]
+animation = &"walk_001"
+
+[sub_resource type="AnimationNodeAdd2" id="AnimationNodeAdd2_uwpg8"]
+filter_enabled = true
+filters = ["Scene_Root/armature/Skeleton3D:Bone_013"]
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_03y1y"]
+graph_offset = Vector2(-405.075, 1.56741)
+nodes/Animation/node = SubResource("AnimationNodeAnimation_854rv")
+nodes/Animation/position = Vector2(-20, 80)
+"nodes/Animation 2/node" = SubResource("AnimationNodeAnimation_03y1y")
+"nodes/Animation 2/position" = Vector2(-20, 260)
+nodes/hand_out_add/node = SubResource("AnimationNodeAdd2_uwpg8")
+nodes/hand_out_add/position = Vector2(240, 120)
+nodes/output/position = Vector2(460, 140)
+node_connections = [&"hand_out_add", 0, &"Animation", &"hand_out_add", 1, &"Animation 2", &"output", 0, &"hand_out_add"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ij5dw"]
+advance_mode = 2
+advance_expression = "velocity.length() > 0.1"
+
+[sub_resource type="Curve" id="Curve_1kpe2"]
+_data = [Vector2(0, 0), 0.0, 1.4, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ht7ps"]
+xfade_time = 0.05
+xfade_curve = SubResource("Curve_1kpe2")
+advance_mode = 2
+advance_expression = "velocity.length() < 0.1"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_1kpe2"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_rlob7"]
+"states/Idle Blend/node" = SubResource("AnimationNodeBlendTree_5pf2b")
+"states/Idle Blend/position" = Vector2(414, 43)
+states/Start/position = Vector2(207, 100)
+"states/Walk Blend/node" = SubResource("AnimationNodeBlendTree_03y1y")
+"states/Walk Blend/position" = Vector2(753, 43)
+transitions = ["Idle Blend", "Walk Blend", SubResource("AnimationNodeStateMachineTransition_ij5dw"), "Walk Blend", "Idle Blend", SubResource("AnimationNodeStateMachineTransition_ht7ps"), "Start", "Idle Blend", SubResource("AnimationNodeStateMachineTransition_1kpe2")]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_uwpg8"]
+streams_count = 7
+stream_0/stream = ExtResource("3_mtfxx")
+stream_1/stream = ExtResource("4_854rv")
+stream_2/stream = ExtResource("5_03y1y")
+stream_3/stream = ExtResource("6_5vrgs")
+stream_4/stream = ExtResource("7_rlob7")
+stream_5/stream = ExtResource("8_rq8r8")
+stream_6/stream = ExtResource("9_11n18")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_11n18"]
+streams_count = 3
+stream_0/stream = ExtResource("10_t7o8r")
+stream_1/stream = ExtResource("11_wkh1f")
+stream_2/stream = ExtResource("12_6nl6k")
 
 [node name="SCP049" type="CharacterBody3D"]
+process_mode = 1
 script = ExtResource("1_87lgv")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.25, 0)
 shape = SubResource("CapsuleShape3D_adj5w")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-mesh = SubResource("CapsuleMesh_adj5w")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+visible = false
+mesh = SubResource("CapsuleMesh_11n18")
+
+[node name="Model" parent="." instance=ExtResource("2_uwpg8")]
+
+[node name="Head" type="Node3D" parent="Model"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 2.3, 0)
+visible = false
+
+[node name="AnimationPlayer" parent="Model" index="2"]
+libraries = {
+&"": SubResource("AnimationLibrary_cpic3"),
+&"gdxg": SubResource("AnimationLibrary_g0ghm")
+}
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="Model"]
+libraries = {
+&"a": SubResource("AnimationLibrary_brep5")
+}
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+target_desired_distance = 2.0
+avoidance_enabled = true
+height = 2.5
+radius = 0.6
+keep_y_velocity = false
 
-[connection signal="target_reached" from="NavigationAgent3D" to="." method="_on_navigation_agent_3d_target_reached"]
+[node name="AnimationTree" type="AnimationTree" parent="."]
+root_node = NodePath("../Model")
+tree_root = SubResource("AnimationNodeStateMachine_rlob7")
+advance_expression_base_node = NodePath("..")
+anim_player = NodePath("../Model/AnimationPlayer")
+"parameters/Idle Blend/Hand Out Blend/add_amount" = 0
+"parameters/Walk Blend/hand_out_add/add_amount" = 0.0
+
+[node name="RayCast3D" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+enabled = false
+target_position = Vector3(0, 0, 0)
+collision_mask = 3
+
+[node name="Spotted" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+stream = SubResource("AudioStreamRandomizer_uwpg8")
+volume_db = -1.91
+max_distance = 27.92
+
+[node name="Footstep" type="AudioStreamPlayer3D" parent="."]
+stream = SubResource("AudioStreamRandomizer_11n18")
+volume_db = -6.667
+max_distance = 50.0
+
+[connection signal="velocity_computed" from="NavigationAgent3D" to="." method="_on_navigation_agent_3d_velocity_computed"]
+
+[editable path="Model"]
