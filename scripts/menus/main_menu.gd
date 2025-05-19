@@ -24,6 +24,9 @@ func _on_button_pressed(button: Button):
 			SaveManager.create_game_save("test_save")
 			SaveManager.load_game_save("test_save")
 			get_tree().change_scene_to_file(GAME)
+		"LoadButton":
+			SaveManager.load_game_save("test_save")
+			get_tree().change_scene_to_file(GAME)
 		"OptionsButton":
 			options.visible = true
 			buttons.visible = false

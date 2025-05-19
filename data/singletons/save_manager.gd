@@ -18,7 +18,6 @@ func _ready() -> void:
 	while true:
 		await get_tree().create_timer(5).timeout
 		if game_save:
-			print("hey")
 			begin_autosave.emit()
 			save_game()
 
