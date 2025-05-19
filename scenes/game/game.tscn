@@ -32,7 +32,7 @@
 [ext_resource type="Material" uid="uid://cduuehv17pbfw" path="res://assets/resources/materials/red.tres" id="35_wljxw"]
 [ext_resource type="Material" uid="uid://ccbsm1xlnjqjo" path="res://assets/resources/materials/paper_texture.tres" id="36_p8513"]
 [ext_resource type="Script" uid="uid://dn26y22q66uas" path="res://data/resources/item.gd" id="36_sikks"]
-[ext_resource type="PackedScene" uid="uid://7ymqyfuoik07" path="res://scenes/npc/scp049npc.tscn" id="37_6ehwc"]
+[ext_resource type="PackedScene" uid="uid://d32ycwmy1veak" path="res://scenes/npc/scp049npc.tscn" id="37_6ehwc"]
 [ext_resource type="PackedScene" uid="uid://cekjnxwgw27gr" path="res://scenes/map/door_01.tscn" id="38_4ypl8"]
 [ext_resource type="PackedScene" uid="uid://bj2bwnlyxodg3" path="res://scenes/game/interactable/press_button.tscn" id="38_543k1"]
 [ext_resource type="PackedScene" uid="uid://xovomocpn1if" path="res://scenes/game/interactable/key_card_button.tscn" id="39_si4jp"]

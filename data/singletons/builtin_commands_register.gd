@@ -7,6 +7,8 @@ func _ready() -> void:
 	LimboConsole.register_command(speed_command, "speed", "sets the player's speed")
 	
 	LimboConsole.register_command(inventory_slots_command, "inventory_slots", "set the player's amount of inventory slots")
+	
+	LimboConsole.register_command(save_command, "save", "saves the game")
 
 func give_command(item: String):
 	if not Global.ingame:
@@ -64,3 +66,11 @@ func inventory_slots_command(slot_count: int = 10):
 	inventory_component.slot_count = slot_count
 	
 	LimboConsole.info("Set the player's inventory slot count to %s" % slot_count)
+
+func save_command():
+	if not SaveManager.game_save:
+		LimboConsole.error("Save not found. Is it loaded?")
+		return
+		
+	SaveManager.save_game()
+	LimboConsole.info("Game has been saved.")

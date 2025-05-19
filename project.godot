@@ -30,6 +30,7 @@ GlobalUi="*res://data/singletons/global_ui.gd"
 LimboConsole="*res://addons/limbo_console/limbo_console.gd"
 BuiltinCommandsRegister="*res://data/singletons/builtin_commands_register.gd"
 Register="*res://data/singletons/register.gd"
+SaveManager="*res://data/singletons/save_manager.gd"
 
 [display]
 

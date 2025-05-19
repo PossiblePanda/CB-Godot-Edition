@@ -78,8 +78,14 @@ func _input(event):
 func _init() -> void:
 	Global.player = self
 
-
 func _ready():
+	if SaveManager.game_save:
+		if SaveManager.game_save.player_position != Vector3.ZERO:
+			position = SaveManager.game_save.player_position
+		
+		if SaveManager.game_save.player_orientation != Vector3.ZERO:
+			neck.rotation = SaveManager.game_save.player_orientation
+	
 	sprint_update.timeout.connect(func():
 		if sprinting:
 			if sprint_bar.value > sprint_bar.min_value:
@@ -106,6 +112,11 @@ func _ready():
 		)
 	
 	connect_components.call_deferred()
+	
+	SaveManager.begin_autosave.connect(func():
+		SaveManager.game_save.player_position = position
+		SaveManager.game_save.player_orientation = neck.rotation
+		)
 
 
 func _process(delta: float) -> void:
