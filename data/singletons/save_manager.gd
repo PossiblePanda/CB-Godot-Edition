@@ -23,7 +23,7 @@ func _ready() -> void:
 
 func load_game_save(save_name: String):
 	var res: GameSave = ResourceStorage.load_resource("%s/%s.tres" % [GAME_SAVE_PATH, save_name], "GameSave")
-        #ResourceLoader.load("%s/%s.tres" % [GAME_SAVE_PATH, save_name]) as GameSave
+	#ResourceLoader.load("%s/%s.tres" % [GAME_SAVE_PATH, save_name]) as GameSave
 	res.save_name = save_name
 	game_save = res
 	
