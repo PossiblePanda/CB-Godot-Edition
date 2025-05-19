@@ -49,7 +49,7 @@ func save_resource(path: String, resource_to_save: Resource):
 		data_to_save[res_names[i]["name"]] = resource_to_save.get(res_names[i]["name"])
 	var json_binding: JSON = JSON.new()
 	var resulting_json = json_binding.stringify(data_to_save)
-	var file: FileAccess = FileAccess.open("user://Settings.bin", FileAccess.WRITE)
+	var file: FileAccess = FileAccess.open(path, FileAccess.WRITE)
 	file.store_line(resulting_json)
 	file.close()
 
