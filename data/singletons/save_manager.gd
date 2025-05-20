@@ -37,5 +37,5 @@ func create_game_save(save_name: String):
 
 func save_game():
 	assert(game_save, "No game save found. Has it been loaded yet?")
-	game_save.save_to_file("%s.json" % game_save.save_name)
+	game_save.save_to_file(game_save.save_name)
 	game_saved.emit()
