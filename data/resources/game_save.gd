@@ -21,4 +21,4 @@ enum Difficulty {
 func save_to_file(name: String):
 	last_saved = Time.get_unix_time_from_system()
 	#ResourceSaver.save(self, "%s/%s.tres" % [SaveManager.GAME_SAVE_PATH, name])
-	ResourceStorage.save_resource("%s/%s.tres" % [SaveManager.GAME_SAVE_PATH, name], self)
+	ResourceStorage.save_resource("%s/%s.json" % [SaveManager.GAME_SAVE_PATH, name], self)

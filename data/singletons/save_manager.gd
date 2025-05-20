@@ -22,7 +22,7 @@ func _ready() -> void:
 			save_game()
 
 func load_game_save(save_name: String):
-	var res: GameSave = ResourceStorage.load_resource("%s/%s.tres" % [GAME_SAVE_PATH, save_name], "GameSave")
+	var res: GameSave = ResourceStorage.load_resource("%s/%s.json" % [GAME_SAVE_PATH, save_name], "GameSave")
 	#ResourceLoader.load("%s/%s.tres" % [GAME_SAVE_PATH, save_name]) as GameSave
 	res.save_name = save_name
 	game_save = res
@@ -37,5 +37,5 @@ func create_game_save(save_name: String):
 
 func save_game():
 	assert(game_save, "No game save found. Has it been loaded yet?")
-	game_save.save_to_file("%s.tres" % game_save.save_name)
+	game_save.save_to_file("%s.json" % game_save.save_name)
 	game_saved.emit()
